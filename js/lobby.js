@@ -41,7 +41,7 @@ async function createLobby (hostName, category){
 
     if(response.ok) {
         document.getElementById("createLobbyMessage").innerHTML = "Creating lobby...";
-        renderHobbyPage();
+        //renderHostPage();
     } else {
         document.getElementById("createLobbyMessage").innerHTML = "Something went wrong... Try again.";
     }
