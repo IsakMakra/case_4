@@ -6,9 +6,22 @@
     <title>case_4</title>
 </head>
 <body>
-    <label for="lobby">Enter the lobby code</label>
-    <input type="text" id="lobbycode" name="lobbycode">
-    <button onclick="submitPassword()">Submit</button>
+    <div>
+        <h3>Join a lobby</h3>
+        <label for="lobby">Enter the lobby code</label>
+        <input type="text" id="lobbycode" name="lobbycode">
+        <button onclick="submitPassword()">Submit</button>
+    </div>
+
+    <div>
+        <h3>Create a lobby</h3>
+        <label for="lobby">Enter your name</label>
+        <input type="text" id="hostName" name="hostName">
+        <label for="category">Choose a category</label>
+        <button onclick="submitLobby()">Party</button>
+    </div>
+
+    <label for=""></label>
     <script src="js/index.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/lobby.js"></script>
