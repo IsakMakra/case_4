@@ -34,5 +34,14 @@
         "current_question_nr": 0,
         "current_votes": [],
         "players": []
+    },
+    {
+        "host": "Kajsa",
+        "id": 5,
+        "server_code": "9246",
+        "quiz": "party",
+        "current_question_nr": 0,
+        "current_votes": [],
+        "players": []
     }
 ]

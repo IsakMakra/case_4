@@ -3,6 +3,8 @@
 function submitUser () {
     const password = document.getElementById("lobbycode").value;
     const user = document.getElementById("userName").value;
+    document.getElementById('lobbycode').value = '';
+    document.getElementById('userName').value = '';
     joinLobby(password, user);
 }
 
@@ -12,6 +14,7 @@ function joinLobby (password, user) {
 
 function submitLobby (category) {
     const hostName = document.getElementById("hostName").value;
+    document.getElementById('hostName').value = '';
     createLobby(hostName, category);
 }
 
