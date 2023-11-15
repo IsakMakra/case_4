@@ -17,7 +17,6 @@
     }
 
     $allowed_methods = ["GET","POST", "PATCH", "DELETE"];
-    $users_file = "users.json";
     $games_file = "games.json";
 
     //Checks if the HTTP method is allowed
@@ -25,15 +24,6 @@
     {
         $message = ["message" => "Error, invalid HTTP method."];
         send_JSON($message, 405);
-    }
-
-    //Creates an array for all current users using the users.json file
-    $users = [];
-
-    if(file_exists( $users_file)) 
-    {
-        $json = file_get_contents($users_file);
-        $users = json_decode($json, true);
     }
 
     //Creates an array for all current games using the  games.json file
@@ -60,5 +50,4 @@
     $request_data = json_decode($request_JSON, true);
     
     $game_found = false;
-    $user_found = false;
 ?>

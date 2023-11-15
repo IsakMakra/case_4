@@ -1,35 +1,8 @@
 <?php
     require_once "index.php";
 
-    // GET - Get game
-    if($request_method == "GET") 
-    {   
-        //Checks if GET-request has the correct parameter
-        if(isset($_GET["game"])) 
-        {
-            $possible_password = $_GET["game"];
-
-            foreach($games as $game)
-            {
-                if($possible_password == $game["server_code"])
-                {
-                    send_JSON($game);
-                }
-                else
-                {
-                    $message = [ "message" => "Error, wrong server_code."];
-                    send_JSON( $message, 422);
-                }
-            }
-        }
-        else
-        {
-            $message = [ "message" => "Error in GET-request."];
-            send_JSON( $message, 422);
-        }
-    }
-
     //POST - Host game
+    
     $required_keys_POST_host = ["host", "quiz"];
     if($request_method == "POST")
     {
@@ -64,14 +37,59 @@
                 "quiz" => $quiz,
                 "current_question_nr" => 0,
                 "current_votes" => [],
-                "players" => []
+                "users" => []
             ];
 
             //Updates the games.json file with the new game. 
             $games[] = $game;
-            $json = json_encode( $games, JSON_PRETTY_PRINT);
-            file_put_contents( $games_file, $json);
-            send_JSON( $game);
+            $json = json_encode($games, JSON_PRETTY_PRINT);
+            file_put_contents($games_file, $json);
+            send_JSON($game);
+        }        
+        else
+        {
+            $message = ["message" => "Error in POST-request."];
+            send_JSON($message, 422);
+        }
+    }
+
+    // GET - Join a game
+    if($request_method == "GET") 
+    {   
+        //Checks if GET-request has the correct parameter
+        if(isset($_GET["game"]) && isset($_GET["user"])) 
+        {
+            $possible_password = $_GET["game"];
+
+            foreach($games as $index => $game)
+            {
+                if($possible_password == $game["server_code"])
+                {
+                    //Checks if user name already in use
+
+                    $user = [ 
+                        "username" => $_GET["user"], 
+                        "points" => 0, 
+                    ];
+
+                    $games[$index]["users"][] = $user;
+
+                    //Updates the games.json file with the new user joined. 
+                    $json = json_encode($games, JSON_PRETTY_PRINT);
+                    file_put_contents($games_file, $json);
+                    send_JSON($game);
+                }
+                else
+                {
+                    $message = ["message" => "Error, wrong server_code."];
+                    send_JSON($message, 422);
+                }
+            }
+        }
+        else
+        {
+            $message = ["message" => "Error in GET-request."];
+            send_JSON($message, 422);
         }
     }
 ?>
