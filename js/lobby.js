@@ -1,6 +1,6 @@
 "use strict";
 
-function submitUser () {
+function submitUser() {
     const password = document.getElementById("lobbycode").value;
     const user = document.getElementById("userName").value;
     document.getElementById('lobbycode').value = '';
@@ -9,11 +9,11 @@ function submitUser () {
 }
 
 
-async function joinLobby (password, user) {
+async function joinLobby(password, user) {
     let response = await fetcha(`api/game.php?game=${password}&user=${user}`, "GET");
     console.log(response);
 
-    if(response.ok) {
+    if (response.ok) {
         document.getElementById("joinLobbyMessage").innerHTML = "Joining lobby...";
         renderLobbyPage();
         let data = await response.json();
@@ -25,21 +25,23 @@ async function joinLobby (password, user) {
 
 }
 
-function submitLobby (category) {
+function submitLobby(category) {
     const hostName = document.getElementById("hostName").value;
     document.getElementById('hostName').value = '';
     createLobby(hostName, category);
+    localStorage.setItem("name", hostName);
+    localStorage.setItem("category", category);
 }
 
-async function createLobby (hostName, category){
+async function createLobby(hostName, category) {
     const infobody = {
         host: hostName,
         quiz: category
     };
 
-    let response = await fetcha (`api/game.php`, "POST", infobody);
+    let response = await fetcha(`api/game.php`, "POST", infobody);
 
-    if(response.ok) {
+    if (response.ok) {
         document.getElementById("createLobbyMessage").innerHTML = "Creating lobby...";
         //renderHostPage();
     } else {
@@ -50,12 +52,14 @@ async function createLobby (hostName, category){
     console.log(data);
 }
 
-function renderLobbyPage () {
+function renderLobbyPage() {
     document.body.innerHTML = `
     <p>Waiting for game to start...</p>
     `;
 }
 
-function renderHostPage () {
-    
+function renderHostPage() {
+
 }
+
+// clearLocalStorage();

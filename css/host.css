@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    /* align-items: center; */
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main>* {
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#playerNames {
+
+    /* width: 300px; */
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+
+    & p {
+        margin: 0;
+        background-color: rgb(201, 201, 201);
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+}
+
+#startQuiz {
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: none;
+    /* box-shadow: 1px 1px 1px black; */
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

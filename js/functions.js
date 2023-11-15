@@ -2,16 +2,16 @@
 
 
 async function fetcha(url, type, info) {
-    let response; 
+    let response;
 
     try {
 
         if (type === "GET") {
             response = await fetch(url);
-        }  else {
+        } else {
             response = await fetch(url, {
                 method: type,
-                headers: {"Content-Type": "application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(info),
             });
         }
@@ -22,4 +22,8 @@ async function fetcha(url, type, info) {
     } catch (err) {
         console.log(`Error: ${err.message}`);
     }
+}
+
+function clearLocalStorage() {
+    localStorage.clear();
 }
