@@ -9,7 +9,7 @@ function submitUser () {
 }
 
 function joinLobby (password, user) {
-    fetching(`api/game.php?game=${password}&${user}`, "GET");
+    fetching(`api/game.php?game=${password}&user=${user}`, "GET");
 }   
 
 function submitLobby (category) {
