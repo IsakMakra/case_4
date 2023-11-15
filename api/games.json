@@ -16,5 +16,23 @@
         "current_question_nr": 0,
         "current_votes": [],
         "players": []
+    },
+    {
+        "host": "ikik",
+        "id": 3,
+        "server_code": "6531",
+        "quiz": "party",
+        "current_question_nr": 0,
+        "current_votes": [],
+        "players": []
+    },
+    {
+        "host": "Kajsa",
+        "id": 4,
+        "server_code": "6178",
+        "quiz": "party",
+        "current_question_nr": 0,
+        "current_votes": [],
+        "players": []
     }
 ]

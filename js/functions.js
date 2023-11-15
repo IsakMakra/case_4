@@ -22,7 +22,7 @@ async function fetching(url, type, info) {
         console.log(data);
 
         if (!response.ok) {
-            console.log(`Oops! Something went wrong, we got this from the server <span>${data.message}</span>.`);
+            console.log(`Oops! Something went wrong, we got this from the server ${data.message}.`);
         } else {
             console.log(data);
         }
