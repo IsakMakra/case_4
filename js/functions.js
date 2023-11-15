@@ -1,8 +1,7 @@
 "use strict";
 
-  
-async function fetching(url, type, info) {
 
+async function fetcha(url, type, info) {
     let response; 
 
     try {
@@ -18,14 +17,9 @@ async function fetching(url, type, info) {
         }
 
         console.log(response);
-        let data = await response.json();
-        console.log(data);
+        return response;
 
-        if (!response.ok) {
-            console.log(`Oops! Something went wrong, we got this from the server ${data.message}.`);
-        } else {
-            console.log(data);
-        }
     } catch (err) {
         console.log(`Error: ${err.message}`);
-    }}
+    }
+}
