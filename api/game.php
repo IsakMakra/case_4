@@ -79,12 +79,11 @@
                     file_put_contents($games_file, $json);
                     send_JSON($game);
                 }
-                else
-                {
-                    $message = ["message" => "Error, wrong server_code."];
-                    send_JSON($message, 422);
-                }
             }
+            
+            $message = ["message" => "Error, wrong server_code."];
+            send_JSON($message, 422);
+                
         }
         else
         {
