@@ -2,14 +2,22 @@
 
   
 async function fetching(url, type, info) {
+
+    let response; 
+
     try {
-        let response = await fetch(url, {
-            method: type,
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                info
-            }),
-        });
+
+        if (type === "GET") {
+            response = await fetch(url);
+        }  else {
+            response = await fetch(url, {
+                method: type,
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    info
+                }),
+            });
+        }
 
         console.log(response);
         let data = await response.json();
