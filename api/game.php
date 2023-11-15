@@ -2,7 +2,6 @@
     require_once "index.php";
 
     //POST - Host game
-    
     $required_keys_POST_host = ["host", "quiz"];
     if($request_method == "POST")
     {
@@ -37,7 +36,8 @@
                 "quiz" => $quiz,
                 "current_question_nr" => 0,
                 "current_votes" => [],
-                "users" => []
+                "users" => [],
+                "active" => true
             ];
 
             //Updates the games.json file with the new game. 
@@ -66,7 +66,6 @@
                 if($possible_password == $game["server_code"])
                 {
                     //Checks if user name already in use
-
                     $user = [ 
                         "username" => $_GET["user"], 
                         "points" => 0, 
@@ -77,7 +76,12 @@
                     //Updates the games.json file with the new user joined. 
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
-                    send_JSON($game);
+
+                    $data = [
+                        $game["quiz"],
+                        $game["current_question_nr"]
+                    ];
+                    send_JSON($data);
                 }
             }
             
