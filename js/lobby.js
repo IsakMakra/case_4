@@ -3,9 +3,14 @@
 function submitPassword () {
     const password = document.getElementById("lobbycode").value;
     console.log(password);
-    joinGame(password);
+    joinLame(password);
 }
 
-function joinGame (password) {
+function joinLobby (password) {
     fetching(`api/game.php?game=${password}`, "GET");
 }   
+
+
+function createLobby {
+
+}
