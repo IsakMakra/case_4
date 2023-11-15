@@ -13,9 +13,7 @@ async function fetching(url, type, info) {
             response = await fetch(url, {
                 method: type,
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    info
-                }),
+                body: JSON.stringify(info),
             });
         }
 
