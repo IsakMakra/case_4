@@ -1,24 +1,21 @@
 "use strict";
 
-function submitPassword () {
+function submitUser () {
     const password = document.getElementById("lobbycode").value;
-    console.log(password);
-    joinLobby(password);
+    const user = document.getElementById("userName").value;
+    joinLobby(password, user);
 }
 
-function joinLobby (password) {
-    fetching(`api/game.php?game=${password}`, "GET");
+function joinLobby (password, user) {
+    fetching(`api/game.php?game=${password}&${user}`, "GET");
 }   
 
 function submitLobby (category) {
     const hostName = document.getElementById("hostName").value;
-    console.log(hostName);
-    console.log(category);
     createLobby(hostName, category);
 }
 
 function createLobby (hostName, category){
-
     const infobody = {
         host: hostName,
         quiz: category
