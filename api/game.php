@@ -65,7 +65,6 @@
             {
                 if($possible_password == $game["server_code"])
                 {
-                    //Checks if user name already in use
                     $user = [ 
                         "username" => $_GET["user"], 
                         "points" => 0, 

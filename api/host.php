@@ -1,2 +1,4 @@
-//Get game info
+//GET - Get game info
+
+//POST - Next question
 
