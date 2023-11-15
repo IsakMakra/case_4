@@ -8,10 +8,10 @@ function startHostPage() {
 
 
 
-    // setInterval(() => {
-    //     // fetching()
-    //     document.querySelector("#playerNames").innerHTML += `<p>Adam</p>`;
-    // }, interval);
+    setInterval(() => {
+        // fetching()
+        document.querySelector("#playerNames").innerHTML += `<p>Adam</p>`;
+    }, interval);
 }
 
 startHostPage();
