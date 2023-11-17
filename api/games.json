@@ -10,6 +10,10 @@
             {
                 "username": "Isak",
                 "points": 0
+            },
+            {
+                "username": "Erik",
+                "points": 0
             }
         ],
         "active": true
