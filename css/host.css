@@ -28,8 +28,8 @@ main>* {
     /* width: 300px; */
     /* border: 1px solid black; */
     display: flex;
+    align-items: start;
     flex-direction: row;
-    gap: 5px;
     flex-wrap: wrap;
 
     & p {
