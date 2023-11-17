@@ -5,16 +5,9 @@
         "server_code": "1975",
         "quiz": "party",
         "current_question_nr": 0,
-        "current_votes": [],
+        "current_votes": [
+        ],
         "users": [
-            {
-                "username": "Isak",
-                "points": 0
-            },
-            {
-                "username": "Erik",
-                "points": 0
-            }
         ],
         "active": true
     }
