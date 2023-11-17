@@ -10,7 +10,7 @@ function submitUser() {
 
 
 async function joinLobby(password, user) {
-    let response = await fetcha(`api/game.php?game=${password}&user=${user}`, "GET");
+    let response = await fetcha(`api/game.php?server_code=${password}&user=${user}`, "GET");
     console.log(response);
 
     if (response.ok) {

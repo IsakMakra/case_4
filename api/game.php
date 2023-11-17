@@ -2,20 +2,18 @@
     require_once "index.php";
 
     //POST - Host game
-    $required_keys_POST_host = ["host", "quiz"];
+        //quiz: x,
+        //host: x
+    $required_keys_POST = ["host", "quiz"];
     if($request_method == "POST")
     {
         //Checks if the POST-request has the correct body
-        if(count(array_intersect($required_keys_POST_host, array_keys($request_data))) == count($required_keys_POST_host)) 
+        if(count(array_intersect($required_keys_POST, array_keys($request_data))) == count($required_keys_POST)) 
         {
             $host = $request_data["host"];
             $quiz = $request_data["quiz"];
-            
-            //Creates a server_code
-            $numbers = "123456789";
-            $shuffled_numbers = str_shuffle($numbers);
 
-            $server_code = substr($shuffled_numbers, 0, 4);
+            $server_code = create_server_code($games);
 
             //Creates an unique id for the game
             $highest_id = 0;
@@ -29,7 +27,8 @@
 
             $next_id = $highest_id + 1;
     
-            $game = [
+            $game = 
+            [
                 "host" => $host,
                 "id" => $next_id,
                 "server_code" => $server_code,
@@ -54,32 +53,47 @@
     }
 
     // GET - Join a game
+        //?game=xxxx&user=x
     if($request_method == "GET") 
     {   
         //Checks if GET-request has the correct parameter
-        if(isset($_GET["game"]) && isset($_GET["user"])) 
+        if(isset($_GET["server_code"]) && isset($_GET["user"])) 
         {
-            $possible_password = $_GET["game"];
+            $server_code = $_GET["server_code"];
+            $username = $_GET["user"];
 
-            foreach($games as $index => $game)
+            foreach($games as $index1 => $game)
             {
-                if($possible_password == $game["server_code"])
+                if($server_code == $game["server_code"])
                 {
-                    $user = [ 
-                        "username" => $_GET["user"], 
+                    //Checks if the username is already taken
+                    foreach($game["users"] as $index2 => $player) 
+                    {
+                        if($player["username"] == $username) 
+                        {
+                            $message = ["message" => "Error, username already taken."];
+                            send_JSON($message, 406);
+                        }
+                    }
+
+                    $user = 
+                    [ 
+                        "username" => $username, 
                         "points" => 0, 
                     ];
 
-                    $games[$index]["users"][] = $user;
+                    $games[$index1]["users"][] = $user;
 
                     //Updates the games.json file with the new user joined. 
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
 
-                    $data = [
+                    $data = 
+                    [
                         $game["quiz"],
                         $game["current_question_nr"]
                     ];
+                    
                     send_JSON($data);
                 }
             }
