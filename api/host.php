@@ -23,7 +23,21 @@
                     if($game["current_question_nr"] == 0) 
                     {
                         foreach($game["quiz"] as $index2 => $quiz) {
-                            $nr_of_alternatives = $quiz["nr_of_alternatives"];
+                            
+                            if($index2 == 0) 
+                            {
+                                continue;
+                            }
+
+                            send_JSON($game);
+                            $nr_of_alternatives = $quiz["nrOfPlayers"];
+                            $users = $game["users"];
+
+                            for ($i = 0; $i < $nr_of_alternatives; $i++) 
+                            {
+                                // Add user data to the alternatives array
+                                $alternatives[] = $users[$i];
+                            }
                         }
                     }
 
