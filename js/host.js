@@ -1,15 +1,15 @@
 
-const interval = 1000;
 let nIntervId; // stores the setInterval id to be later used to delete the interval
 let allPlayers = []; // Initialize an array to store the players
-const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
-const hostName = localStorage.getItem("name");
-const category = localStorage.getItem("category");
-const serverCode = localStorage.getItem("serverCode");
-
-const mainHtml = document.querySelector("main");
 let questionNr = 0;
-let cancelQuestionFetch = true;
+let cancelQuestionFetch = true; // decides if the next question should be displayed
+
+const interval = 1000; //the interval time for the setInterval
+const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
+const hostName = localStorage.getItem("name"); // hostname for the user whi created the game
+const category = localStorage.getItem("category");
+const serverCode = localStorage.getItem("serverCode"); // servercode for the game
+const mainHtml = document.querySelector("main");
 
 //Starts the functions to create the host page and track the joined players
 async function startHostPage() {
@@ -20,6 +20,7 @@ async function startHostPage() {
     nIntervId = setInterval(myCallback, interval, true, false);
 }
 
+// This is the setInterval function wich diside if it should display players or display question
 function myCallback(displayPlayer, displayQuestion) {
     //fetches players that join the lobby
     if (displayPlayer) {
@@ -35,6 +36,7 @@ function myCallback(displayPlayer, displayQuestion) {
 
 }
 
+//Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
 
@@ -95,26 +97,36 @@ function generate() {
     return finalName;
 };
 
-startHostPage();
+// startHostPage();
 
 //Start quiz btn when clicked stops the interval and goes on to the questions
 document.querySelector("#startQuiz").addEventListener("click", (e) => {
     clearInterval(nIntervId);
     nIntervId = null;
     incrementQuestionNr();
+    // questionNr++
 
     nIntervId = setInterval(myCallback, interval, false, true);
 
 })
 
-function incrementQuestionNr() {
+
+async function incrementQuestionNr() {
+    console.log("hej");
     const nextQuestionBody = {
         next: questionNr++,
         server_code: serverCode,
-        host: hostName
+        host: hostName,
     }
-    fetcha("api/host.php", "POST", nextQuestionBody);
+
+    const response = await fetcha("api/host.php", "POST", nextQuestionBody);
+    const data = await response.json();
+
+    console.log(response);
+    console.log(data);
 }
+
+incrementQuestionNr()
 
 async function nextQuestion() {
     // first time it is true so we can display the question, second time it is false so it doesent update every second
@@ -129,10 +141,10 @@ async function nextQuestion() {
 // displayQuestion()
 function displayQuestion(object) {
     //!fix this function
-    questionNr = 1;
+    questionNr = object.current_question_nr;
     const currentQuestion = object.quiz[questionNr].question;
-    const playingUsers = object.quiz[questionNr].numberOfPlayers;
-    // getRandomPlayers(4, playersArray);
+    const playingUsers = object.quiz[questionNr].alternatives;
+    // const playingUsers = getRandomPlayers(4, playersArray);
     // console.log(playingUsers);
     // console.log(playersArray);
 
@@ -149,7 +161,7 @@ function displayQuestion(object) {
         <section class="question">
             <button id="nextBtn">Nästa fråga</button>
         </section>
-    `
+    `;
 
     //* this gives eventlisteners to the buttons to be able to select the winner
     playingUsers.forEach(user => {
@@ -177,6 +189,7 @@ function displayQuestion(object) {
         console.log(this);
         cancelQuestionFetch = true;
         incrementQuestionNr();
+        // questionNr++
         nextQuestion();
     })
 }

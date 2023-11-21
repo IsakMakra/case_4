@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -5,15 +9,17 @@ body {
     display: flex;
     justify-content: center;
     padding: 16px;
-    box-sizing: border-box;
-    /* align-items: center; */
 }
 
 main {
-    display: flex;
+    display: grid;
+    width: 100%;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+}
+
+.joinLobby {
+    grid-template-rows: 20% 60% 20%;
 }
 
 main>* {
@@ -29,13 +35,11 @@ main>* {
 }
 
 #playerNames {
-
-    /* width: 300px; */
-    /* border: 1px solid black; */
     display: flex;
     align-items: start;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 20px 0px;
 
     & p {
         margin: 0;
