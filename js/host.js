@@ -61,7 +61,7 @@ async function dispalyNewPlayers() {
         const startIndex = length2 - numOfNewPlayers;
         const players = newPlayers.slice(startIndex, length2);
         players.forEach(player => {
-            document.querySelector("#playerNames").innerHTML += `<p>${player}</p>`;
+            document.querySelector("#playerNames").innerHTML += `<p>${player.username}</p>`;
         });
     }
     // Update the player list
@@ -97,41 +97,33 @@ function generate() {
     return finalName;
 };
 
-// startHostPage();
+startHostPage();
 
 //Start quiz btn when clicked stops the interval and goes on to the questions
 document.querySelector("#startQuiz").addEventListener("click", (e) => {
     clearInterval(nIntervId);
     nIntervId = null;
     incrementQuestionNr();
-    // questionNr++
 
     nIntervId = setInterval(myCallback, interval, false, true);
-
 })
 
 
-async function incrementQuestionNr() {
-    console.log("hej");
+function incrementQuestionNr() {
     const nextQuestionBody = {
-        next: questionNr++,
+        next: 1,
         server_code: serverCode,
         host: hostName,
     }
 
-    const response = await fetcha("api/host.php", "POST", nextQuestionBody);
-    const data = await response.json();
-
-    console.log(response);
-    console.log(data);
+    fetcha("api/host.php", "POST", nextQuestionBody);
 }
 
-incrementQuestionNr()
+// incrementQuestionNr()
 
 async function nextQuestion() {
     // first time it is true so we can display the question, second time it is false so it doesent update every second
     if (cancelQuestionFetch) {
-        console.log("hello");
         cancelQuestionFetch = false;
         const gameObject = await fetchGameObject();
         displayQuestion(gameObject);
@@ -189,7 +181,6 @@ function displayQuestion(object) {
         console.log(this);
         cancelQuestionFetch = true;
         incrementQuestionNr();
-        // questionNr++
         nextQuestion();
     })
 }
