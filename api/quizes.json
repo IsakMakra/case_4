@@ -1,37 +1,66 @@
 [
     [
-    "Vem kan göra flest armhävningar?",
-    "Vem vinner på armbrytning?",
-    "Vem kan sitta i väggstolen längst?", 
-    "Vem vinner på tumkrig?",
-    "Vem kan stå i planka längst?",
-    {
-        "question": "Vem kan säga flest länder på 1 minut",
-        "link": [
-            "länk till en bild på Europa",
-            "länk till en bild på Afrika",
-            "länk till en bild på Asien",
-            "osv"
-        ]
-    },
-    "Vem vinner på sten sax påse?",
-    {
-        "question": "Vem kan låten?",
-        "song": [
-            "Baby av Justin Bieber, `You know you love me, I know you care.`",
-            "Sveriges nationalsång, `Du Gamla, Du Fria, Du Fjällhöga Nord`",
-            "Guld och gröna skogar av Hasse Andersson, `Det var dans och hålligång, Upp på logen natten lång`",
-            "Jag kommer av Veronica Maggio, `Natten är ung och jag ligger vaken, jag är Lucy in the sky jag är högt över molnen"
-        ]
-    },
-    {
-        "question": "Ring of fire",
-        "Theme": [
-            "Bilmärken", "Designermärken", "Sminkmärken"
-        ]
-    },
-    "Vem kan balansera på ett ben längst?",
-    "Vem kan komma närmst till att ha sina handflator på golvet med sträckta ben?",
-    "Vem kan sätta en bottle flip först?"
+        {
+            "question": "Vem kan göra flest armhävningar?",
+            "numberOfPlayers": 3
+        },
+        {
+            "question": "Vem vinner på armbrytning?",
+            "numberOfPlayers": 2
+        },
+        {
+            "question": "Vem kan sitta i väggstolen längst?",
+            "numberOfPlayers": 4
+        },
+        {
+            "question": "Vem vinner på tumkrig?",
+            "numberOfPlayers": 2
+        },
+        {
+            "question": "Vem kan stå i planka längst?",
+            "numberOfPlayers": 3
+        },
+        {
+            "question": "Vem kan balansera på ett ben längst?",
+            "numberOfPlayers": 4 
+        },
+        {
+            "question": "Vem kan komma närmst till att ha sina handflator på golvet med sträckta ben?",
+            "numberOfPlayers": 3
+        },    {
+            "question": "Vem kan sätta en bottle flip först?",
+            "numberOfPlayers": 2
+        },
+        {
+            "question": "Vem vinner på sten sax påse?",
+            "numberOfPlayers": 2
+        },
+        {
+            "question": "Vem kan säga flest länder på 1 minut",
+            "numberOfPlayers": 2,
+            "link": [
+                "länk till en bild på Europa",
+                "länk till en bild på Afrika",
+                "länk till en bild på Asien",
+                "osv"
+            ]
+        },
+        {
+            "question": "Vem kan låten?",
+            "numberOfPlayers": 2,
+            "song": [
+                "Baby av Justin Bieber, `You know you love me, I know you care.`",
+                "Sveriges nationalsång, `Du Gamla, Du Fria, Du Fjällhöga Nord`",
+                "Guld och gröna skogar av Hasse Andersson, `Det var dans och hålligång, Upp på logen natten lång`",
+                "Jag kommer av Veronica Maggio, `Natten är ung och jag ligger vaken, jag är Lucy in the sky jag är högt över molnen"
+            ]
+        },
+        {
+            "question": "Ring of fire",
+            "numberOfPlayers": 4,
+            "Theme": [
+                "Bilmärken", "Designermärken", "Sminkmärken"
+            ]
+        }
     ]   
 ]
