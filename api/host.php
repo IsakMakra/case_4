@@ -29,15 +29,17 @@
                                 continue;
                             }
 
-                            send_JSON($game);
-                            $nr_of_alternatives = $quiz["nrOfPlayers"];
+                            $nr_of_alternatives = $quiz["numberOfPlayers"];
                             $users = $game["users"];
+                            shuffle($users);
 
                             for ($i = 0; $i < $nr_of_alternatives; $i++) 
                             {
                                 // Add user data to the alternatives array
-                                $alternatives[] = $users[$i];
+                                $alternatives[] = $users["username"][$i];
                             }
+
+                            $games[$index][$quiz][$index2]["alternatives"] = $alternatives;
                         }
                     }
 
