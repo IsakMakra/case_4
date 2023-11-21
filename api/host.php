@@ -58,6 +58,8 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
+                    $games[$index]["users"][$winner]["points"] += 2;
+
                     foreach ($game['users'] as $index2 => $user) 
                     {
                         foreach ($game['current_votes'] as $index3 => $vote) 
@@ -68,16 +70,6 @@
                             }
                         }
                     }
-                    
-                    
-                
-            
-        
-    
-
-
-
-
 
                     //Updates the games.json file with next question index. 
                     $json = json_encode($games, JSON_PRETTY_PRINT);
