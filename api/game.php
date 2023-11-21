@@ -16,7 +16,7 @@
             $server_code = create_server_code($games);
 
             //Handles the quiz name and selects the appropriate index for the quiz.json file
-            if($quiz_name == "party") 
+            if($quiz_name == "random") 
             {
                 $quiz_index = 0;
             }
@@ -28,7 +28,7 @@
             {
                 $quiz_index = 2;
             }
-            else if($quiz_name == "random")
+            else if($quiz_name == "party")
             {
                 $quiz_index = 3;
             }

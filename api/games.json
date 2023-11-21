@@ -5,10 +5,54 @@
         "server_code": "1975",
         "quiz": "party",
         "current_question_nr": 0,
-        "current_votes": [
+        "current_votes": [],
+        "users": [],
+        "active": true
+    },
+    {
+        "host": "Erik",
+        "id": 2,
+        "server_code": "7193",
+        "quiz": [
+            "start",
+            "Vem vinner p\u00e5 armbrytning?",
+            "Vem kan st\u00e5 i planka l\u00e4ngst?",
+            "Vem vinner p\u00e5 sten sax p\u00e5se?",
+            "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+            {
+                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
+                "link": [
+                    "l\u00e4nk till en bild p\u00e5 Europa",
+                    "l\u00e4nk till en bild p\u00e5 Afrika",
+                    "l\u00e4nk till en bild p\u00e5 Asien",
+                    "osv"
+                ]
+            },
+            "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+            "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+            {
+                "question": "Ring of fire",
+                "Theme": [
+                    "Bilm\u00e4rken",
+                    "Designerm\u00e4rken",
+                    "Sminkm\u00e4rken"
+                ]
+            },
+            "Vem vinner p\u00e5 tumkrig?",
+            {
+                "question": "Vem kan l\u00e5ten?",
+                "song": [
+                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
+                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
+                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
+                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
+                ]
+            },
+            "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?"
         ],
-        "users": [
-        ],
+        "current_question_nr": 0,
+        "current_votes": [],
+        "users": [],
         "active": true
     }
 ]
