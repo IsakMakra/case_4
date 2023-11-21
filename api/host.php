@@ -19,29 +19,28 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
-                    //Selects which users are to be alternatives for each question
-                    if($game["current_question_nr"] == 0) 
+                    if($game["current_question_nr"] == 0)
                     {
-                        foreach($game["quiz"] as $index2 => $quiz) {
+                        //Selects which users are to be alternatives for each question
+                        foreach($game["quiz"] as $index2 => $question) {
                             
+                            $alternatives = [];
+
                             if($index2 == 0) 
                             {
                                 continue;
                             }
 
-                            $nr_of_alternatives = $quiz["numberOfPlayers"];
+                            $nr_of_alternatives = $question["nr_of_users"];
                             $users = $game["users"];
                             shuffle($users);
 
-                            for ($i = 0; $i < $nr_of_alternatives; $i++) 
+                            for ($i = 0; $i < $nr_of_alternatives; $i++)
                             {
-                                // Add user data to the alternatives array
-                                $alternatives[] = $users["username"][$i];
+                                $games[$index]["quiz"][$index2]["alternatives"][] = $users[$i]["username"];
                             }
-
-                            $games[$index][$quiz][$index2]["alternatives"] = $alternatives;
                         }
-                    }
+                    } 
 
                     $games[$index]["current_question_nr"] += $next;
 
