@@ -6,7 +6,12 @@
         "quiz": "party",
         "current_question_nr": 0,
         "current_votes": [],
-        "users": [],
+        "users": [
+            {
+                "username": "Kajsa",
+                "points": 0
+            }
+        ],
         "active": true
     },
     {
