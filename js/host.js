@@ -36,7 +36,7 @@ function myCallback(displayPlayer, displayQuestion) {
 }
 
 async function fetchGameObject() {
-    const response = await fetcha(`api/game.php`, "POST", { host: hostName, quiz: category });
+    const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
 
     const data = await response.json();
     console.log(data);
@@ -129,7 +129,7 @@ async function nextQuestion() {
 // displayQuestion()
 function displayQuestion(object) {
     //!fix this function
-    questionNr = object.current_question_nr;
+    questionNr = 1;
     const currentQuestion = object.quiz[questionNr].question;
     const playingUsers = object.quiz[questionNr].numberOfPlayers;
     // getRandomPlayers(4, playersArray);
@@ -146,8 +146,8 @@ function displayQuestion(object) {
             <img src="" alt="">
             <div class="buttonContainer"></div>
         </section>
-        <section class="question" id="next">
-            <button>Nästa fråga </button>
+        <section class="question">
+            <button id="nextBtn">Nästa fråga</button>
         </section>
     `
 
@@ -173,7 +173,8 @@ function displayQuestion(object) {
         mainHtml.querySelector(".buttonContainer").append(button);
     })
 
-    mainHtml.querySelector("#next button").addEventListener("click", function (e) {
+    mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
+        console.log(this);
         cancelQuestionFetch = true;
         incrementQuestionNr();
         nextQuestion();
