@@ -35,6 +35,12 @@
                             $users = $game["users"];
                             shuffle($users);
 
+                            if(count($users) == 0) 
+                            {
+                                $message = ["message" => "Error, no users in lobby."];
+                                send_JSON($message, 400);
+                            }
+
                             for ($i = 0; $i < $nr_of_alternatives; $i++)
                             {
                                 $games[$index]["quiz"][$index2]["alternatives"][] = $users[$i]["username"];
@@ -81,11 +87,14 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
-                    $games[$index]["users"][$winner]["points"] += 2;
-
                     foreach ($game['users'] as $index2 => $user) 
                     {
-                        foreach ($game['current_votes'] as $index3 => $vote) 
+                        if($winner == $user["username"]) 
+                        {
+                            $games[$index]["users"][$index2]["points"] += 2;
+                        }
+
+                        foreach($game['current_votes'] as $index3 => $vote) 
                         {
                             if ($user['username'] == $vote['user'] && $vote['vote'] == $winner) 
                             {
