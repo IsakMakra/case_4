@@ -5,9 +5,28 @@
         "server_code": "1975",
         "quiz": "party",
         "current_question_nr": 0,
-        "current_votes": [
-        ],
+        "current_votes": [],
         "users": [
+            {
+                "username": "Kajsa",
+                "points": 0
+            },
+            {
+                "username": "kajsa",
+                "points": 0
+            },
+            {
+                "username": "ok",
+                "points": 0
+            },
+            {
+                "username": "Kossa",
+                "points": 0
+            },
+            {
+                "username": "olle",
+                "points": 0
+            }
         ],
         "active": true
     }
