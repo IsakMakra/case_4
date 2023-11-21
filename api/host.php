@@ -49,6 +49,7 @@
                     } 
 
                     $games[$index]["current_question_nr"] += $next;
+                    $games[$index]["current_votes"] = [];
 
                     //Updates the games.json file with next question index. 
                     $json = json_encode($games, JSON_PRETTY_PRINT);
@@ -103,7 +104,7 @@
                         }
                     }
 
-                    //Updates the games.json file with next question index. 
+                    //Updates the games.json file with next question index
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
                     $message = ["message" => "Success."];
