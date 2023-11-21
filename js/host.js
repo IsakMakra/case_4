@@ -3,6 +3,7 @@ let nIntervId; // stores the setInterval id to be later used to delete the inter
 let allPlayers = []; // Initialize an array to store the players
 let questionNr = 0;
 let cancelQuestionFetch = true; // decides if the next question should be displayed
+let usersWhoVoted = [];
 
 const interval = 1000; //the interval time for the setInterval
 const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
@@ -11,11 +12,13 @@ const category = localStorage.getItem("category");
 const serverCode = localStorage.getItem("serverCode"); // servercode for the game
 const mainHtml = document.querySelector("main");
 
+
 //Starts the functions to create the host page and track the joined players
 async function startHostPage() {
 
     document.querySelector("#title").textContent = "Vem kan mest?";
-    document.querySelector("#kategori").textContent = "Party";
+    document.querySelector("#kategori").textContent = category;
+    document.querySelector("#serverCode").textContent = serverCode;
 
     nIntervId = setInterval(myCallback, interval, true, false);
 }
@@ -29,8 +32,10 @@ function myCallback(displayPlayer, displayQuestion) {
 
     //should only be one time per question
     if (displayQuestion) {
+        checkVotes();
         nextQuestion();
     }
+
 
     //make one for the votes that should update every second
 
@@ -136,9 +141,6 @@ function displayQuestion(object) {
     questionNr = object.current_question_nr;
     const currentQuestion = object.quiz[questionNr].question;
     const playingUsers = object.quiz[questionNr].alternatives;
-    // const playingUsers = getRandomPlayers(4, playersArray);
-    // console.log(playingUsers);
-    // console.log(playersArray);
 
     mainHtml.innerHTML =
         `
@@ -183,6 +185,40 @@ function displayQuestion(object) {
         incrementQuestionNr();
         nextQuestion();
     })
+}
+
+// {
+//     "host": "Isak",
+//     "id": 1,
+//     "server_code": "7163",
+//     "quiz": [],
+//     "current_question_nr": 0,
+//     "current_votes": [
+//         {
+//             "vote": "Isak",
+//             "user": "Isak"
+//         },
+//         {
+//             "vote": "Isak",
+//             "user": "Adam"
+//         }
+//     ],
+//     "users": [
+//         {
+//             "username": "Isak",
+//             "points": 0
+//         }
+//     ],
+//     "active": true
+// }
+async function checkVotes() {
+    //*gå igenom currentvotes arrayen och lägg till de användare som har röstat och lägg en de i den andra arrayen userWhoVoted
+    //*skapa en array eller objekt där du sparar hur många röster varje aktiv spelare har och uppdatera css efter det
+    //*jämför hur lång allPlayers är genom hur lång userWhoVoted är för att veta så att alla har röstat
+    //* uppdatera hosten om vem som inte har röstat?
+    const object = await fetchGameObject();
+    const currentquestion = object.quiz[object.current_question_nr].alternatives
+
 }
 
 
