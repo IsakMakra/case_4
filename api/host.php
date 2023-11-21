@@ -19,6 +19,14 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
+                    //Selects which users are to be alternatives for each question
+                    if($game["current_question_nr"] == 0) 
+                    {
+                        foreach($game["quiz"] as $index2 => $quiz) {
+                            $nr_of_alternatives = $quiz["nr_of_alternatives"];
+                        }
+                    }
+
                     $games[$index]["current_question_nr"] += $next;
 
                     //Updates the games.json file with next question index. 

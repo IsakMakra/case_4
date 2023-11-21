@@ -62,7 +62,8 @@
                     $data = 
                     [
                         "quiz" => $game["quiz"],
-                        "current_question_nr" => $game["current_question_nr"]
+                        "current_question_nr" => $game["current_question_nr"],
+                        "users" => $game["users"]
                     ];
                     send_JSON($data);
                 }

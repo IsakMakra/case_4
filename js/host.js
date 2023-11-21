@@ -130,10 +130,11 @@ async function nextQuestion() {
 function displayQuestion(object) {
     //!fix this function
     questionNr = object.current_question_nr;
-    const currentQuestion = object.quiz[questionNr];
-    const playingUsers = getRandomPlayers(4, playersArray);
-    console.log(playingUsers);
-    console.log(playersArray);
+    const currentQuestion = object.quiz[questionNr].question;
+    const playingUsers = object.quiz[questionNr].numberOfPlayers;
+    // getRandomPlayers(4, playersArray);
+    // console.log(playingUsers);
+    // console.log(playersArray);
 
     mainHtml.innerHTML =
         `
