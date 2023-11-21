@@ -35,6 +35,12 @@
                             $users = $game["users"];
                             shuffle($users);
 
+                            if(count($users) == 0) 
+                            {
+                                $message = ["message" => "Error, no users in lobby."];
+                                send_JSON($message, 400);
+                            }
+
                             for ($i = 0; $i < $nr_of_alternatives; $i++)
                             {
                                 $games[$index]["quiz"][$index2]["alternatives"][] = $users[$i]["username"];
