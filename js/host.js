@@ -97,6 +97,7 @@ let allPlayers = []; // Initialize an array to store the players
 const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
 const hostName = localStorage.getItem("name");
 const category = localStorage.getItem("category");
+const mainHtml = document.querySelector("main");
 let questionNr = 0;
 let cancelQuestionFetch = true;
 
@@ -196,32 +197,55 @@ document.querySelector("#startQuiz").addEventListener("click", (e) => {
 })
 
 async function nextQuestion() {
-    console.log("hello");
     // first time it is true so we can display the question, second time it is false so it doesent update every second
     if (cancelQuestionFetch) {
+        console.log("hello");
         cancelQuestionFetch = false;
         const gameObject = await fetchGameObject();
         displayQuestion(gameObject);
     }
 }
 
+// displayQuestion()
 function displayQuestion(object) {
     //!fix this function
-    questionNr = object.current_question_nr;
-    const currentQuestion = object.quiz[questionNr];
+    // questionNr = object.current_question_nr;
+    // const currentQuestion = object.quiz[questionNr];
     const playingUsers = getRandomPlayers(4, playersArray);
     console.log(playingUsers);
+    console.log(playersArray);
+
+    mainHtml.innerHTML =
+        `
+        <header class="question">
+            <h1>Armhövningar</h1>
+            <p>Dags att gör armhövningar, denna utmaning går ut på vem ska kan gör flest armhövningar mellan deltagarna</p>
+        </header>
+        <section class="question" id="middleSection">
+            <img src="" alt="">
+            <div class="buttonContainer"></div>
+        </section>
+        <section class="question" id="next">
+            <button>Nästa fråga </button>
+        </section>
+    `
+    playingUsers.forEach(user => {
+        const button = document.createElement("button");
+        button.classList.add("playerBtn");
+        button.textContent = user;
+        button.addEventListener("click", function (e) {
+            const winner = this.textContent;
+            fetcha("", "POST", winner);
+        });
+        mainHtml.querySelector(".buttonContainer").append(button);
+    })
 }
+
 
 function getRandomPlayers(players, users) {
     //! fix this function
-    let playingUsers = allPlayers.splice(getRandomInt(users.length - 1), players);
-    console.log(playingUsers);
-    console.log(players);
+    let playingUsers = users.splice(getRandomInt(users.length - 1), players);
     return playingUsers;
-    // for(let i = 0; i < players; i++){
-
-    // }
 }
 
 function getRandomInt(max) {
