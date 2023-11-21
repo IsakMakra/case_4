@@ -11,9 +11,34 @@
         if(count(array_intersect($required_keys_POST, array_keys($request_data))) == count($required_keys_POST)) 
         {
             $host = $request_data["host"];
-            $quiz = $request_data["quiz"];
+            $quiz_name = $request_data["quiz"];
 
             $server_code = create_server_code($games);
+
+            //Handles the quiz name and selects the appropriate index for the quiz.json file
+            if($quiz_name == "party") 
+            {
+                $quiz_index = 0;
+            }
+            else if($quiz_name == "family")
+            {
+                $quiz_index = 1;
+            }
+            else if($quiz_name == "active")
+            {
+                $quiz_index = 2;
+            }
+            else if($quiz_name == "random")
+            {
+                $quiz_index = 3;
+            }
+
+            $quiz_array = $quizes[$quiz_index];
+            shuffle($quiz_array);
+
+            //Making sure there is a starting screen before 
+            //the quiz begins with index 1 in the quiz array
+            $quiz_array[0] = "start";
 
             //Creates an unique id for the game
             $highest_id = 0;
@@ -32,7 +57,7 @@
                 "host" => $host,
                 "id" => $next_id,
                 "server_code" => $server_code,
-                "quiz" => $quiz,
+                "quiz" => $quiz_array,
                 "current_question_nr" => 0,
                 "current_votes" => [],
                 "users" => [],
