@@ -4,11 +4,13 @@ function renderLobbyPage(password) {
     document.body.innerHTML = `
     <p>Waiting for game to start...</p>
     `;
-    readyOrNot(password);
+    QuizQuestion(password);
 }
 
-async function readyOrNot (password) {
+//Function to keep up with what question is active in game
+async function QuizQuestion (password) {
 
+    //This function checks which question is active every second to update the user with information
     async function checkQuizStatus () {
         let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
         let data = await response.json();

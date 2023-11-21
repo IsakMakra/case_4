@@ -1,5 +1,6 @@
 "use strict";
 
+//Collecting the users information
 function submitUser() {
     const password = document.getElementById("lobbycode").value;
     const user = document.getElementById("userName").value;
@@ -9,28 +10,31 @@ function submitUser() {
 }
 
 
+//The user jpins the lobby
 async function joinLobby(password, user) {
     let response = await fetcha(`api/game.php?server_code=${password}&user=${user}`, "GET");
     console.log(response);
 
+    //Wrong code
     if (response.ok) {
         document.getElementById("joinLobbyMessage").innerHTML = "Joining lobby...";
         renderLobbyPage(password);
         let data = await response.json();
         console.log(data);
     } else {
+    //Correct code
         document.getElementById("joinLobbyMessage").innerHTML = "Wrong password...";
     }
-
-
 }
 
+//Collecting information about the a new lobby request
 function submitLobby(category) {
     const hostName = document.getElementById("hostName").value;
     document.getElementById('hostName').value = '';
     createLobby(hostName, category);
 }
 
+//Creates a lobby
 async function createLobby(hostName, category) {
     const infobody = {
         host: hostName,
