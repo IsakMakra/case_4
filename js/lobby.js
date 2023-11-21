@@ -15,7 +15,7 @@ async function joinLobby(password, user) {
 
     if (response.ok) {
         document.getElementById("joinLobbyMessage").innerHTML = "Joining lobby...";
-        renderLobbyPage();
+        renderLobbyPage(password);
         let data = await response.json();
         console.log(data);
     } else {
@@ -56,11 +56,6 @@ async function createLobby(hostName, category) {
     }
 }
 
-function renderLobbyPage() {
-    document.body.innerHTML = `
-    <p>Waiting for game to start...</p>
-    `;
-}
 
 function renderHostPage() {
 
