@@ -21,10 +21,12 @@ async function joinLobby(password, user) {
         let data = await response.json();
         console.log(data);
         localStorage.setItem("password", password);
+        localStorage.setItem("name", user);
+
         window.location = "../player.html";
 
     } else {
-        //Correct code
+    //Correct code
         document.getElementById("joinLobbyMessage").innerHTML = "Wrong password...";
     }
 }
@@ -66,5 +68,4 @@ function renderHostPage() {
 
 }
 
-//! Clears localstorage so new games can be created
 clearLocalStorage();
