@@ -69,19 +69,20 @@ async function startPlayerPage () {
         console.log(data);
         //console.log(data.quiz[questionNumber].alternatives);
 
-        let userArray = data.quiz[questionNumber].alternatives;
+        if (data.quiz[questionNumber] === "start") {
+        } else {
+            let userArray = data.quiz[questionNumber].alternatives;
 
-        // Iterate through userArray and update the content of <p> elements
-        userArray.forEach((user, index) => {
-            const userParagraph = document.getElementById(`user${index + 1}`);
-            if (userParagraph) {
-                userParagraph.textContent = ""; // Clear existing content
-                userParagraph.textContent = user; // Set new content        
-                userParagraph.disabled = false; // Re-enable the button    
-            }
-        });
-
- 
+            // Iterate through userArray and update the content of <p> elements
+            userArray.forEach((user, index) => {
+                const userParagraph = document.getElementById(`user${index + 1}`);
+                if (userParagraph) {
+                    userParagraph.textContent = ""; // Clear existing content
+                    userParagraph.textContent = user; // Set new content        
+                    userParagraph.disabled = false; // Re-enable the button    
+                }
+            });
+        }
 
         document.getElementById("feedback").textContent = data.quiz[questionNumber].question;
 
