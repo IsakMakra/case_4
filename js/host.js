@@ -24,6 +24,7 @@ async function startHostPage() {
 
     nIntervId = setInterval(myCallback, interval, true, false);
 }
+startHostPage();
 
 // This is the setInterval function wich diside if it should display players or display question
 function myCallback(displayPlayer, displayQuestion) {
@@ -37,10 +38,6 @@ function myCallback(displayPlayer, displayQuestion) {
         nextQuestion();
         checkVotes();
     }
-
-
-    //make one for the votes that should update every second
-
 }
 
 //Fetches the gameobject with the differnt keys
@@ -51,9 +48,6 @@ async function fetchGameObject() {
     console.log(data);
 
     return data
-    // Simulate fetching new players, replace this with your logic
-    // const newPlayers = ["Adam", generate(), generate(), generate()];
-    // return newPlayers;
 }
 
 async function dispalyNewPlayers() {
@@ -75,37 +69,6 @@ async function dispalyNewPlayers() {
     allPlayers = newPlayers;
 }
 
-var nameList = [
-    'Time', 'Past', 'Future', 'Dev',
-    'Fly', 'Flying', 'Soar', 'Soaring', 'Power', 'Falling',
-    'Fall', 'Jump', 'Cliff', 'Mountain', 'Rend', 'Red', 'Blue',
-    'Green', 'Yellow', 'Gold', 'Demon', 'Demonic', 'Panda', 'Cat',
-    'Kitty', 'Kitten', 'Zero', 'Memory', 'Trooper', 'XX', 'Bandit',
-    'Fear', 'Light', 'Glow', 'Tread', 'Deep', 'Deeper', 'Deepest',
-    'Mine', 'Your', 'Worst', 'Enemy', 'Hostile', 'Force', 'Video',
-    'Game', 'Donkey', 'Mule', 'Colt', 'Cult', 'Cultist', 'Magnum',
-    'Gun', 'Assault', 'Recon', 'Trap', 'Trapper', 'Redeem', 'Code',
-    'Script', 'Writer', 'Near', 'Close', 'Open', 'Cube', 'Circle',
-    'Geo', 'Genome', 'Germ', 'Spaz', 'Shot', 'Echo', 'Beta', 'Alpha',
-    'Gamma', 'Omega', 'Seal', 'Squid', 'Money', 'Cash', 'Lord', 'King',
-    'Duke', 'Rest', 'Fire', 'Flame', 'Morrow', 'Break', 'Breaker', 'Numb',
-    'Ice', 'Cold', 'Rotten', 'Sick', 'Sickly', 'Janitor', 'Camel', 'Rooster',
-    'Sand', 'Desert', 'Dessert', 'Hurdle', 'Racer', 'Eraser', 'Erase', 'Big',
-    'Small', 'Short', 'Tall', 'Sith', 'Bounty', 'Hunter', 'Cracked', 'Broken',
-    'Sad', 'Happy', 'Joy', 'Joyful', 'Crimson', 'Destiny', 'Deceit', 'Lies',
-    'Lie', 'Honest', 'Destined', 'Bloxxer', 'Hawk', 'Eagle', 'Hawker', 'Walker',
-    'Zombie', 'Sarge', 'Capt', 'Captain', 'Punch', 'One', 'Two', 'Uno', 'Slice',
-    'Slash', 'Melt', 'Melted', 'Melting', 'Fell', 'Wolf', 'Hound',
-    'Legacy', 'Sharp', 'Dead', 'Mew', 'Chuckle', 'Bubba', 'Bubble', 'Sandwich', 'Smasher', 'Extreme', 'Multi', 'Universe', 'Ultimate', 'Death', 'Ready', 'Monkey', 'Elevator', 'Wrench', 'Grease', 'Head', 'Theme', 'Grand', 'Cool', 'Kid', 'Boy', 'Girl', 'Vortex', 'Paradox'
-];
-
-function generate() {
-    var finalName = nameList[Math.floor(Math.random() * nameList.length)];
-    return finalName;
-};
-
-startHostPage();
-
 //Start quiz btn when clicked stops the interval and goes on to the questions
 document.querySelector("#startQuiz").addEventListener("click", (e) => {
     clearInterval(nIntervId);
@@ -126,8 +89,6 @@ function incrementQuestionNr() {
     fetcha("api/host.php", "POST", nextQuestionBody);
 }
 
-// incrementQuestionNr()
-
 async function nextQuestion() {
     // first time it is true so we can display the question, second time it is false so it doesent update every second
     if (cancelQuestionFetch) {
@@ -142,6 +103,12 @@ function displayQuestion(object) {
     questionNr = object.current_question_nr; //question number so we know which question to display
     const currentQuestion = object.quiz[questionNr].question;
     const playingUsers = object.quiz[questionNr].alternatives;
+    console.log(object.quiz[questionNr]);
+    if (object.quiz[questionNr] === "end") {
+        console.log("end quiz");
+        endQuiz(object);
+        return;
+    }
 
     if (questionNr >= 0 && questionNr <= object.quiz.length) {
         window.addEventListener('beforeunload', function (event) {
@@ -152,10 +119,12 @@ function displayQuestion(object) {
         });
     }
 
+    //* Makes the new html for the display of questions
     mainHtml.innerHTML =
         `
         <header class="question">
-            <h1>Armhövningar</h1>
+            <h1>Vem kan Mest?</h1>
+            <h3>Question ${questionNr} / ${object.quiz.length - 1}</h3>
             <p>${currentQuestion}</p>
         </header>
         <section class="question" id="middleSection">
@@ -173,7 +142,7 @@ function displayQuestion(object) {
         button.classList.add("playerBtn");
         button.textContent = user;
         button.addEventListener("click", function (e) {
-            console.log(e.currentTarget);
+            console.log("winner");
             this.classList.add("winner");
             const winner = this.textContent;
             const winnerBody = {
@@ -190,10 +159,43 @@ function displayQuestion(object) {
     })
 
     mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
-        console.log(this);
         cancelQuestionFetch = true;
         incrementQuestionNr();
         nextQuestion();
+    })
+}
+
+function endQuiz(object) {
+    clearInterval(nIntervId);
+    const players = object.users;
+
+    const leaderboard = players.sort((a, b) => { return b.points - a.points });
+    console.log(leaderboard);
+    mainHtml.innerHTML =
+        `
+        <header class="question">
+            <h1>Winners</h1>
+            <h3>Good work ${leaderboard[0].username} you are the winner</h3>
+        </header>
+        <section class="question" id="middleSection">
+            <div class="leaderboard"></div>
+        </section>
+        <section class="question">
+            <button id="exitBtn">Avsluta Quiz</button>
+        </section>
+    `;
+    leaderboard.forEach(user => {
+        mainHtml.querySelector(".leaderboard").innerHTML += `<h4>User: ${user.username} Points: ${user.points}</h4>`
+    })
+
+    mainHtml.querySelector("#exitBtn").addEventListener("click", function (e) {
+        clearLocalStorage();
+        const deleteBody = {
+            host: hostName,
+            server_code: serverCode
+        }
+        fetcha("api/.game.php", "DELETE", deleteBody);
+        window.location = "./index.html";
     })
 }
 
@@ -229,20 +231,27 @@ async function checkVotes() {
     const object = await fetchGameObject();
     const players = object.quiz[object.current_question_nr].alternatives;
     const allvotes = object.current_votes;
+
+    if (object.quiz[object.current_question_nr] === "end") {
+        return;
+    }
+
     if (firstInterval) {
         firstInterval = false;
         players.forEach(player => { currentPlayers[player] = 0 })
         console.log(currentPlayers);
     }
 
+    // if (allvotes.length > 0) {
     allvotes.forEach(voteObject => {
         if (!usersWhoVoted.includes(voteObject.user)) {
             usersWhoVoted.push(user);
             currentPlayers[user]++
         }
     })
-
-    if (voteObject.length === object.user.length - players.length) {
+    // }
+    // console.log(currentPlayers);
+    if (allvotes.length === object.users.length - players.length) {
         console.log("all players have voted");
     }
 }
