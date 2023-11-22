@@ -1,2 +1,210 @@
 [
+    {
+        "host": "ko",
+        "id": 1,
+        "server_code": "3258",
+        "quiz": [
+            "start",
+            {
+                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+                "nr_of_users": 4,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan l\u00e5ten?",
+                "nr_of_users": 2,
+                "alternatives": [],
+                "extra": [
+                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
+                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
+                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
+                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner p\u00e5 tumkrig?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Ring of fire",
+                "nr_of_users": 4,
+                "alternatives": [],
+                "extra": [
+                    "Bilm\u00e4rken",
+                    "Designerm\u00e4rken",
+                    "Sminkm\u00e4rken"
+                ]
+            },
+            {
+                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner p\u00e5 armbrytning?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
+                "nr_of_users": 4,
+                "alternatives": []
+            }
+        ],
+        "current_question_nr": 0,
+        "current_votes": [],
+        "users": [
+            {
+                "username": "nbbnbnbn",
+                "points": 0
+            },
+            {
+                "username": "asdasbn",
+                "points": 0
+            },
+            {
+                "username": "mnmbnbnb",
+                "points": 0
+            },
+            {
+                "username": "bnbbnbnnb",
+                "points": 0
+            },
+            {
+                "username": "dsfkkld",
+                "points": 0
+            },
+            {
+                "username": "likmlknl",
+                "points": 0
+            },
+            {
+                "username": "sdfsdfsdf",
+                "points": 0
+            }
+        ],
+        "active": true
+    },
+    {
+        "host": "nnn",
+        "id": 2,
+        "server_code": "3985",
+        "quiz": [
+            "start",
+            {
+                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+                "nr_of_users": 4,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Ring of fire",
+                "nr_of_users": 4,
+                "alternatives": [],
+                "extra": [
+                    "Bilm\u00e4rken",
+                    "Designerm\u00e4rken",
+                    "Sminkm\u00e4rken"
+                ]
+            },
+            {
+                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
+                "nr_of_users": 2,
+                "alternatives": [],
+                "extra": [
+                    "l\u00e4nk till en bild p\u00e5 Europa",
+                    "l\u00e4nk till en bild p\u00e5 Afrika",
+                    "l\u00e4nk till en bild p\u00e5 Asien",
+                    "osv"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 tumkrig?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan l\u00e5ten?",
+                "nr_of_users": 2,
+                "alternatives": [],
+                "extra": [
+                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
+                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
+                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
+                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
+                ]
+            },
+            {
+                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
+                "nr_of_users": 4,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+                "nr_of_users": 3,
+                "alternatives": []
+            }
+        ],
+        "current_question_nr": 0,
+        "current_votes": [],
+        "users": [
+            {
+                "username": "dssasd",
+                "points": 0
+            },
+            {
+                "username": "asdasd",
+                "points": 0
+            },
+            {
+                "username": "sdfsdfsdf",
+                "points": 0
+            },
+            {
+                "username": "asjdkajksdjkasdkj",
+                "points": 0
+            }
+        ],
+        "active": true
+    }
 ]
