@@ -109,7 +109,7 @@
 
                     $games[$index1]["users"][] = $user;
 
-                    //Updates the games.json file with the new user joined. 
+                    //Updates the games.json file with the new user joined
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
 
@@ -130,6 +130,37 @@
         else
         {
             $message = ["message" => "Error in GET-request."];
+            send_JSON($message, 422);
+        }
+    }
+
+    $required_keys_DELETE = ["host", "server_code"];
+    if($request_method == "DELETE")
+    {
+        //Checks if DELETE-request has the correct parameter
+        if(count(array_intersect($required_keys_DELETE, array_keys($request_data))) == count($required_keys_DELETE)) 
+        {
+            $host = $request_data["host"];
+            $server_code = $request_data["server_code"];
+
+            foreach($games as $index => $game)
+            {
+                if($host == $game["host"] && $server_code == $game["server_code"])
+                {
+                    unset($games[$index]);
+                    $message = ["message" => "Success."];
+
+                    //Updates the games.json file with the deleted game
+                    $json = json_encode($games, JSON_PRETTY_PRINT);
+                    file_put_contents($games_file, $json);
+                    send_JSON($message);
+                }
+            }
+
+        }
+        else
+        {
+            $message = ["message" => "Error in DELETE-request."];
             send_JSON($message, 422);
         }
     }
