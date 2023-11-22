@@ -47,7 +47,7 @@
     }
 
     //GET - Get quiz
-        //?server_code=xxx
+        //?server_code=xxxx
     if($request_method == "GET") 
     {   
         

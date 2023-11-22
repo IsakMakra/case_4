@@ -16,7 +16,7 @@
         header("Access-Control-Allow-Origin: *");
     }
 
-    $allowed_methods = ["GET","POST", "PATCH"];
+    $allowed_methods = ["GET","POST", "PATCH", "DELETE"];
     $games_file = "games.json";
     $quiz_file = "quizes.json";
 

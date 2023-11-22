@@ -22,11 +22,17 @@
                     if($game["current_question_nr"] == 0)
                     {
                         //Selects which users are to be alternatives for each question
-                        foreach($game["quiz"] as $index2 => $question) {
+                        foreach($game["quiz"] as $index2 => $question) 
+                        {
                             
                             $alternatives = [];
 
-                            if($index2 == 0) 
+                            if($question == "start") 
+                            {
+                                continue;
+                            }
+
+                            if($question == "end")
                             {
                                 continue;
                             }
@@ -48,10 +54,11 @@
                         }
                     } 
 
+                    //Updates current question nr and clears votes for the next question
                     $games[$index]["current_question_nr"] += $next;
                     $games[$index]["current_votes"] = [];
 
-                    //Updates the games.json file with next question index. 
+                    //Updates the games.json file with next question index
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
                     $message = ["message" => "Success."];
@@ -88,6 +95,7 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
+                    //Adds points to the users who chose corretly and to the winner
                     foreach ($game['users'] as $index2 => $user) 
                     {
                         if($winner == $user["username"]) 
@@ -104,7 +112,7 @@
                         }
                     }
 
-                    //Updates the games.json file with next question index
+                    //Updates the games.json file with points for the winner/users with the correct answer
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
                     $message = ["message" => "Success."];
