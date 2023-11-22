@@ -19,29 +19,37 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
-                    //Selects which users are to be alternatives for each question
-                    if($game["current_question_nr"] == 0) 
+                    if($game["current_question_nr"] == 0)
                     {
-                        foreach($game["quiz"] as $index2 => $quiz) {
+                        //Selects which users are to be alternatives for each question
+                        foreach($game["quiz"] as $index2 => $question) {
                             
+                            $alternatives = [];
+
                             if($index2 == 0) 
                             {
                                 continue;
                             }
 
-                            send_JSON($game);
-                            $nr_of_alternatives = $quiz["nrOfPlayers"];
+                            $nr_of_alternatives = $question["nr_of_users"];
                             $users = $game["users"];
+                            shuffle($users);
 
-                            for ($i = 0; $i < $nr_of_alternatives; $i++) 
+                            if(count($users) == 0) 
                             {
-                                // Add user data to the alternatives array
-                                $alternatives[] = $users[$i];
+                                $message = ["message" => "Error, no users in lobby."];
+                                send_JSON($message, 400);
+                            }
+
+                            for ($i = 0; $i < $nr_of_alternatives; $i++)
+                            {
+                                $games[$index]["quiz"][$index2]["alternatives"][] = $users[$i]["username"];
                             }
                         }
-                    }
+                    } 
 
                     $games[$index]["current_question_nr"] += $next;
+                    $games[$index]["current_votes"] = [];
 
                     //Updates the games.json file with next question index. 
                     $json = json_encode($games, JSON_PRETTY_PRINT);
@@ -80,11 +88,14 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
-                    $games[$index]["users"][$winner]["points"] += 2;
-
                     foreach ($game['users'] as $index2 => $user) 
                     {
-                        foreach ($game['current_votes'] as $index3 => $vote) 
+                        if($winner == $user["username"]) 
+                        {
+                            $games[$index]["users"][$index2]["points"] += 2;
+                        }
+
+                        foreach($game['current_votes'] as $index3 => $vote) 
                         {
                             if ($user['username'] == $vote['user'] && $vote['vote'] == $winner) 
                             {
@@ -93,7 +104,7 @@
                         }
                     }
 
-                    //Updates the games.json file with next question index. 
+                    //Updates the games.json file with next question index
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
                     $message = ["message" => "Success."];

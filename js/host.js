@@ -1,25 +1,29 @@
 
-const interval = 1000;
 let nIntervId; // stores the setInterval id to be later used to delete the interval
 let allPlayers = []; // Initialize an array to store the players
-const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
-const hostName = localStorage.getItem("name");
-const category = localStorage.getItem("category");
-const serverCode = localStorage.getItem("serverCode");
-
-const mainHtml = document.querySelector("main");
 let questionNr = 0;
-let cancelQuestionFetch = true;
+let cancelQuestionFetch = true; // decides if the next question should be displayed
+let usersWhoVoted = [];
+
+const interval = 1000; //the interval time for the setInterval
+const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
+const hostName = localStorage.getItem("name"); // hostname for the user whi created the game
+const category = localStorage.getItem("category");
+const serverCode = localStorage.getItem("serverCode"); // servercode for the game
+const mainHtml = document.querySelector("main");
+
 
 //Starts the functions to create the host page and track the joined players
 async function startHostPage() {
 
     document.querySelector("#title").textContent = "Vem kan mest?";
-    document.querySelector("#kategori").textContent = "Party";
+    document.querySelector("#kategori").textContent = category;
+    document.querySelector("#serverCode").textContent = serverCode;
 
     nIntervId = setInterval(myCallback, interval, true, false);
 }
 
+// This is the setInterval function wich diside if it should display players or display question
 function myCallback(displayPlayer, displayQuestion) {
     //fetches players that join the lobby
     if (displayPlayer) {
@@ -28,15 +32,18 @@ function myCallback(displayPlayer, displayQuestion) {
 
     //should only be one time per question
     if (displayQuestion) {
+        checkVotes();
         nextQuestion();
     }
+
 
     //make one for the votes that should update every second
 
 }
 
+//Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
-    const response = await fetcha(`api/game.php`, "POST", { host: hostName, quiz: category });
+    const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
 
     const data = await response.json();
     console.log(data);
@@ -59,7 +66,7 @@ async function dispalyNewPlayers() {
         const startIndex = length2 - numOfNewPlayers;
         const players = newPlayers.slice(startIndex, length2);
         players.forEach(player => {
-            document.querySelector("#playerNames").innerHTML += `<p>${player}</p>`;
+            document.querySelector("#playerNames").innerHTML += `<p>${player.username}</p>`;
         });
     }
     // Update the player list
@@ -104,22 +111,24 @@ document.querySelector("#startQuiz").addEventListener("click", (e) => {
     incrementQuestionNr();
 
     nIntervId = setInterval(myCallback, interval, false, true);
-
 })
+
 
 function incrementQuestionNr() {
     const nextQuestionBody = {
-        next: questionNr++,
+        next: 1,
         server_code: serverCode,
-        host: hostName
+        host: hostName,
     }
+
     fetcha("api/host.php", "POST", nextQuestionBody);
 }
+
+// incrementQuestionNr()
 
 async function nextQuestion() {
     // first time it is true so we can display the question, second time it is false so it doesent update every second
     if (cancelQuestionFetch) {
-        console.log("hello");
         cancelQuestionFetch = false;
         const gameObject = await fetchGameObject();
         displayQuestion(gameObject);
@@ -131,10 +140,7 @@ function displayQuestion(object) {
     //!fix this function
     questionNr = object.current_question_nr;
     const currentQuestion = object.quiz[questionNr].question;
-    const playingUsers = object.quiz[questionNr].numberOfPlayers;
-    // getRandomPlayers(4, playersArray);
-    // console.log(playingUsers);
-    // console.log(playersArray);
+    const playingUsers = object.quiz[questionNr].alternatives;
 
     mainHtml.innerHTML =
         `
@@ -146,10 +152,10 @@ function displayQuestion(object) {
             <img src="" alt="">
             <div class="buttonContainer"></div>
         </section>
-        <section class="question" id="next">
-            <button>Nästa fråga </button>
+        <section class="question">
+            <button id="nextBtn">Nästa fråga</button>
         </section>
-    `
+    `;
 
     //* this gives eventlisteners to the buttons to be able to select the winner
     playingUsers.forEach(user => {
@@ -173,11 +179,46 @@ function displayQuestion(object) {
         mainHtml.querySelector(".buttonContainer").append(button);
     })
 
-    mainHtml.querySelector("#next button").addEventListener("click", function (e) {
+    mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
+        console.log(this);
         cancelQuestionFetch = true;
         incrementQuestionNr();
         nextQuestion();
     })
+}
+
+// {
+//     "host": "Isak",
+//     "id": 1,
+//     "server_code": "7163",
+//     "quiz": [],
+//     "current_question_nr": 0,
+//     "current_votes": [
+//         {
+//             "vote": "Isak",
+//             "user": "Isak"
+//         },
+//         {
+//             "vote": "Isak",
+//             "user": "Adam"
+//         }
+//     ],
+//     "users": [
+//         {
+//             "username": "Isak",
+//             "points": 0
+//         }
+//     ],
+//     "active": true
+// }
+async function checkVotes() {
+    //*gå igenom currentvotes arrayen och lägg till de användare som har röstat och lägg en de i den andra arrayen userWhoVoted
+    //*skapa en array eller objekt där du sparar hur många röster varje aktiv spelare har och uppdatera css efter det
+    //*jämför hur lång allPlayers är genom hur lång userWhoVoted är för att veta så att alla har röstat
+    //* uppdatera hosten om vem som inte har röstat?
+    const object = await fetchGameObject();
+    const currentquestion = object.quiz[object.current_question_nr].alternatives
+
 }
 
 

@@ -16,7 +16,7 @@ async function fetcha(url, type, info) {
             });
         }
 
-        console.log(response);
+        // console.log(response);
         return response;
 
     } catch (err) {

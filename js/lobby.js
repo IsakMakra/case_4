@@ -53,8 +53,7 @@ async function createLobby(hostName, category) {
     localStorage.setItem("serverCode", data.server_code);
 
     if (response.ok) {
-        // document.getElementById("createLobbyMessage").innerHTML = "Creating lobby...";
-        startHostPage();
+        // document.getElementById("createLobbyMessage").innerHTML = "Creating lobby..."
         window.location = "../host.html";
         //renderHostPage();
     } else {

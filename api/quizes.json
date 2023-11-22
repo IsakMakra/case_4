@@ -2,43 +2,54 @@
     [
         {
             "question": "Vem kan göra flest armhävningar?",
-            "numberOfPlayers": 3
+            "nr_of_users": 3,
+            "alternatives": []
         },
         {
             "question": "Vem vinner på armbrytning?",
-            "numberOfPlayers": 2
+            "nr_of_users": 2,
+            "alternatives": []
         },
         {
             "question": "Vem kan sitta i väggstolen längst?",
-            "numberOfPlayers": 4
+            "nr_of_users": 4,
+            "alternatives": []
         },
         {
             "question": "Vem vinner på tumkrig?",
-            "numberOfPlayers": 2
+            "nr_of_users": 2,
+            "alternatives": []
         },
         {
             "question": "Vem kan stå i planka längst?",
-            "numberOfPlayers": 3
+            "nr_of_users": 3,
+            "alternatives": []
         },
         {
             "question": "Vem kan balansera på ett ben längst?",
-            "numberOfPlayers": 4 
+            "nr_of_users": 4,
+            "alternatives": []
         },
         {
             "question": "Vem kan komma närmst till att ha sina handflator på golvet med sträckta ben?",
-            "numberOfPlayers": 3
-        },    {
+            "nr_of_users": 3,
+            "alternatives": []
+        },    
+        {
             "question": "Vem kan sätta en bottle flip först?",
-            "numberOfPlayers": 2
+            "nr_of_users": 2,
+            "alternatives": []
         },
         {
             "question": "Vem vinner på sten sax påse?",
-            "numberOfPlayers": 2
+            "nr_of_users": 2,
+            "alternatives": []
         },
         {
             "question": "Vem kan säga flest länder på 1 minut",
-            "numberOfPlayers": 2,
-            "link": [
+            "nr_of_users": 2,
+            "alternatives": [],
+            "extra": [
                 "länk till en bild på Europa",
                 "länk till en bild på Afrika",
                 "länk till en bild på Asien",
@@ -47,8 +58,9 @@
         },
         {
             "question": "Vem kan låten?",
-            "numberOfPlayers": 2,
-            "song": [
+            "nr_of_users": 2,
+            "alternatives": [],
+            "extra": [
                 "Baby av Justin Bieber, `You know you love me, I know you care.`",
                 "Sveriges nationalsång, `Du Gamla, Du Fria, Du Fjällhöga Nord`",
                 "Guld och gröna skogar av Hasse Andersson, `Det var dans och hålligång, Upp på logen natten lång`",
@@ -57,10 +69,11 @@
         },
         {
             "question": "Ring of fire",
-            "numberOfPlayers": 4,
-            "Theme": [
+            "nr_of_users": 4,
+            "alternatives": [],
+            "extra": [
                 "Bilmärken", "Designermärken", "Sminkmärken"
             ]
         }
-    ]   
+    ]
 ]
