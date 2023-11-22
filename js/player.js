@@ -4,65 +4,66 @@ const password = localStorage.getItem("password");
 const username = localStorage.getItem("name");
 
 //Create eventlistener
-    // Get the parent div
-    const parentDiv = document.getElementById("users");
+// Get the parent div
+const parentDiv = document.getElementById("users");
 
-        // Loop through the children and add an event listener to each one
-        for (let i = 0; i < parentDiv.children.length; i++) {
-            const child = parentDiv.children[i];
+// Loop through the children and add an event listener to each one
+for (let i = 0; i < parentDiv.children.length; i++) {
+    const child = parentDiv.children[i];
 
-            // Add an event listener (e.g., click event)
-            child.addEventListener("click", voteForPlayer);
+    // Add an event listener (e.g., click event)
+    child.addEventListener("click", voteForPlayer);
+}
+
+async function voteForPlayer(event) {
+
+    for (let i = 0; i < parentDiv.children.length; i++) {
+        const child = parentDiv.children[i];
+
+        child.setAttribute("disabled", true)
+    }
+
+    console.log(event.target.textContent);
+    let votedPlayer = event.target.textContent;
+
+    let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
+    let data = await response.json();
+    console.log(data.users);
+    let users = data.users;
+
+    let foundUser = null;
+
+    users.forEach(user => {
+        if (user.username === votedPlayer) {
+            console.log("10 points to slytherin!");
+            foundUser = user;
         }
+    })
 
-        async function voteForPlayer (event) {
+    if (foundUser) {
+        let infoData = {
+            server_code: password,
+            vote: votedPlayer,
+            user: username
+        };
 
-            for (let i = 0; i < parentDiv.children.length; i++) {
-                const child = parentDiv.children[i];
-    
-                child.setAttribute("disabled", true)
-            }
+        let response2 = await fetcha(`api/user.php`, "POST", infoData);
+        let data2 = await response2.json();
+        console.log(data2);
+    } else {
+        console.log("oops");
+    }
+}
 
-            console.log(event.target.textContent);
-            let votedPlayer = event.target.textContent;
-            
-            let response = await fetcha (`api/user.php?server_code=${password}`, "GET");
-            let data = await response.json();
-            console.log(data.users);
-            let users = data.users;
+async function startPlayerPage() {
 
-            let foundUser = null;
-
-            users.forEach(user => {
-                if (user.username === votedPlayer) {
-                    console.log("10 points to slytherin!");
-                    foundUser = user;
-                }})
-
-            if (foundUser) {
-                let infoData = {
-                    server_code: password,
-                    vote: votedPlayer,
-                    user: username
-                };
-
-                let response2 = await fetcha(`api/user.php`, "POST", infoData);
-                let data2 = await response2.json();
-                console.log(data2);
-            } else {
-                console.log("oops");
-            }    
-        }
-
-async function startPlayerPage () {
-
-   // child.setAttribute("disabled", false);
+    // child.setAttribute("disabled", false);
 
     const interval = 1000; // 1000 milliseconds = 1 second
 
     async function fetchData() {
 
-        let response = await fetcha (`api/user.php?server_code=${password}`, "GET");
+        let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
         console.log(response);
         let data = await response.json();
         let questionNumber = data.current_question_nr;
@@ -76,18 +77,26 @@ async function startPlayerPage () {
 
             // Iterate through userArray and update the content of <p> elements
             userArray.forEach((user, index) => {
-                const userParagraph = document.getElementById(`user${index + 1}`);
-                if (userParagraph) {
-                    userParagraph.textContent = ""; // Clear existing content
-                    userParagraph.textContent = user; // Set new content        
-                    userParagraph.disabled = false; // Re-enable the button    
+                //* if the user is playing it does not display any buttons to vote for 
+                if (user === username) {
+                    document.querySelector("#users").innerHTML = `<h1>Du ska spela</h1>`
+                } else {
+                    //* the users who are not playing get the vote buttons
+                    const userParagraph = document.getElementById(`user${index + 1}`);
+                    if (userParagraph) {
+                        userParagraph.textContent = ""; // Clear existing content
+                        userParagraph.textContent = user; // Set new content        
+                        userParagraph.disabled = false; // Re-enable the button    
+                    }
                 }
+
+
             });
             document.getElementById("feedback").textContent = data.quiz[questionNumber].question;
         }
 
     }
-    
+
     const intervalId = setInterval(fetchData, interval);
 }
 
