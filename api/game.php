@@ -17,26 +17,18 @@
 
             //Handles the quiz name and selects the appropriate index for the quiz.json file
             if($quiz_name == "random") 
-            {
-                $quiz_index = 0;
-            }
+            {$quiz_index = 0;}
             else if($quiz_name == "family")
-            {
-                $quiz_index = 1;
-            }
+            {$quiz_index = 1;}
             else if($quiz_name == "active")
-            {
-                $quiz_index = 2;
-            }
+            {$quiz_index = 2;}
             else if($quiz_name == "party")
-            {
-                $quiz_index = 3;
-            }
+            {$quiz_index = 3;}
 
             $quiz_array = $quizes[$quiz_index];
             shuffle($quiz_array);
 
-            //Making sure there is a starting screen and ending screen
+            //Making sure there is a starting screen and ending screen in the quiz
             $quiz_array[0] = "start";
             $quiz_array[count($quiz_array)] = "end";
 
@@ -160,7 +152,6 @@
                     send_JSON($message);
                 }
             }
-
         }
         else
         {
