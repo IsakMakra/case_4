@@ -23,8 +23,7 @@
                     {
                         //Selects which users are to be alternatives for each question
                         foreach($game["quiz"] as $index2 => $question) 
-                        {
-                            
+                        {    
                             $alternatives = [];
 
                             if($question == "start") 
@@ -54,11 +53,10 @@
                         }
                     } 
 
-                    //Updates current question nr and clears votes for the next question
+                    //Updates the games.json file with next question index
+                    //and clears current_votes
                     $games[$index]["current_question_nr"] += $next;
                     $games[$index]["current_votes"] = [];
-
-                    //Updates the games.json file with next question index
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
                     $message = ["message" => "Success."];
@@ -68,7 +66,6 @@
 
             $message = ["message" => "Error, wrong host username or server code."];
             send_JSON($message, 404);
-
         }
         else
         {
@@ -95,7 +92,7 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
-                    //Adds points to the users who chose corretly and to the winner
+                    //Adds 1 point to the users who chose corretly and 2 points to the winner
                     foreach ($game['users'] as $index2 => $user) 
                     {
                         if($winner == $user["username"]) 
@@ -112,7 +109,8 @@
                         }
                     }
 
-                    //Updates the games.json file with points for the winner/users with the correct answer
+                    //Updates the games.json file with the 
+                    //added points for the users
                     $json = json_encode($games, JSON_PRETTY_PRINT);
                     file_put_contents($games_file, $json);
                     $message = ["message" => "Success."];
@@ -122,7 +120,6 @@
 
             $message = ["message" => "Error, wrong host username or server code."];
             send_JSON($message, 404);
-
         }
         else
         {
