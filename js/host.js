@@ -5,7 +5,7 @@ let questionNr = 0;
 let cancelQuestionFetch = true; // decides if the next question should be displayed
 let firstInterval = true;
 let usersWhoVoted = [];
-let currentPlayers = [];
+let currentPlayers = {};
 
 const interval = 1000; //the interval time for the setInterval
 const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
@@ -228,16 +228,22 @@ async function checkVotes() {
     //* uppdatera hosten om vem som inte har röstat?
     const object = await fetchGameObject();
     const players = object.quiz[object.current_question_nr].alternatives;
+    const allvotes = object.current_votes;
     if (firstInterval) {
         firstInterval = false;
-        players.forEach(player => {
-            let playerObject = {
-                player: player,
-                votes: 0,
-            }
-            currentPlayers.push(playerObject);
-        })
+        players.forEach(player => { currentPlayers[player] = 0 })
         console.log(currentPlayers);
+    }
+
+    allvotes.forEach(voteObject => {
+        if (!usersWhoVoted.includes(voteObject.user)) {
+            usersWhoVoted.push(user);
+            currentPlayers[user]++
+        }
+    })
+
+    if (voteObject.length === object.user.length - players.length) {
+        console.log("all players have voted");
     }
 }
 
