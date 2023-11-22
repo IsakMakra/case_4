@@ -50,6 +50,7 @@
         //?server_code=xxx
     if($request_method == "GET") 
     {   
+        
         //Checks if GET-request has the correct parameter
         if(isset($_GET["server_code"])) 
         {

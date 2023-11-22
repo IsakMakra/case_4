@@ -1,35 +1,28 @@
 "use strict";
 
-function renderLobbyPage(password) {
-    document.body.innerHTML = `
-    <p>Waiting for game to start...</p>
-    `;
-    QuizQuestion(password);
-}
+const password = localStorage.getItem("password");
 
-//Function to keep up with what question is active in game
-async function QuizQuestion (password) {
+async function startPlayerPage () {
 
-    //This function checks which question is active every second to update the user with information
-    async function checkQuizStatus () {
-        let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
+    const interval = 1000; // 1000 milliseconds = 1 second
+
+    async function fetchData() {
+
+        let response = await fetcha (`api/user.php?server_code=${password}`, "GET");
+        console.log(response);
         let data = await response.json();
         console.log(data.current_question_nr);
         let questionNumber = data.current_question_nr;
-    
+
         if (questionNumber === 0) {
-            console.log("not ready yet");
+            console.log("Not ready yet");
         } else {
-            console.log("Let's play");
-            document.body.innerHTML = `
-            <p>Game is live</p>
-            `;
+            console.log("Game is active");
         }
     }
-
-    // Set up an interval to call the function every second
-    const intervalId = setInterval(async () => {
-        await checkQuizStatus();
-    }, 1000);
-
+    
+    const intervalId = setInterval(fetchData, interval);
 }
+
+startPlayerPage();
+
