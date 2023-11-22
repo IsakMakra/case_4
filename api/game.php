@@ -134,6 +134,10 @@
         }
     }
 
+
+    //DELETE - Deletes a game from games.json
+        //host: x
+        //server_code: xxxx
     $required_keys_DELETE = ["host", "server_code"];
     if($request_method == "DELETE")
     {
