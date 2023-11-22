@@ -66,11 +66,7 @@
                 "nr_of_users": 2,
                 "alternatives": []
             },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": []
-            }
+            "start"
         ],
         "current_question_nr": 0,
         "current_votes": [],
@@ -208,88 +204,100 @@
         "active": true
     },
     {
-        "host": "kajsa",
+        "host": "erik",
         "id": 3,
-        "server_code": "3281",
+        "server_code": "1746",
         "quiz": [
             "start",
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "Kajsa",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "Kajsa",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "Kajsa",
-                    null
-                ]
-            },
             {
                 "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
                 "nr_of_users": 4,
                 "alternatives": [
-                    "Kajsa",
-                    null,
-                    null,
-                    null
+                    "dsfkkld",
+                    "sdfsdfsdf",
+                    "asdasbn",
+                    "mnmbnbnb"
                 ]
             },
             {
                 "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
                 "nr_of_users": 4,
                 "alternatives": [
-                    "Kajsa",
-                    null,
-                    null,
-                    null
+                    "asdasbn",
+                    "dsfkkld",
+                    "likmlknl",
+                    "sdfsdfsdf"
                 ]
             },
             {
                 "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
                 "nr_of_users": 2,
                 "alternatives": [
-                    "Kajsa",
-                    null
+                    "asdasbn",
+                    "sdfsdfsdf"
                 ]
             },
             {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "Kajsa",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "question": "Vem kan l\u00e5ten?",
                 "nr_of_users": 2,
                 "alternatives": [
-                    "Kajsa",
-                    null
+                    "dsfkkld",
+                    "bnbbnbnnb"
+                ],
+                "extra": [
+                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
+                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
+                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
+                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
+                ]
+            },
+            {
+                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "asdasbn",
+                    "nbbnbnbn",
+                    "bnbbnbnnb"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 armbrytning?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "nbbnbnbn",
+                    "bnbbnbnnb"
+                ]
+            },
+            {
+                "question": "Ring of fire",
+                "nr_of_users": 4,
+                "alternatives": [
+                    "dsfkkld",
+                    "mnmbnbnb",
+                    "bnbbnbnnb",
+                    "asdasbn"
+                ],
+                "extra": [
+                    "Bilm\u00e4rken",
+                    "Designerm\u00e4rken",
+                    "Sminkm\u00e4rken"
+                ]
+            },
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "mnmbnbnb",
+                    "dsfkkld",
+                    "nbbnbnbn"
                 ]
             },
             {
                 "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
                 "nr_of_users": 2,
                 "alternatives": [
-                    "Kajsa",
-                    null
+                    "sdfsdfsdf",
+                    "asdasbn"
                 ],
                 "extra": [
                     "l\u00e4nk till en bild p\u00e5 Europa",
@@ -299,1220 +307,53 @@
                 ]
             },
             {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
+                "question": "Vem vinner p\u00e5 tumkrig?",
+                "nr_of_users": 2,
                 "alternatives": [
-                    "Kajsa",
-                    null,
-                    null,
-                    null
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
+                    "mnmbnbnb",
+                    "dsfkkld"
                 ]
             },
             {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
+                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+                "nr_of_users": 3,
                 "alternatives": [
-                    "Kajsa",
-                    null
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
+                    "sdfsdfsdf",
+                    "mnmbnbnb",
+                    "nbbnbnbn"
                 ]
-            }
+            },
+            "end"
         ],
         "current_question_nr": 1,
         "current_votes": [],
         "users": [
             {
-                "username": "Kajsa",
-                "points": 0
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "jjj",
-        "id": 4,
-        "server_code": "5392",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "opopoo",
-                    null,
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "opopoo",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "opopoo",
-                    null,
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "opopoo",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "opopoo",
-                    null
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "opopoo",
-                    null
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "opopoo",
-                    null
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "opopoo",
-                    null,
-                    null,
-                    null
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "opopoo",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "opopoo",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "opopoo",
-                    null
-                ]
-            }
-        ],
-        "current_question_nr": 1,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "opopoo",
-                "points": 0
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "kdskdk",
-        "id": 5,
-        "server_code": "4873",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "kdkd",
-                    null,
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "kdkd",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "kdkd",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "kdkd",
-                    null
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "kdkd",
-                    null
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "kdkd",
-                    null,
-                    null,
-                    null
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "kdkd",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "kdkd",
-                    null,
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "kdkd",
-                    null
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            },
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "kdkd",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "kdkd",
-                    null,
-                    null
-                ]
-            }
-        ],
-        "current_question_nr": 7,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "kdkd",
-                "points": 8
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "kajsa",
-        "id": 6,
-        "server_code": "9235",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "tor",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "tor",
-                    null,
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "tor",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "tor",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "tor",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "tor",
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "tor",
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "tor",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "tor",
-                    null
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "tor",
-                    null,
-                    null,
-                    null
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "tor",
-                    null
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            }
-        ],
-        "current_question_nr": 6,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "tor",
-                "points": 10
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "ttee",
-        "id": 7,
-        "server_code": "8957",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "sddf",
-                    "op"
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "sddf",
-                    "as",
-                    "op"
-                ]
-            },
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "qwe",
-                    "as",
-                    "ewe"
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "sddf",
-                    "ewe",
-                    "qwe"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "as",
-                    "sddf"
-                ]
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "as",
-                    "op",
-                    "ewe",
-                    "sddf"
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "ewe",
-                    "sddf",
-                    "op",
-                    "as"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "qwe",
-                    "sddf"
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "ewe",
-                    "sddf",
-                    "as",
-                    "qwe"
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "op",
-                    "qwe"
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "ewe",
-                    "as"
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            }
-        ],
-        "current_question_nr": 4,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "ewe",
+                "username": "nbbnbnbn",
                 "points": 0
             },
             {
-                "username": "op",
-                "points": 2
-            },
-            {
-                "username": "as",
+                "username": "asdasbn",
                 "points": 0
             },
             {
-                "username": "qwe",
+                "username": "mnmbnbnb",
                 "points": 0
             },
             {
-                "username": "sddf",
-                "points": 4
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "kfjssdf",
-        "id": 8,
-        "server_code": "3617",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "rewer",
-                    "sdfj",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "rewer",
-                    "sdfj",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "rewer",
-                    "sdfj"
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "rewer",
-                    "sdfj",
-                    null,
-                    null
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "rewer",
-                    "sdfj",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "sdfj",
-                    "rewer"
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "sdfj",
-                    "rewer",
-                    null,
-                    null
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "rewer",
-                    "sdfj"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "rewer",
-                    "sdfj"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "sdfj",
-                    "rewer"
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "rewer",
-                    "sdfj",
-                    null
-                ]
-            }
-        ],
-        "current_question_nr": 14,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "sdfj",
+                "username": "bnbbnbnnb",
                 "points": 0
             },
             {
-                "username": "rewer",
-                "points": 0
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "poo",
-        "id": 9,
-        "server_code": "2918",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": []
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": []
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": []
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": []
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": []
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": []
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": []
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": []
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            }
-        ],
-        "current_question_nr": 0,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "olk",
-                "points": 0
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "pkl",
-        "id": 10,
-        "server_code": "9763",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "mnmnmn",
-                    "jkjkkj",
-                    "nnnnn"
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "mnmnmn",
-                    "jkjkkj"
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "nnnnn",
-                    "oooo",
-                    "jkjkkj"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "mnmnmn",
-                    "jkjkkj"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "jkjkkj",
-                    "oooo"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "oooo",
-                    "jkjkkj"
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "mnmnmn",
-                    "oooo",
-                    "nnnnn"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "jkjkkj",
-                    "nnnnn"
-                ]
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "oooo",
-                    "jkjkkj",
-                    "mnmnmn",
-                    "nnnnn"
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "oooo",
-                    "jkjkkj",
-                    "mnmnmn",
-                    "nnnnn"
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "oooo",
-                    "nnnnn",
-                    "mnmnmn",
-                    "jkjkkj"
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            }
-        ],
-        "current_question_nr": 14,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "jkjkkj",
-                "points": 8
-            },
-            {
-                "username": "mnmnmn",
-                "points": 10
-            },
-            {
-                "username": "nnnnn",
-                "points": 2
-            },
-            {
-                "username": "oooo",
-                "points": 4
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "fdsd",
-        "id": 11,
-        "server_code": "9563",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "sdsd",
-                    "dddd",
-                    "keke"
-                ]
-            },
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "dddd",
-                    "sdsd",
-                    "keke"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "sdsd",
-                    "dddd"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "keke",
-                    "dddd"
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "keke",
-                    "dddd"
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "keke",
-                    "dddd"
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "dddd",
-                    "sdsd"
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "dddd",
-                    "keke",
-                    "sdsd",
-                    null
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "sdsd",
-                    "keke",
-                    "dddd"
-                ]
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "sdsd",
-                    "dddd",
-                    "keke",
-                    null
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "sdsd",
-                    "dddd",
-                    "keke",
-                    null
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            }
-        ],
-        "current_question_nr": 15,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "keke",
-                "points": 6
-            },
-            {
-                "username": "dddd",
-                "points": 8
-            },
-            {
-                "username": "sdsd",
-                "points": 10
-            }
-        ],
-        "active": true
-    },
-    {
-        "host": "rted",
-        "id": 12,
-        "server_code": "9417",
-        "quiz": [
-            "start",
-            {
-                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "asd",
-                    "eqwa"
-                ]
-            },
-            {
-                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "llo",
-                    "eqwa",
-                    "asd"
-                ]
-            },
-            {
-                "question": "Vem kan l\u00e5ten?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "cxcvn",
-                    "llo"
-                ],
-                "extra": [
-                    "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                    "Sveriges nationals\u00e5ng, `Du Gamla, Du Fria, Du Fj\u00e4llh\u00f6ga Nord`",
-                    "Guld och gr\u00f6na skogar av Hasse Andersson, `Det var dans och h\u00e5llig\u00e5ng, Upp p\u00e5 logen natten l\u00e5ng`",
-                    "Jag kommer av Veronica Maggio, `Natten \u00e4r ung och jag ligger vaken, jag \u00e4r Lucy in the sky jag \u00e4r h\u00f6gt \u00f6ver molnen"
-                ]
-            },
-            {
-                "question": "Vem kan s\u00e4ga flest l\u00e4nder p\u00e5 1 minut",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "asd",
-                    "cxcvn"
-                ],
-                "extra": [
-                    "l\u00e4nk till en bild p\u00e5 Europa",
-                    "l\u00e4nk till en bild p\u00e5 Afrika",
-                    "l\u00e4nk till en bild p\u00e5 Asien",
-                    "osv"
-                ]
-            },
-            {
-                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "cxcvn",
-                    "llo",
-                    "eqwa",
-                    "asd"
-                ]
-            },
-            {
-                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "asd",
-                    "eqwa",
-                    "llo"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 armbrytning?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "asd",
-                    "cxcvn"
-                ]
-            },
-            {
-                "question": "Vem vinner p\u00e5 tumkrig?",
-                "nr_of_users": 2,
-                "alternatives": [
-                    "asd",
-                    "llo"
-                ]
-            },
-            {
-                "question": "Vem kan sitta i v\u00e4ggstolen l\u00e4ngst?",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "eqwa",
-                    "asd",
-                    "llo",
-                    "cxcvn"
-                ]
-            },
-            {
-                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
-                "nr_of_users": 3,
-                "alternatives": [
-                    "asd",
-                    "llo",
-                    "cxcvn"
-                ]
-            },
-            {
-                "question": "Ring of fire",
-                "nr_of_users": 4,
-                "alternatives": [
-                    "asd",
-                    "eqwa",
-                    "cxcvn",
-                    "llo"
-                ],
-                "extra": [
-                    "Bilm\u00e4rken",
-                    "Designerm\u00e4rken",
-                    "Sminkm\u00e4rken"
-                ]
-            }
-        ],
-        "current_question_nr": 1,
-        "current_votes": [],
-        "users": [
-            {
-                "username": "llo",
+                "username": "dsfkkld",
                 "points": 0
             },
             {
-                "username": "eqwa",
+                "username": "likmlknl",
                 "points": 0
             },
             {
-                "username": "asd",
-                "points": 0
-            },
-            {
-                "username": "cxcvn",
+                "username": "sdfsdfsdf",
                 "points": 0
             }
         ],

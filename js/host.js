@@ -3,7 +3,9 @@ let nIntervId; // stores the setInterval id to be later used to delete the inter
 let allPlayers = []; // Initialize an array to store the players
 let questionNr = 0;
 let cancelQuestionFetch = true; // decides if the next question should be displayed
+let firstInterval = true;
 let usersWhoVoted = [];
+let currentPlayers = [];
 
 const interval = 1000; //the interval time for the setInterval
 const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
@@ -32,8 +34,8 @@ function myCallback(displayPlayer, displayQuestion) {
 
     //should only be one time per question
     if (displayQuestion) {
-        checkVotes();
         nextQuestion();
+        checkVotes();
     }
 
 
@@ -137,10 +139,18 @@ async function nextQuestion() {
 
 // displayQuestion()
 function displayQuestion(object) {
-    //!fix this function
-    questionNr = object.current_question_nr;
+    questionNr = object.current_question_nr; //question number so we know which question to display
     const currentQuestion = object.quiz[questionNr].question;
     const playingUsers = object.quiz[questionNr].alternatives;
+
+    if (questionNr >= 0 && questionNr <= object.quiz.length) {
+        window.addEventListener('beforeunload', function (event) {
+            event.preventDefault();
+            var customMessage = 'Are you sure you want to leave? Your quiz will be lost if you leave.';
+            event.returnValue = customMessage; // Standard for most browsers
+            return customMessage; // For some older browsers
+        });
+    }
 
     mainHtml.innerHTML =
         `
@@ -217,8 +227,18 @@ async function checkVotes() {
     //*jämför hur lång allPlayers är genom hur lång userWhoVoted är för att veta så att alla har röstat
     //* uppdatera hosten om vem som inte har röstat?
     const object = await fetchGameObject();
-    const currentquestion = object.quiz[object.current_question_nr].alternatives
-
+    const players = object.quiz[object.current_question_nr].alternatives;
+    if (firstInterval) {
+        firstInterval = false;
+        players.forEach(player => {
+            let playerObject = {
+                player: player,
+                votes: 0,
+            }
+            currentPlayers.push(playerObject);
+        })
+        console.log(currentPlayers);
+    }
 }
 
 

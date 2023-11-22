@@ -36,9 +36,9 @@
             $quiz_array = $quizes[$quiz_index];
             shuffle($quiz_array);
 
-            //Making sure there is a starting screen before 
-            //the quiz begins with index 1 in the quiz array
+            //Making sure there is a starting screen and ending screen
             $quiz_array[0] = "start";
+            $quiz_array[count($quiz_array)] = "end";
 
             //Creates an unique id for the game
             $highest_id = 0;
