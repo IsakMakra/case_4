@@ -110,7 +110,7 @@ function displayQuestion(object) {
     console.log(object.quiz[questionNr]);
     if (object.quiz[questionNr] === "end") {
         console.log("end quiz");
-        window.removeEventListener(beforeunload);
+        window.removeEventListener("beforeunload");
         endQuiz(object);
         return;
     }
@@ -145,6 +145,7 @@ function displayQuestion(object) {
     playingUsers.forEach(user => {
         const button = document.createElement("button");
         button.classList.add("playerBtn");
+        button.id = user;
         button.textContent = user;
         button.addEventListener("click", function (e) {
             console.log("winner");
@@ -165,6 +166,11 @@ function displayQuestion(object) {
 
     mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
         cancelQuestionFetch = true;
+        firstInterval = true;
+        Object.keys(currentPlayers).forEach(key => {
+            delete currentPlayers[key];
+        });
+        usersWhoVoted = [];
         incrementQuestionNr();
         nextQuestion();
     })
@@ -204,37 +210,9 @@ function endQuiz(object) {
     })
 }
 
-// {
-//     "host": "Isak",
-//     "id": 1,
-//     "server_code": "7163",
-//     "quiz": [],
-//     "current_question_nr": 0,
-//     "current_votes": [
-//         {
-//             "vote": "Isak",
-//             "user": "Isak"
-//         },
-//         {
-//             "vote": "Isak",
-//             "user": "Adam"
-//         }
-//     ],
-//     "users": [
-//         {
-//             "username": "Isak",
-//             "points": 0
-//         }
-//     ],
-//     "active": true
-// }
 async function checkVotes() {
-    //*gå igenom currentvotes arrayen och lägg till de användare som har röstat och lägg en de i den andra arrayen userWhoVoted
-    //*skapa en array eller objekt där du sparar hur många röster varje aktiv spelare har och uppdatera css efter det
-    //*jämför hur lång allPlayers är genom hur lång userWhoVoted är för att veta så att alla har röstat
-    //* uppdatera hosten om vem som inte har röstat?
     const object = await fetchGameObject();
-    const players = object.quiz[object.current_question_nr].alternatives;
+    const playingUsers = object.quiz[object.current_question_nr].alternatives;
     const allvotes = object.current_votes;
 
     if (object.quiz[object.current_question_nr] === "end") {
@@ -243,20 +221,23 @@ async function checkVotes() {
 
     if (firstInterval) {
         firstInterval = false;
-        players.forEach(player => { currentPlayers[player] = 0 })
+        playingUsers.forEach(player => { currentPlayers[player] = 0 })
         console.log(currentPlayers);
     }
 
-    // if (allvotes.length > 0) {
     allvotes.forEach(voteObject => {
         if (!usersWhoVoted.includes(voteObject.user)) {
-            usersWhoVoted.push(user);
-            currentPlayers[user]++
+            usersWhoVoted.push(voteObject.user);
+            currentPlayers[voteObject.user]++
         }
     })
-    // }
+
+    //! fix this so it updates the player votes to the correct player
+    // document.querySelectorAll(".playerBtn").forEach(player => {
+    //     player.textContent = ` ${currentPlayers[player.textContent]}`
+    // })
     // console.log(currentPlayers);
-    if (allvotes.length === object.users.length - players.length) {
+    if (allvotes.length === object.users.length - playingUsers.length) {
         console.log("all players have voted");
     }
 }
