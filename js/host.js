@@ -1,21 +1,25 @@
 
+//* intergers
 let nIntervId; // stores the setInterval id to be later used to delete the interval
-let allPlayers = []; // Initialize an array to store the players
 let questionNr = 0;
+
+//* Booleans
 let cancelQuestionFetch = true; // decides if the next question should be displayed
 let firstInterval = true;
+
+//* Arrays
+let allPlayers = []; // Initialize an array to store the players
 let usersWhoVoted = [];
 let currentPlayers = {};
 
 const interval = 1000; //the interval time for the setInterval
-const playersArray = ["Adam", "Isak", "Kajsa", "Tanner", "jacob", "love", "mackan", "johan"];
 const hostName = localStorage.getItem("name"); // hostname for the user whi created the game
-const category = localStorage.getItem("category");
+const category = localStorage.getItem("category"); // category of the game
 const serverCode = localStorage.getItem("serverCode"); // servercode for the game
 const mainHtml = document.querySelector("main");
 
 
-//Starts the functions to create the host page and track the joined players
+//Starts to create the host page and track the joined players
 async function startHostPage() {
 
     document.querySelector("#title").textContent = "Vem kan mest?";
@@ -33,7 +37,8 @@ function myCallback(displayPlayer, displayQuestion) {
         dispalyNewPlayers();
     }
 
-    //should only be one time per question
+    //nextQuestion should only be called one time per round
+    //checkVotes get called every second to collect and save the votes 
     if (displayQuestion) {
         nextQuestion();
         checkVotes();
@@ -56,7 +61,7 @@ async function dispalyNewPlayers() {
     const length1 = allPlayers.length;
     const length2 = newPlayers.length;
 
-    // if this is true there is new players in the lobby and we dispaly their names
+    // if this is true there is a new players in the lobby and we dispaly their names
     if (length2 > length1) {
         const numOfNewPlayers = length2 - length1;
         const startIndex = length2 - numOfNewPlayers;
@@ -78,7 +83,7 @@ document.querySelector("#startQuiz").addEventListener("click", (e) => {
     nIntervId = setInterval(myCallback, interval, false, true);
 })
 
-
+//this function makes a new request for incrementing the currentquesiton number so the next question can be displayed
 function incrementQuestionNr() {
     const nextQuestionBody = {
         next: 1,
@@ -98,7 +103,6 @@ async function nextQuestion() {
     }
 }
 
-// displayQuestion()
 function displayQuestion(object) {
     questionNr = object.current_question_nr; //question number so we know which question to display
     const currentQuestion = object.quiz[questionNr].question;
@@ -106,6 +110,7 @@ function displayQuestion(object) {
     console.log(object.quiz[questionNr]);
     if (object.quiz[questionNr] === "end") {
         console.log("end quiz");
+        window.removeEventListener(beforeunload);
         endQuiz(object);
         return;
     }
@@ -194,7 +199,7 @@ function endQuiz(object) {
             host: hostName,
             server_code: serverCode
         }
-        fetcha("api/.game.php", "DELETE", deleteBody);
+        fetcha("api/game.php", "DELETE", deleteBody);
         window.location = "./index.html";
     })
 }
