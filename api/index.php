@@ -55,7 +55,7 @@
         }
     }
 
-    //Gets the information from the POST- and the PATCH-requests
+    //Gets the information from the POST, DELETE, PATCH requests
     $request_JSON = file_get_contents("php://input");
     $request_data = json_decode($request_JSON, true);
 ?>

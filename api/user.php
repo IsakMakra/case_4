@@ -37,7 +37,6 @@
 
             $message = ["message" => "Error, wrong host username or server code."];
             send_JSON($message, 404);
-
         }
         else
         {
@@ -50,8 +49,7 @@
         //?server_code=xxxx
     if($request_method == "GET") 
     {   
-        
-        //Checks if GET-request has the correct parameter
+        //Checks if the GET-request has the correct parameter
         if(isset($_GET["server_code"])) 
         {
             $server_code = $_GET["server_code"];
