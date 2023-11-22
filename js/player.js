@@ -70,6 +70,7 @@ async function startPlayerPage () {
         //console.log(data.quiz[questionNumber].alternatives);
 
         if (data.quiz[questionNumber] === "start") {
+            document.getElementById("feedback").textContent = "Waiting for game to start...";
         } else {
             let userArray = data.quiz[questionNumber].alternatives;
 
@@ -82,15 +83,9 @@ async function startPlayerPage () {
                     userParagraph.disabled = false; // Re-enable the button    
                 }
             });
+            document.getElementById("feedback").textContent = data.quiz[questionNumber].question;
         }
 
-        document.getElementById("feedback").textContent = data.quiz[questionNumber].question;
-
-        if (questionNumber === 0) {
-            console.log("Not ready yet");
-        } else {
-            console.log("Game is active");
-        }
     }
     
     const intervalId = setInterval(fetchData, interval);
