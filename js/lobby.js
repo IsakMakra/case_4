@@ -18,9 +18,11 @@ async function joinLobby(password, user) {
     //Wrong code
     if (response.ok) {
         document.getElementById("joinLobbyMessage").innerHTML = "Joining lobby...";
-        renderLobbyPage(password);
         let data = await response.json();
         console.log(data);
+        localStorage.setItem("password", password);
+        window.location = "../player.html";
+
     } else {
     //Correct code
         document.getElementById("joinLobbyMessage").innerHTML = "Wrong password...";
