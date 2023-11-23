@@ -2,7 +2,7 @@
 
 const password = localStorage.getItem("password");
 const username = localStorage.getItem("name");
-
+document.querySelector("#namn").textContent = username;
 //Create eventlistener
 // Get the parent div
 const parentDiv = document.getElementById("users");
@@ -77,20 +77,13 @@ async function startPlayerPage() {
 
             // Iterate through userArray and update the content of <p> elements
             userArray.forEach((user, index) => {
-                //* if the user is playing it does not display any buttons to vote for 
-                if (user === username) {
-                    document.querySelector("#users").innerHTML = `<h1>Du ska spela</h1>`
-                } else {
-                    //* the users who are not playing get the vote buttons
-                    const userParagraph = document.getElementById(`user${index + 1}`);
-                    if (userParagraph) {
-                        userParagraph.textContent = ""; // Clear existing content
-                        userParagraph.textContent = user; // Set new content        
-                        userParagraph.disabled = false; // Re-enable the button    
-                    }
+
+                const userParagraph = document.getElementById(`user${index + 1}`);
+                if (userParagraph) {
+                    userParagraph.textContent = ""; // Clear existing content
+                    userParagraph.textContent = user; // Set new content        
+                    userParagraph.disabled = false; // Re-enable the button    
                 }
-
-
             });
             document.getElementById("feedback").textContent = data.quiz[questionNumber].question;
         }

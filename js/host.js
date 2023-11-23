@@ -110,18 +110,20 @@ function displayQuestion(object) {
     console.log(object.quiz[questionNr]);
     if (object.quiz[questionNr] === "end") {
         console.log("end quiz");
-        window.removeEventListener("beforeunload");
+        window.removeEventListener("beforeunload", beforeUnloadHandler);
         endQuiz(object);
         return;
     }
 
     if (questionNr >= 0 && questionNr <= object.quiz.length) {
-        window.addEventListener('beforeunload', function (event) {
-            event.preventDefault();
-            var customMessage = 'Are you sure you want to leave? Your quiz will be lost if you leave.';
-            event.returnValue = customMessage; // Standard for most browsers
-            return customMessage; // For some older browsers
-        });
+        window.addEventListener('beforeunload', beforeUnloadHandler);
+    }
+
+    function beforeUnloadHandler(event) {
+        event.preventDefault();
+        var customMessage = 'Are you sure you want to leave? Your quiz will be lost if you leave.';
+        event.returnValue = customMessage; // Standard for most browsers
+        return customMessage; // For some older browsers
     }
 
     //* Makes the new html for the display of questions
@@ -133,7 +135,7 @@ function displayQuestion(object) {
             <p>${currentQuestion}</p>
         </header>
         <section class="question" id="middleSection">
-            <img src="" alt="">
+            <div class="voteContainer"></div>
             <div class="buttonContainer"></div>
         </section>
         <section class="question">
@@ -162,6 +164,14 @@ function displayQuestion(object) {
             })
         });
         mainHtml.querySelector(".buttonContainer").append(button);
+
+        mainHtml.querySelector(".voteContainer").innerHTML +=
+            `
+        <div class="voteWrapper">
+            <p class="voteNr" id="${user}">0</p>
+            <h4>${user}</h4>
+        </div>
+        `
     })
 
     mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
@@ -222,8 +232,8 @@ async function checkVotes() {
     if (firstInterval) {
         firstInterval = false;
         playingUsers.forEach(player => { currentPlayers[player] = 0 })
-        console.log(currentPlayers);
     }
+    console.log(currentPlayers[playingUsers[0]]);
 
     allvotes.forEach(voteObject => {
         if (!usersWhoVoted.includes(voteObject.user)) {
@@ -233,9 +243,10 @@ async function checkVotes() {
     })
 
     //! fix this so it updates the player votes to the correct player
-    // document.querySelectorAll(".playerBtn").forEach(player => {
-    //     player.textContent = ` ${currentPlayers[player.textContent]}`
-    // })
+    document.querySelectorAll(".voteNr").forEach(num => {
+        let player = num.id;
+        num.textContent = currentPlayers[player];
+    })
     // console.log(currentPlayers);
     if (allvotes.length === object.users.length - playingUsers.length) {
         console.log("all players have voted");
