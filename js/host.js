@@ -1,6 +1,7 @@
 
 //* intergers
 let nIntervId; // stores the setInterval id to be later used to delete the interval
+let timerIntervalId;
 let questionNr = 0;
 
 //* Booleans
@@ -12,6 +13,7 @@ let allPlayers = []; // Initialize an array to store the players
 let usersWhoVoted = [];
 let currentPlayers = {};
 
+//* unchangabel varibles
 const interval = 1000; //the interval time for the setInterval
 const hostName = localStorage.getItem("name"); // hostname for the user whi created the game
 const category = localStorage.getItem("category"); // category of the game
@@ -21,7 +23,6 @@ const mainHtml = document.querySelector("main");
 
 //Starts to create the host page and track the joined players
 async function startHostPage() {
-
     document.querySelector("#title").textContent = "Vem kan mest?";
     document.querySelector("#kategori").textContent = category;
     document.querySelector("#serverCode").textContent = serverCode;
@@ -36,7 +37,6 @@ function myCallback(displayPlayer, displayQuestion) {
     if (displayPlayer) {
         dispalyNewPlayers();
     }
-
     //nextQuestion should only be called one time per round
     //checkVotes get called every second to collect and save the votes 
     if (displayQuestion) {
@@ -48,9 +48,7 @@ function myCallback(displayPlayer, displayQuestion) {
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-
     const data = await response.json();
-    console.log(data);
 
     return data
 }
@@ -83,7 +81,8 @@ document.querySelector("#startQuiz").addEventListener("click", (e) => {
     nIntervId = setInterval(myCallback, interval, false, true);
 })
 
-//this function makes a new request for incrementing the currentquesiton number so the next question can be displayed
+//this function makes a new request for incrementing the currentquesiton number
+//so the next question can be displayed
 function incrementQuestionNr() {
     const nextQuestionBody = {
         next: 1,
@@ -109,7 +108,7 @@ function displayQuestion(object) {
     const playingUsers = object.quiz[questionNumber].alternatives;
     console.log(object.quiz[questionNumber]);
     if (object.quiz[questionNumber] === "end") {
-        console.log("end quiz");
+
         window.removeEventListener("beforeunload", beforeUnloadHandler);
         endQuiz(object);
         return;
@@ -150,7 +149,6 @@ function displayQuestion(object) {
         button.id = user;
         button.textContent = user;
         button.addEventListener("click", function (e) {
-            console.log("winner");
             this.classList.add("winner");
             const winner = this.textContent;
             const winnerBody = {
@@ -174,6 +172,8 @@ function displayQuestion(object) {
         `
     })
 
+    startTimer();
+
     mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
         cancelQuestionFetch = true;
         firstInterval = true;
@@ -191,7 +191,6 @@ function endQuiz(object) {
     const players = object.users;
 
     const leaderboard = players.sort((a, b) => { return b.points - a.points });
-    console.log(leaderboard);
     mainHtml.innerHTML =
         `
         <header class="question">
@@ -231,10 +230,11 @@ async function checkVotes() {
 
     if (firstInterval) {
         firstInterval = false;
+        //*creates a object to keep track of the playing users votes
         playingUsers.forEach(player => { currentPlayers[player] = 0 })
     }
-    console.log(currentPlayers);
 
+    //*double checks so a user cant vote multible times
     allvotes.forEach(voteObject => {
         if (!usersWhoVoted.includes(voteObject.user)) {
             usersWhoVoted.push(voteObject.user);
@@ -242,25 +242,26 @@ async function checkVotes() {
         }
     })
 
-    //! fix this so it updates the player votes to the correct player
+    //* this updates and displayes the votes for each player
     document.querySelectorAll(".voteNr").forEach(voteNr => {
         let playerName = voteNr.id;
         voteNr.textContent = currentPlayers[playerName];
-        console.log(currentPlayers[playerName]);
     })
-    // console.log(currentPlayers);
+
+    //* Checks if all the player have voted
     if (allvotes.length === object.users.length - playingUsers.length) {
         console.log("all players have voted");
     }
 }
 
 
-function getRandomPlayers(players, users) {
-    //! fix this function
-    let playingUsers = users.splice(getRandomInt(users.length - 1), players);
-    return playingUsers;
-}
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+function startTimer() {
+    let second = 0
+    timerIntervalId = setInterval(() => {
+        if (second === 10) {
+            clearInterval(timerIntervalId)
+            window.alert("times up");
+        }
+        second++;
+    }, interval);
 }

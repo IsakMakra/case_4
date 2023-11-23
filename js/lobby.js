@@ -69,22 +69,3 @@ function renderHostPage() {
 }
 
 clearLocalStorage();
-
-let object = {
-    isak: 0,
-    adam: 1,
-    tanner: 3,
-};
-
-let element = document.querySelector("#tanner");
-let id = element.id
-console.log(id);
-console.log(object[id], object[id]);
-
-object.tanner++
-
-console.log(object[id]);
-
-element.textContent = object[id]
-
-console.log(object);

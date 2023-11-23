@@ -6,7 +6,9 @@ const username = localStorage.getItem("name");
 document.querySelector("#namn").textContent = username;
 let watingForGameToStart = true;
 let intervalId;
+let timerIntervalId;
 let OldQuestionNumber = 0;
+
 //Create eventlistener
 // Get the parent div
 const parentDiv = document.getElementById("users");
@@ -61,12 +63,26 @@ async function callBack() {
                 button.addEventListener("click", voteForPlayer)
                 usersContainer.append(button);
             });
-
+            startTimer();
             OldQuestionNumber++;
         }
     }
 }
 
+
+function startTimer() {
+    let second = 0
+    timerIntervalId = setInterval(() => {
+        if (second === 10) {
+            clearInterval(timerIntervalId)
+            document.querySelectorAll(".voteBtn").forEach(btn => {
+                btn.setAttribute("disabled", true);
+            })
+        }
+        console.log(second);
+        second++;
+    }, interval);
+}
 
 
 
