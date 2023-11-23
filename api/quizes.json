@@ -11,8 +11,8 @@
             "alternatives": []
         },
         {
-            "question": "Vem kan sitta i väggstolen längst?",
-            "nr_of_users": 4,
+            "question": "Vem kan sitta i 90 grader längst?",
+            "nr_of_users": 3,
             "alternatives": []
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "question": "Vem kan balansera på ett ben längst?",
-            "nr_of_users": 4,
+            "nr_of_users": 3,
             "alternatives": []
         },
         {
@@ -37,7 +37,7 @@
         },    
         {
             "question": "Vem kan sätta en bottle flip först?",
-            "nr_of_users": 2,
+            "nr_of_users": 3,
             "alternatives": []
         },
         {
@@ -46,34 +46,24 @@
             "alternatives": []
         },
         {
-            "question": "Vem kan säga flest länder på 1 minut",
+            "question": "Ring of fire, länder som börjar på T",
             "nr_of_users": 2,
-            "alternatives": [],
-            "extra": [
-                "länk till en bild på Europa",
-                "länk till en bild på Afrika",
-                "länk till en bild på Asien",
-                "osv"
-            ]
+            "alternatives": []
         },
         {
-            "question": "Vem kan låten?",
+            "question": "Ring of fire, länder i Afrika",
             "nr_of_users": 2,
-            "alternatives": [],
-            "extra": [
-                "Baby av Justin Bieber, `You know you love me, I know you care.`",
-                "Sveriges nationalsång, `Du Gamla, Du Fria, Du Fjällhöga Nord`",
-                "Guld och gröna skogar av Hasse Andersson, `Det var dans och hålligång, Upp på logen natten lång`",
-                "Jag kommer av Veronica Maggio, `Natten är ung och jag ligger vaken, jag är Lucy in the sky jag är högt över molnen"
-            ]
+            "alternatives": []
         },
         {
-            "question": "Ring of fire",
-            "nr_of_users": 4,
-            "alternatives": [],
-            "extra": [
-                "Bilmärken", "Designermärken", "Sminkmärken"
-            ]
+            "question": "Ring of fire, bilmärken",
+            "nr_of_users": 2,
+            "alternatives": []
+        },
+        {
+            "question": "Vem vinner i 'inte blinka medan man håller ögonkontakt' leken",
+            "nr_of_users": 3,
+            "alternatives": []
         }
     ]
 ]

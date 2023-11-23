@@ -22,6 +22,13 @@
                 send_JSON($message, 406);
             }
 
+            //Checks if host-name is too long
+            if(strlen($host) == 10) 
+            {
+                $message = ["message" => "Error, host-name too long."];
+                send_JSON($message, 406);
+            }
+
             //Handles the quiz name and selects the appropriate index for the quiz.json file
             if($quiz_name == "random") 
             {$quiz_index = 0;}
@@ -90,6 +97,13 @@
             if(empty(trim($username))) 
             {
                 $message = ["message" => "Error, not a valid username."];
+                send_JSON($message, 406);
+            }
+
+            //Checks if username is too long
+            if(strlen($username) == 10) 
+            {
+                $message = ["message" => "Error, username too long."];
                 send_JSON($message, 406);
             }
 
