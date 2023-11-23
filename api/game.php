@@ -18,12 +18,12 @@
             //Checks if string is empty
             if(empty(trim($host))) 
             {
-                $message = ["message" => "Error, not a valid host-name."];
+                $message = ["message" => "Error, not a valid host-name, 10 characters max."];
                 send_JSON($message, 406);
             }
 
             //Checks if host-name is too long
-            if(strlen($host) == 10) 
+            if(strlen($host) > 10) 
             {
                 $message = ["message" => "Error, host-name too long."];
                 send_JSON($message, 406);
@@ -101,9 +101,9 @@
             }
 
             //Checks if username is too long
-            if(strlen($username) == 10) 
+            if(strlen($username) > 10) 
             {
-                $message = ["message" => "Error, username too long."];
+                $message = ["message" => "Error, username too long, 10 characters max."];
                 send_JSON($message, 406);
             }
 
