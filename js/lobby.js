@@ -63,9 +63,4 @@ async function createLobby(hostName, category) {
     }
 }
 
-
-function renderHostPage() {
-
-}
-
 clearLocalStorage();

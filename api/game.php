@@ -15,6 +15,13 @@
 
             $server_code = create_server_code($games);
 
+            //Checks if string is empty
+            if(empty(trim($host))) 
+            {
+                $message = ["message" => "Error, not a valid host-name."];
+                send_JSON($message, 406);
+            }
+
             //Handles the quiz name and selects the appropriate index for the quiz.json file
             if($quiz_name == "random") 
             {$quiz_index = 0;}
@@ -78,6 +85,13 @@
         {
             $server_code = $_GET["server_code"];
             $username = $_GET["user"];
+
+            //Checks if string is empty
+            if(empty(trim($username))) 
+            {
+                $message = ["message" => "Error, not a valid username."];
+                send_JSON($message, 406);
+            }
 
             foreach($games as $index1 => $game)
             {
