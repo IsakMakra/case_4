@@ -82,3 +82,14 @@ main>* {
 .winner {
     background-color: green;
 }
+
+.voteContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.voteContainer * .voteWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

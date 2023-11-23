@@ -104,18 +104,18 @@ async function nextQuestion() {
 }
 
 function displayQuestion(object) {
-    questionNr = object.current_question_nr; //question number so we know which question to display
-    const currentQuestion = object.quiz[questionNr].question;
-    const playingUsers = object.quiz[questionNr].alternatives;
-    console.log(object.quiz[questionNr]);
-    if (object.quiz[questionNr] === "end") {
+    questionNumber = object.current_question_nr; //question number so we know which question to display
+    const currentQuestion = object.quiz[questionNumber].question;
+    const playingUsers = object.quiz[questionNumber].alternatives;
+    console.log(object.quiz[questionNumber]);
+    if (object.quiz[questionNumber] === "end") {
         console.log("end quiz");
         window.removeEventListener("beforeunload", beforeUnloadHandler);
         endQuiz(object);
         return;
     }
 
-    if (questionNr >= 0 && questionNr <= object.quiz.length) {
+    if (questionNumber >= 0 && questionNumber <= object.quiz.length) {
         window.addEventListener('beforeunload', beforeUnloadHandler);
     }
 
@@ -131,7 +131,7 @@ function displayQuestion(object) {
         `
         <header class="question">
             <h1>Vem kan Mest?</h1>
-            <h3>Question ${questionNr} / ${object.quiz.length - 1}</h3>
+            <h3>Question ${questionNumber} / ${object.quiz.length - 1}</h3>
             <p>${currentQuestion}</p>
         </header>
         <section class="question" id="middleSection">
@@ -233,19 +233,20 @@ async function checkVotes() {
         firstInterval = false;
         playingUsers.forEach(player => { currentPlayers[player] = 0 })
     }
-    console.log(currentPlayers[playingUsers[0]]);
+    console.log(currentPlayers);
 
     allvotes.forEach(voteObject => {
         if (!usersWhoVoted.includes(voteObject.user)) {
             usersWhoVoted.push(voteObject.user);
-            currentPlayers[voteObject.user]++
+            currentPlayers[voteObject.vote]++
         }
     })
 
     //! fix this so it updates the player votes to the correct player
-    document.querySelectorAll(".voteNr").forEach(num => {
-        let player = num.id;
-        num.textContent = currentPlayers[player];
+    document.querySelectorAll(".voteNr").forEach(voteNr => {
+        let playerName = voteNr.id;
+        voteNr.textContent = currentPlayers[playerName];
+        console.log(currentPlayers[playerName]);
     })
     // console.log(currentPlayers);
     if (allvotes.length === object.users.length - playingUsers.length) {

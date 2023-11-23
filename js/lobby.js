@@ -26,7 +26,7 @@ async function joinLobby(password, user) {
         window.location = "../player.html";
 
     } else {
-    //Correct code
+        //Correct code
         document.getElementById("joinLobbyMessage").innerHTML = "Wrong password...";
     }
 }
@@ -69,3 +69,22 @@ function renderHostPage() {
 }
 
 clearLocalStorage();
+
+let object = {
+    isak: 0,
+    adam: 1,
+    tanner: 3,
+};
+
+let element = document.querySelector("#tanner");
+let id = element.id
+console.log(id);
+console.log(object[id], object[id]);
+
+object.tanner++
+
+console.log(object[id]);
+
+element.textContent = object[id]
+
+console.log(object);

@@ -1,27 +1,82 @@
 "use strict";
 
+const interval = 1000; // 1000 milliseconds = 1 second
 const password = localStorage.getItem("password");
 const username = localStorage.getItem("name");
 document.querySelector("#namn").textContent = username;
+let watingForGameToStart = true;
+let intervalId;
+let OldQuestionNumber = 0;
 //Create eventlistener
 // Get the parent div
 const parentDiv = document.getElementById("users");
 
 // Loop through the children and add an event listener to each one
-for (let i = 0; i < parentDiv.children.length; i++) {
-    const child = parentDiv.children[i];
+// for (let i = 0; i < parentDiv.children.length; i++) {
+//     const child = parentDiv.children[i];
 
-    // Add an event listener (e.g., click event)
-    child.addEventListener("click", voteForPlayer);
+//     // Add an event listener (e.g., click event)
+//     child.addEventListener("click", voteForPlayer);
+// }
+
+async function fetchData() {
+    let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
+    let data = await response.json();
+    return data
 }
+
+async function startPlayerPage() {
+    intervalId = setInterval(callBack, interval);
+}
+startPlayerPage();
+
+async function callBack() {
+    const dataObject = await fetchData()
+    const currentQuestionuestionNumber = dataObject.current_question_nr;
+
+    if (dataObject.quiz[currentQuestionuestionNumber] === "start") {
+        document.getElementById("feedback").textContent = "Väntar på att spelet ska starta";
+    }
+
+    if (dataObject.quiz[currentQuestionuestionNumber] === "end") {
+        document.getElementById("feedback").textContent = "Quizet är slut";
+    }
+
+    if (currentQuestionuestionNumber > OldQuestionNumber) {
+        document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionuestionNumber].question;
+
+        let usersContainer = document.querySelector("#users");
+        let userArray = dataObject.quiz[currentQuestionuestionNumber].alternatives;
+
+        usersContainer.innerHTML = "";
+        // Iterate through userArray and update the content of <p> elements
+        if (userArray.includes(username)) {
+            usersContainer.innerHTML = "Du ska spela"
+        } else {
+            userArray.forEach((user) => {
+                const button = document.createElement("button");
+                button.classList.add("voteBtn");
+                button.id = user;
+                button.textContent = user;
+                button.addEventListener("click", voteForPlayer)
+                usersContainer.append(button);
+            });
+
+            OldQuestionNumber++;
+        }
+    }
+}
+
+
+
 
 async function voteForPlayer(event) {
 
-    for (let i = 0; i < parentDiv.children.length; i++) {
-        const child = parentDiv.children[i];
+    // for (let i = 0; i < parentDiv.children.length; i++) {
+    //     const child = parentDiv.children[i];
 
-        child.setAttribute("disabled", true)
-    }
+    //     child.setAttribute("disabled", true)
+    // }
 
     console.log(event.target.textContent);
     let votedPlayer = event.target.textContent;
@@ -54,45 +109,3 @@ async function voteForPlayer(event) {
         console.log("oops");
     }
 }
-
-async function startPlayerPage() {
-
-    // child.setAttribute("disabled", false);
-
-    const interval = 1000; // 1000 milliseconds = 1 second
-
-    async function fetchData() {
-
-        let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
-        console.log(response);
-        let data = await response.json();
-        let questionNumber = data.current_question_nr;
-        console.log(data);
-        //console.log(data.quiz[questionNumber].alternatives);
-
-        if (data.quiz[questionNumber] === "start") {
-            document.getElementById("feedback").textContent = "Waiting for game to start...";
-        } else {
-            let userArray = data.quiz[questionNumber].alternatives;
-
-            // Iterate through userArray and update the content of <p> elements
-            userArray.forEach((user, index) => {
-
-                const userParagraph = document.getElementById(`user${index + 1}`);
-                if (userParagraph) {
-                    userParagraph.textContent = ""; // Clear existing content
-                    userParagraph.textContent = user; // Set new content        
-                    userParagraph.disabled = false; // Re-enable the button    
-                }
-            });
-            document.getElementById("feedback").textContent = data.quiz[questionNumber].question;
-        }
-
-    }
-
-    const intervalId = setInterval(fetchData, interval);
-}
-
-
-startPlayerPage();
-
