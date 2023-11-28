@@ -27,12 +27,19 @@ async function startHostPage() {
     document.querySelector("#kategori").textContent = category;
     document.querySelector("#serverCode").textContent = serverCode;
 
-    nIntervId = setInterval(myCallback, interval, true, false);
+    console.log(hostName, serverCode);
+
+    //!fix so when the host refreshes it should come back to the quiz
+    // const object = await fetchGameObject();
+
+
+    nIntervId = setInterval(intervalFunction, interval, true, false);
 }
 startHostPage();
 
+
 // This is the setInterval function wich diside if it should display players or display question
-function myCallback(displayPlayer, displayQuestion) {
+function intervalFunction(displayPlayer, displayQuestion) {
     //fetches players that join the lobby
     if (displayPlayer) {
         dispalyNewPlayers();
@@ -78,7 +85,7 @@ document.querySelector("#startQuiz").addEventListener("click", (e) => {
     nIntervId = null;
     incrementQuestionNr();
 
-    nIntervId = setInterval(myCallback, interval, false, true);
+    nIntervId = setInterval(intervalFunction, interval, false, true);
 })
 
 //this function makes a new request for incrementing the currentquesiton number
