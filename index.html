@@ -7,28 +7,19 @@
     <title>Vem kan mest</title>
     <link rel="shortcut icon" href="resources/icons/faviconmountsun.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/startpage.css">
     <link rel="manifest" href="manifest.json" />
 </head>
 
 <body>
-    <div>
-        <h3>Join a lobby</h3>
-        <p class="message" id="joinLobbyMessage"></p>
-        <label for="lobby">Enter your name</label>
-        <input type="text" id="userName" name="userName">
-        <label for="lobby">Enter the lobby code</label>
-        <input type="text" id="lobbycode" name="lobbycode">
-        <button onclick="submitUser()">Join</button>
+    <button id="info">info</button>
+    <div id="box">
+        <div id="img"></div>
+        <h1>Vem Kan Mest?</h1>
+        <button id="join" class="startpageButton">Join</button>
+        <button id="start" class="startpageButton">Start Lobby</button>
     </div>
-
-    <div>
-        <h3>Create a lobby</h3>
-        <p class="message" id="createLobbyMessage"></p>
-        <label for="lobby">Enter your name</label>
-        <input type="text" id="hostName" name="hostName">
-        <label for="category">Choose a category</label>
-        <button onclick="submitLobby(`random`)">Random</button>
-    </div>
+    <div id="waves"></div>
 
     <script src="js/index.js"></script>
     <script src="js/functions.js"></script>
