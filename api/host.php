@@ -97,14 +97,14 @@
                     {
                         if($winner == $user["username"]) 
                         {
-                            $games[$index]["users"][$index2]["points"] += 2;
+                            $games[$index]["users"][$index2]["points"] += 100;
                         }
 
                         foreach($game['current_votes'] as $index3 => $vote) 
                         {
                             if ($user['username'] == $vote['user'] && $vote['vote'] == $winner) 
                             {
-                                $games[$index]["users"][$index2]["points"] += 1;
+                                $games[$index]["users"][$index2]["points"] += 50;
                             }
                         }
                     }

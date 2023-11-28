@@ -1,5 +1,45 @@
 "use strict";
 
+//Events on buttons
+document.getElementById("join").addEventListener("click", () => {
+    document.querySelector("body").innerHTML = `
+        <button id="back">Back</button>
+        <div id="box">
+            <h3>Join a lobby</h3>
+            <p class="message" id="joinLobbyMessage"></p>
+            <label for="lobby">Enter your name</label>
+            <input type="text" id="userName" name="userName">
+            <label for="lobby">Enter the lobby code</label>
+            <input type="text" id="lobbycode" name="lobbycode">
+            <button onclick="submitUser()">Join</button>
+        </div>
+        <div id="waves"></div>
+    `;
+
+    document.getElementById("back").addEventListener("click", () => {
+        location.reload();
+    })
+})
+
+document.getElementById("start").addEventListener("click", () => {
+    document.querySelector("body").innerHTML = `
+        <button id="back">Back</button>
+        <div id="box">
+            <h3>Create a lobby</h3>
+            <p class="message" id="createLobbyMessage"></p>
+            <label for="lobby">Enter your name</label>
+            <input type="text" id="hostName" name="hostName">
+            <label for="category">Choose a category</label>
+            <button onclick="submitLobby('random')">Random</button>
+        </div>
+        <div id="waves"></div>
+    `;
+    
+    document.getElementById("back").addEventListener("click", () => {
+        location.reload();
+    })
+})
+
 //Collecting the users information
 function submitUser() {
     const password = document.getElementById("lobbycode").value;
@@ -8,7 +48,6 @@ function submitUser() {
     document.getElementById('userName').value = '';
     joinLobby(password, user);
 }
-
 
 //The user jpins the lobby
 async function joinLobby(password, user) {
