@@ -13,14 +13,6 @@ let OldQuestionNumber = 0;
 // Get the parent div
 const parentDiv = document.getElementById("users");
 
-// Loop through the children and add an event listener to each one
-// for (let i = 0; i < parentDiv.children.length; i++) {
-//     const child = parentDiv.children[i];
-
-//     // Add an event listener (e.g., click event)
-//     child.addEventListener("click", voteForPlayer);
-// }
-
 async function fetchData() {
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
     let data = await response.json();
@@ -89,13 +81,6 @@ function startTimer() {
 
 async function voteForPlayer(event) {
 
-    // for (let i = 0; i < parentDiv.children.length; i++) {
-    //     const child = parentDiv.children[i];
-
-    //     child.setAttribute("disabled", true)
-    // }
-
-    console.log(event.target.textContent);
     let votedPlayer = event.target.textContent;
 
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
