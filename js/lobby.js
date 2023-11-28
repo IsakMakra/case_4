@@ -26,7 +26,7 @@ async function joinLobby(password, user) {
         window.location = "../player.html";
 
     } else {
-    //Correct code
+        //Correct code
         document.getElementById("joinLobbyMessage").innerHTML = "Wrong password...";
     }
 }
@@ -61,6 +61,11 @@ async function createLobby(hostName, category) {
     } else {
         document.getElementById("createLobbyMessage").innerHTML = "Something went wrong... Try again.";
     }
+}
+
+
+function renderHostPage() {
+
 }
 
 clearLocalStorage();

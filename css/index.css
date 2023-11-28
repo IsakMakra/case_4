@@ -1,0 +1,20 @@
+:root {
+    /*color base*/
+    --white-color: #ffffff;
+    --black-color: #1E1F20;
+    --beige-color: #F6EFE8;
+    --greige-color: #B8B1AA;
+    --grey-color: #D9D9D9;
+
+    /*color pop*/
+    --blue-color: #32317F;
+    --purple-color: #463F5B;
+    --pink-color: #F7BBB6;
+    --salmon1-color: #EE7668;
+    --salmon2-color: #F2AE99;
+    --salmon3-color: #CE7861;
+}
+
+.bac {
+    background-color: #ffffff;
+}
