@@ -1,0 +1,10 @@
+{
+    "name": "Vem kan mest",
+    "icons": [
+        {
+            "src": "resources/icons/faviconmountsun",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
