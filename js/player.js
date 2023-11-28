@@ -42,6 +42,7 @@ async function callBack() {
 
     if (dataObject.quiz[currentQuestionuestionNumber] === "end") {
         document.getElementById("feedback").textContent = "Quizet är slut";
+        clearInterval(intervalId);
     }
 
     if (currentQuestionuestionNumber > OldQuestionNumber) {
