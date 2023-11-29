@@ -30,13 +30,15 @@
             }
 
             //Handles the quiz name and selects the appropriate index for the quiz.json file
-            if($quiz_name == "random") 
+            if($quiz_name == "Random") 
             {$quiz_index = 0;}
-            else if($quiz_name == "family")
+            else if($quiz_name == "Fest")
             {$quiz_index = 1;}
-            else if($quiz_name == "active")
+            else if($quiz_name == "Familj")
             {$quiz_index = 2;}
-            else if($quiz_name == "party")
+            else if($quiz_name == "Sport")
+            {$quiz_index = 3;}
+            else if($quiz_name == "Hjärngympa")
             {$quiz_index = 3;}
 
             $quiz_array = $quizes[$quiz_index];
