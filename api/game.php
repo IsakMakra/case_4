@@ -123,10 +123,14 @@
                         }
                     }
 
+                    $color_index = count($games[$index1]["users"]);
+                    
+
                     $user = 
                     [ 
                         "username" => $username, 
                         "points" => 0, 
+                        "color" => $colors[$color_index],
                     ];
 
                     $games[$index1]["users"][] = $user;

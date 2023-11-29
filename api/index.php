@@ -19,6 +19,7 @@
     $allowed_methods = ["GET","POST", "PATCH", "DELETE"];
     $games_file = "games.json";
     $quiz_file = "quizes.json";
+    $colors_file = "colors.json";
 
     //Checks if the HTTP method is allowed
     if(!in_array($request_method, $allowed_methods)) 
@@ -43,6 +44,12 @@
     {
         $json = file_get_contents($quiz_file);
         $quizes = json_decode($json, true);
+    }
+
+    if(file_exists($colors_file))
+    {
+        $json = file_get_contents($colors_file);
+        $colors = json_decode($json, true);
     }
 
     //Allowed Content-Type

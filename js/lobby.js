@@ -71,7 +71,7 @@ function submitUser() {
     joinLobby(password, user);
 }
 
-//The user jpins the lobby
+//The user joins the lobby
 async function joinLobby(password, user) {
     let response = await fetcha(`api/game.php?server_code=${password}&user=${user}`, "GET");
     console.log(response);

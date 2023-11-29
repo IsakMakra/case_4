@@ -19,11 +19,23 @@ const hostName = localStorage.getItem("name"); // hostname for the user whi crea
 const category = localStorage.getItem("category"); // category of the game
 const serverCode = localStorage.getItem("serverCode"); // servercode for the game
 const mainHtml = document.querySelector("main");
+const homeBtn = document.querySelector("#home");
+
+//the home button opens the dialog element to make sure if the host wants to quit the quiz
+homeBtn.addEventListener("click", function quitQuiz() {
+    document.querySelector("dialog").show();
+    document.querySelector("dialog #quit").addEventListener("click", () => {
+        window.location = "./index.html";
+    })
+})
+
+document.querySelector("dialog #close").addEventListener("click", () => {
+    document.querySelector("dialog").close();
+})
 
 
 //Starts to create the host page and track the joined players
 async function startHostPage() {
-    document.querySelector("#title").textContent = "Vem kan mest?";
     document.querySelector("#kategori").textContent = category;
     document.querySelector("#serverCode").textContent = serverCode;
 
@@ -71,8 +83,9 @@ async function dispalyNewPlayers() {
         const numOfNewPlayers = length2 - length1;
         const startIndex = length2 - numOfNewPlayers;
         const players = newPlayers.slice(startIndex, length2);
+        //! give the players a color
         players.forEach(player => {
-            document.querySelector("#playerNames").innerHTML += `<p>${player.username}</p>`;
+            document.querySelector("#playerNames").innerHTML += `<p style="background-color: ${player.color};">${player.username}</p>`;
         });
     }
     // Update the player list
