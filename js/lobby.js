@@ -29,8 +29,8 @@ document.getElementById("start").addEventListener("click", () => {
             <h3>Create a lobby</h3>
             <p class="message" id="createLobbyMessage"></p>
             <label for="lobby">Enter your name</label>
-            <input type="text" id="hostName" name="hostName" required="required">
-            <button onclick="chooseCategory()">Nästa</button>
+            <input type="text" id="hostName" name="hostName" required maxlength="10">
+            <button type="submit" onclick="chooseCategory()">Nästa</button>
             </div>
             <div id="waves"></div>
             `;
