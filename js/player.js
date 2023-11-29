@@ -12,6 +12,8 @@ let q_nr = 0;
 
 let timerStarted = false;
 let leaderBoardCreated = false;
+let buttonsCreated = false;
+let usersContainer = document.querySelector("#users");
 
 window.addEventListener('beforeunload', beforeUnloadHandler);
 
@@ -21,10 +23,6 @@ function beforeUnloadHandler(event) {
     event.returnValue = customMessage; // Standard for most browsers
     return customMessage; // For some older browsers
 }
-
-//Create eventlistener
-// Get the parent div
-const parentDiv = document.getElementById("users");
 
 async function fetchData() {
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
@@ -44,6 +42,8 @@ async function callBack() {
     if(q_nr != currentQuestionuestionNumber) {
         leaderBoardCreated = false;
         timerStarted = false;
+        usersContainer.innerHTML = "";
+        buttonsCreated = false;
         displayLeaderBoard(dataObject.users);
         q_nr = currentQuestionuestionNumber;
     }
@@ -63,24 +63,24 @@ async function callBack() {
         displayLeaderBoard(dataObject.users);
         
         document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionuestionNumber].question;
-
-        let usersContainer = document.querySelector("#users");
         let userArray = dataObject.quiz[currentQuestionuestionNumber].alternatives;
 
-        usersContainer.innerHTML = "";
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             usersContainer.innerHTML = "Du ska spela"
         } 
         else {
-            userArray.forEach((user) => {
-                const button = document.createElement("button");
-                button.classList.add("voteBtn");
-                button.id = user;
-                button.textContent = user;
-                button.addEventListener("click", voteForPlayer)
-                usersContainer.append(button);
-            });
+            if(!buttonsCreated) {
+                userArray.forEach((user) => {
+                    const button = document.createElement("button");
+                    button.classList.add("voteBtn");
+                    button.id = user;
+                    button.textContent = user;
+                    button.addEventListener("click", voteForPlayer)
+                    usersContainer.append(button);
+                });
+                buttonsCreated = true;
+            }
     
             if(!timerStarted) {
                 startTimer();
