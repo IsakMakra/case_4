@@ -37,40 +37,39 @@ startPlayerPage();
 
 async function callBack() {
     const dataObject = await fetchData()
-    const currentQuestionuestionNumber = dataObject.current_question_nr;
+    const currentQuestionNumber = dataObject.current_question_nr;
 
-    if(q_nr != currentQuestionuestionNumber) {
+    if(q_nr != currentQuestionNumber) {
         leaderBoardCreated = false;
         timerStarted = false;
         usersContainer.innerHTML = "";
         buttonsCreated = false;
-        displayLeaderBoard(dataObject.users);
-        q_nr = currentQuestionuestionNumber;
+        q_nr = currentQuestionNumber;
     }
 
-    if (dataObject.quiz[currentQuestionuestionNumber] === "start") {
+    if (dataObject.quiz[currentQuestionNumber] === "start") {
         document.getElementById("feedback").textContent = "Väntar på att spelet ska starta";
         return;
     }
 
-    if (dataObject.quiz[currentQuestionuestionNumber] === "end") {
-        document.getElementById("feedback").textContent = "Quizet är slut";
+    if (dataObject.quiz[currentQuestionNumber] === "end") {
         clearInterval(intervalId);
+        displayLeaderBoard(dataObject.users, true);
         return;
     }
 
-    if (currentQuestionuestionNumber == q_nr) {
-        displayLeaderBoard(dataObject.users);
+    if (currentQuestionNumber == q_nr) {
+        displayLeaderBoard(dataObject.users, false);
         
-        document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionuestionNumber].question;
-        let userArray = dataObject.quiz[currentQuestionuestionNumber].alternatives;
+        document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionNumber].question;
+        let userArray = dataObject.quiz[currentQuestionNumber].alternatives;
 
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             usersContainer.innerHTML = "Du ska spela"
         } 
         else {
-            
+
             if(!buttonsCreated) {
                 userArray.forEach((user) => {
                     const button = document.createElement("button");
@@ -91,7 +90,7 @@ async function callBack() {
     }
 }
 
-function displayLeaderBoard(users) {
+function displayLeaderBoard(users, forever) {
     if(!leaderBoardCreated) {
         leaderBoardCreated = true;
         let number = 1;
@@ -104,21 +103,23 @@ function displayLeaderBoard(users) {
             leaderBoard.innerHTML += p;
             number++;
         })
-    
+        
         document.querySelector("body").append(leaderBoard);
         let main = document.querySelector("main");
         main.classList.add("hidden");
-    
-        let second = 0
-        leaderBoardIntervalId = setInterval(() => {
-            if (second === 5) {
-                clearInterval(leaderBoardIntervalId);
-                leaderBoard.remove();
-                main.classList.remove("hidden");
-            }
-    
-            second++;
-        }, interval);
+
+        if(!forever) {
+            let second = 0
+            leaderBoardIntervalId = setInterval(() => {
+                if (second === 4) {
+                    clearInterval(leaderBoardIntervalId);
+                    leaderBoard.remove();
+                    main.classList.remove("hidden");
+                }
+        
+                second++;
+            }, interval);
+        }
     }
 }
 
@@ -141,14 +142,12 @@ async function voteForPlayer(event) {
 
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
     let data = await response.json();
-    console.log(data.users);
     let users = data.users;
 
     let foundUser = null;
 
     users.forEach(user => {
         if (user.username === votedPlayer) {
-            console.log("10 points to slytherin!");
             foundUser = user;
         }
     })
@@ -166,8 +165,7 @@ async function voteForPlayer(event) {
 
         let response2 = await fetcha(`api/user.php`, "POST", infoData);
         let data2 = await response2.json();
-        console.log(data2);
     } else {
-        console.log("oops");
+        console.log("error");
     }
 }
