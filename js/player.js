@@ -70,6 +70,7 @@ async function callBack() {
             usersContainer.innerHTML = "Du ska spela"
         } 
         else {
+            
             if(!buttonsCreated) {
                 userArray.forEach((user) => {
                     const button = document.createElement("button");
@@ -135,10 +136,7 @@ function startTimer() {
     }, interval);
 }
 
-
-
 async function voteForPlayer(event) {
-
     let votedPlayer = event.target.textContent;
 
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
@@ -161,6 +159,10 @@ async function voteForPlayer(event) {
             vote: votedPlayer,
             user: username
         };
+
+        document.querySelectorAll(".voteBtn").forEach(btn => {
+            btn.setAttribute("disabled", true);
+        })
 
         let response2 = await fetcha(`api/user.php`, "POST", infoData);
         let data2 = await response2.json();
