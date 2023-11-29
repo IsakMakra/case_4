@@ -1,5 +1,6 @@
 "use strict";
 
+let hostName;
 //Events on buttons
 document.getElementById("join").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
@@ -23,22 +24,43 @@ document.getElementById("join").addEventListener("click", () => {
 
 document.getElementById("start").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
-        <button id="back">Back</button>
+        <button id="back">Home</button>
         <div id="box">
             <h3>Create a lobby</h3>
             <p class="message" id="createLobbyMessage"></p>
             <label for="lobby">Enter your name</label>
-            <input type="text" id="hostName" name="hostName">
-            <label for="category">Choose a category</label>
-            <button onclick="submitLobby('random')">Random</button>
-        </div>
-        <div id="waves"></div>
-    `;
-    
+            <input type="text" id="hostName" name="hostName" required="required">
+            <button onclick="chooseCategory()">Nästa</button>
+            </div>
+            <div id="waves"></div>
+            `;
     document.getElementById("back").addEventListener("click", () => {
         location.reload();
     })
 })
+
+function chooseCategory() {
+    hostName = document.getElementById("hostName").value;
+    document.querySelector("body").innerHTML = `
+            <button id="back">Home</button>
+            <div id="box">
+            <h3>Välj kategori</h3>
+            <p class="message" id="createLobbyMessage"></p>
+            <button onclick="createLobby('Random')">Random</button>
+            <button onclick="createLobby('Fest')">Fest</button>
+            <button onclick="createLobby('Familj')">Familj</button>
+            <button onclick="createLobby('Sport')">Sport</button>
+            <button onclick="createLobby('Hjärngympa')">Hjärngympa</button>
+            </div>
+            <div id="waves"></div>
+            `;
+
+    document.getElementById("back").addEventListener("click", () => {
+        location.reload();
+    })
+
+
+}
 
 //Collecting the users information
 function submitUser() {
@@ -70,15 +92,9 @@ async function joinLobby(password, user) {
     }
 }
 
-//Collecting information about the a new lobby request
-function submitLobby(category) {
-    const hostName = document.getElementById("hostName").value;
-    document.getElementById('hostName').value = '';
-    createLobby(hostName, category);
-}
 
 //Creates a lobby
-async function createLobby(hostName, category) {
+async function createLobby(category) {
     const infobody = {
         host: hostName,
         quiz: category
@@ -89,14 +105,12 @@ async function createLobby(hostName, category) {
     let data = await response.json();
     console.log(data);
 
-    localStorage.setItem("name", data.host);
     localStorage.setItem("category", category);
+    localStorage.setItem("name", hostName);
     localStorage.setItem("serverCode", data.server_code);
 
     if (response.ok) {
-        // document.getElementById("createLobbyMessage").innerHTML = "Creating lobby..."
         window.location = "../host.html";
-        //renderHostPage();
     } else {
         document.getElementById("createLobbyMessage").innerHTML = "Something went wrong... Try again.";
     }
