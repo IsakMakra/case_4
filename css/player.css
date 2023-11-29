@@ -81,3 +81,10 @@ main>* {
 .hidden {
     display: none;
 }
+
+#leaderBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
