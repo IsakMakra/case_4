@@ -77,7 +77,7 @@ async function dispalyNewPlayers() {
     const newPlayers = gameObject.users
     const length1 = allPlayers.length;
     const length2 = newPlayers.length;
-
+    
     // if this is true there is a new players in the lobby and we dispaly their names
     if (length2 > length1) {
         const numOfNewPlayers = length2 - length1;

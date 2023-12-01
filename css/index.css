@@ -18,3 +18,31 @@
 .bac {
     background-color: #ffffff;
 }
+
+.message {
+    font-size: 12px;
+    color: red;
+}
+
+#hostName {
+    outline: none;
+}
+
+.maxCharacters {
+    border: 1px solid red;
+    animation: maxCharactersInput .3s;
+}
+
+@keyframes maxCharactersInput {
+    25% {
+        transform: translateX(4px);
+    }
+
+    50% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+}

@@ -27,19 +27,42 @@ document.getElementById("start").addEventListener("click", () => {
         <button id="back">Home</button>
         <div id="box">
             <h3>Create a lobby</h3>
-            <p class="message" id="createLobbyMessage"></p>
             <label for="lobby">Enter your name</label>
             <input type="text" id="hostName" name="hostName" required maxlength="10">
+            <p class="message" id="errorMessage"></p>
             <button type="submit" onclick="chooseCategory()">Nästa</button>
             </div>
             <div id="waves"></div>
             `;
+
+    document.getElementById("hostName").addEventListener("keyup", (e) => {
+        let errorMessage = "Max 10 characters in the name"
+        controlName(e, errorMessage);
+    });
     document.getElementById("back").addEventListener("click", () => {
         location.reload();
     })
 })
 
+function controlName(event, errorMessage, maxlength = 10, minlength = 3) {
+    let input = event.currentTarget
+
+    if (input.value.length === maxlength) {
+        document.getElementById("errorMessage").textContent = errorMessage;
+        runAnimation()
+    }
+
+    function runAnimation() {
+        input.classList.add("maxCharacters");
+        input.addEventListener("animationend", (event2) => {
+            event2.currentTarget.classList.remove("maxCharacters");
+        });
+    }
+}
+
+
 function chooseCategory() {
+
     hostName = document.getElementById("hostName").value;
     document.querySelector("body").innerHTML = `
             <button id="back">Home</button>
