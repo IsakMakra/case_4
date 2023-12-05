@@ -1,12 +1,26 @@
 * {
     box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;                                               
 }
+
+/*
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("")
+}
+*/
+
+
 
 body {
     margin: 0;
     height: 100vh;
     display: grid;
     grid-template-rows: 0.5fr 5fr 1fr;
+    background-image: url("../resources/Background-desktop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #info {
@@ -25,8 +39,8 @@ body {
     justify-content: center;
     align-items: center;
     grid-row: 1;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin: 5vw;
     justify-self: left;
 }
@@ -51,9 +65,22 @@ body {
     max-width: 200px;
     height: 20vh;
     max-height: 200px;
-    background-color: gainsboro;
+    background-image: url("../resources/icons/faviconmountsun.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #waves {
     background-color: gainsboro;
+}
+
+#start {
+    background-color: #98B4DF;
+    color: white;
+}
+
+#join {
+    background-color: #4C4B76;
+    color:white;
 }
