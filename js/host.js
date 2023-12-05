@@ -242,7 +242,7 @@ function displayLeaderBoard(users, forever) {
 function startTimer() {
     let second = 0
     timerIntervalId = setInterval(() => {
-        if (second === 10) {
+        if (second === 34) {
             clearInterval(timerIntervalId)
             document.querySelectorAll(".voteBtn").forEach(btn => {
                 btn.setAttribute("disabled", true);
