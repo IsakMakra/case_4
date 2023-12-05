@@ -239,20 +239,6 @@ function displayLeaderBoard(users, forever) {
     }
 }
 
-function startTimer() {
-    let second = 0
-    timerIntervalId = setInterval(() => {
-        if (second === 34) {
-            clearInterval(timerIntervalId)
-            document.querySelectorAll(".voteBtn").forEach(btn => {
-                btn.setAttribute("disabled", true);
-            })
-        }
-
-        second++;
-    }, interval);
-}
-
 function endQuiz(object) {
     clearInterval(nIntervId);
     const players = object.users;
@@ -325,7 +311,7 @@ async function checkVotes() {
 function startTimer() {
     let second = 0
     timerIntervalId = setInterval(() => {
-        if (second === 10) {
+        if (second === 34) {
             clearInterval(timerIntervalId)
             window.alert("times up");
         }
