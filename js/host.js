@@ -127,6 +127,9 @@ function displayQuestion(object) {
     const currentQuestion = object.quiz[questionNumber].question;
     const playingUsers = object.quiz[questionNumber].alternatives;
     console.log(object.quiz[questionNumber]);
+    
+    displayLeaderBoard(object.users);
+    
     if (object.quiz[questionNumber] === "end") {
 
         window.removeEventListener("beforeunload", beforeUnloadHandler);
@@ -204,6 +207,50 @@ function displayQuestion(object) {
         incrementQuestionNr();
         nextQuestion();
     })
+}
+
+function displayLeaderBoard(users, forever) {
+    let number = 1;
+    users.sort((a, b) => b.points - a.points);
+
+    let leaderBoard = document.createElement("div");
+
+    users.forEach ((user) => {
+        let p = `<p>${number}. <b style="background-color: ${user.color}">${user.username}</b>, Points: ${user.points}</p>`
+        leaderBoard.innerHTML += p;
+        number++;
+    })
+    
+    document.querySelector("body").append(leaderBoard);
+    let main = document.querySelector("main");
+    main.classList.add("hidden");
+
+    if(!forever) {
+        let second = 0
+        leaderBoardIntervalId = setInterval(() => {
+            if (second === 4) {
+                clearInterval(leaderBoardIntervalId);
+                leaderBoard.remove();
+                main.classList.remove("hidden");
+            }
+    
+            second++;
+        }, interval);
+    }
+}
+
+function startTimer() {
+    let second = 0
+    timerIntervalId = setInterval(() => {
+        if (second === 34) {
+            clearInterval(timerIntervalId)
+            document.querySelectorAll(".voteBtn").forEach(btn => {
+                btn.setAttribute("disabled", true);
+            })
+        }
+
+        second++;
+    }, interval);
 }
 
 function endQuiz(object) {

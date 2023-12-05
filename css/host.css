@@ -102,3 +102,7 @@ main>* {
     left: 16px;
     width: 80px;
 }
+
+.hidden {
+    display: none;
+}
