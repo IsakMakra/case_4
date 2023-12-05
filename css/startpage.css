@@ -84,3 +84,8 @@ body {
     background-color: #4C4B76;
     color:white;
 }
+
+h1 {
+    font-weight: bold;
+    letter-spacing: 10px;
+}
