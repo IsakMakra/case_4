@@ -1,13 +1,21 @@
 * {
     box-sizing: border-box;
+    font-family: "Helvetica Neue Regular";
 }
 
-/*
 @font-face {
-    font-family: "Helvetica Neue";
-    src: url("")
+    font-family: "Helvetica Neue Bold";
+    src: url("../resources/helvetica-neue/HelveticaNeueBold.ttf");
 }
-*/
+
+@font-face {
+    font-family: "Helvetica Neue Regular";
+    src: url("../resources/helvetica-neue/HelveticaNeueMedium.ttf");
+}
+
+
+
+
 
 
 
@@ -85,6 +93,12 @@ body {
 }
 
 h1 {
-    font-weight: bold;
     letter-spacing: 10px;
+    font-size: 17px;
+}
+
+button {
+    letter-spacing: 5px;
+    padding: 10px;
+    border: none;
 }
