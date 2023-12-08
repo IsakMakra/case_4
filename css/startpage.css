@@ -1,35 +1,3 @@
-@font-face {
-    font-family: "Helvetica Neue Bold";
-    src: url("../resources/helvetica-neue/HelveticaNeueBold.ttf");
-}
-
-@font-face {
-    font-family: "Helvetica Neue Regular";
-    src: url("../resources/helvetica-neue/HelveticaNeueMedium.ttf");
-}
-
-@font-face {
-    font-family: "Helvetica Neue Thin";
-    src: url("../resources/helvetica-neue/HelveticaNeueLight.ttf");
-}
-
-* {
-    box-sizing: border-box;
-    font-family: "Helvetica Neue Thin";
-}
-
-
-body {
-    margin: 0;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 0.5fr 5fr 1fr;
-    background-image: url("../resources/Background-desktop.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 #info {
     display: flex;
     justify-content: center;
@@ -81,7 +49,7 @@ body {
     grid-row: 1;
     width: 40px;
     height: 40px;
-    margin: 5vw;
+    margin: 50px 0 0 50px;
     justify-self: left;
 }
 
@@ -109,10 +77,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-}
-
-#waves {
-    background-color: gainsboro;
 }
 
 #start {
