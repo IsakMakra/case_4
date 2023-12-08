@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vem kan mest</title>
-    <link rel="stylesheet" href="./css/host.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./css/host.css">
     <link rel="shortcut icon" href="resources/icons/faviconmountsun.png" type="image/x-icon">
 
 </head>
@@ -17,15 +17,22 @@
         <button id="quit">Yes</button>
         <button id="close">No</button>
     </dialog>
+
     <button id="home">Home</button>
+
     <main class="joinLobby">
         <header class="lobby">
-            <h1 id="title">Vem kan mest?</h1>
-            <h3 id="kategori"></h3>
-            <h3 id="serverCode"></h3>
+            <h1 id="serverCode">Spel Id: </h1>
+            <h3 id="kategoriLabel">Kategori</h3>
+            <p id="kategori"></p>
         </header>
-        <section class="lobby" id="playerNames">
+
+        <section id="players">
+            <h3>Spelare:</h3>
+            <div class="lobby" id="playerNames">
+            </div>
         </section>
+
         <section class="lobby" id="start">
             <button id="startQuiz">Start Quiz</button>
         </section>

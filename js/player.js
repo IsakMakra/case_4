@@ -97,6 +97,7 @@ function displayLeaderBoard(users, forever) {
         users.sort((a, b) => b.points - a.points);
     
         let leaderBoard = document.createElement("div");
+        leaderBoard.setAttribute("id", "leaderBoard");
     
         users.forEach ((user) => {
             let p = `<p>${number}. <b style="background-color: ${user.color}">${user.username}</b>, Points: ${user.points}</p>`

@@ -24,6 +24,24 @@
     color: red;
 }
 
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    background-image: url("../resources/Background-desktop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button {
+    letter-spacing: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
 #hostName {
     outline: none;
 }
@@ -45,6 +63,26 @@
     75% {
         transform: translateX(4px);
     }
+}
+
+@font-face {
+    font-family: "Helvetica Neue Bold";
+    src: url("../resources/helvetica-neue/HelveticaNeueBold.ttf");
+}
+
+@font-face {
+    font-family: "Helvetica Neue Regular";
+    src: url("../resources/helvetica-neue/HelveticaNeueMedium.ttf");
+}
+
+@font-face {
+    font-family: "Helvetica Neue Thin";
+    src: url("../resources/helvetica-neue/HelveticaNeueLight.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Helvetica Neue Thin";
 }
 
 /*

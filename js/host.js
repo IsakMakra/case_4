@@ -36,8 +36,8 @@ document.querySelector("dialog #close").addEventListener("click", () => {
 
 //Starts to create the host page and track the joined players
 async function startHostPage() {
-    document.querySelector("#kategori").textContent = category;
-    document.querySelector("#serverCode").textContent = serverCode;
+    document.querySelector("#kategori").textContent += category;
+    document.querySelector("#serverCode").textContent += serverCode;
 
     console.log(hostName, serverCode);
 
@@ -214,7 +214,8 @@ function displayLeaderBoard(users, forever) {
     users.sort((a, b) => b.points - a.points);
 
     let leaderBoard = document.createElement("div");
-
+    leaderBoard.setAttribute("id", "leaderBoard");
+    
     users.forEach ((user) => {
         let p = `<p>${number}. <b style="background-color: ${user.color}">${user.username}</b>, Points: ${user.points}</p>`
         leaderBoard.innerHTML += p;
