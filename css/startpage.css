@@ -6,7 +6,40 @@
     width: 30px;
     height: 30px;
     justify-self: right;
-    margin: 50px 50px 0 0;
+    margin: 5vw;
+    background-image: url("../resources/info.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#infoBox {
+    height: 200px;
+    width: 180px;
+    background-color: white;
+    position: absolute;
+    right: 20px;
+    z-index: 1;
+    border-radius: 10px;
+    top: 60px;
+    display: none;
+}
+
+#infoBox.show {
+    display: block;
+}
+
+.list {
+    font-size: 10px;
+    line-height: 15px;
+    margin: 10px;
+    text-align: start;
+    margin: 16px;
+}
+
+
+#textDecoration {
+
 }
 
 #back {
@@ -62,12 +95,53 @@ h1 {
     font-family: "Helvetica Neue Regular";
 }
 
+p {
+    max-width: 800px;
+    text-align: center;
+}
+
+button {
+    letter-spacing: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+#infoIMG {
+    background-image: url("../resources/info.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 @media  (max-width: 500px) {
 	body {
         background-image: url("../resources/Background_phone.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        position: relative;
     }    
+    #box {
+        justify-content: end;
+    }
+    #img {
+        position: absolute;
+        top: 180px;
+    }
+    h1 {
+        position: absolute;
+        top: 350px;
+    }
+
+    #start {
+        position: absolute;
+        bottom: 270px;
+    }
+
+    #join {
+        position: absolute;
+        bottom: 200px;
+    }
 };
 
