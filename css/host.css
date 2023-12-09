@@ -127,8 +127,7 @@ header > p {
 .voteContainer {
     display: flex;
     justify-content: space-between;
-    gap: 5px;
-    width: 200px;
+    gap: 10px;
 }
 
 .voteWrapper {
@@ -137,6 +136,7 @@ header > p {
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 100px;
 }
 
 .question {
