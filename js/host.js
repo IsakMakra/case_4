@@ -85,7 +85,7 @@ async function dispalyNewPlayers() {
         const players = newPlayers.slice(startIndex, length2);
         //! give the players a color
         players.forEach(player => {
-            document.querySelector("#playerNames").innerHTML += `<p style="background-color: ${player.color};">${player.username}</p>`;
+            document.querySelector("#playerNames").innerHTML += `<p style="color: ${player.color}; border: 1px solid ${player.color};">${player.username}</p>`;
         });
     }
     // Update the player list

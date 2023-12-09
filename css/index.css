@@ -85,6 +85,26 @@ button {
     font-family: "Helvetica Neue Thin";
 }
 
+#steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 20vh;
+    justify-self: center;
+}
+
+.step {
+    width: 70px;
+    height: 5px;
+    background-color: var(--white-color);
+}
+
+.full {
+    background-color: var(--greige-color);
+}
+
 /*
 body {
     background-image: url("../resources/et.jpg");

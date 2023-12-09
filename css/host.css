@@ -55,8 +55,8 @@ header > p {
     grid-template-rows: 0.1fr 1fr;
     background-color: white;
     margin: 0 50px 0 50px;
-    padding: 10px;
-    width: 70vw;
+    padding: 20px;
+    width: 50vw;
     height: 20vh;
 }
 
@@ -70,13 +70,15 @@ header > p {
     grid-column: 1 / span 2;
     grid-row: 2;
     display: flex;
+    justify-content: center;
     align-items: start;
     flex-direction: row;
     flex-wrap: wrap;
 
     & p {
         margin: 0;
-        background-color: rgb(201, 201, 201);
+        text-align: center;
+        width: 45%;
         padding: 5px 10px;
         border-radius: 10px;
     }

@@ -26,6 +26,11 @@ document.getElementById("start").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
         <button id="back">Home</button>
         <div id="box">
+            <div id="steps">
+                <div class=" step full"></div>
+                <div class=" step"></div>
+                <div class=" step"></div>
+            </div>
             <h3>Create a lobby</h3>
             <label for="lobby">Enter your name</label>
             <input type="text" id="hostName" name="hostName" required maxlength="10">
@@ -67,15 +72,19 @@ function chooseCategory() {
     document.querySelector("body").innerHTML = `
             <button id="back">Home</button>
             <div id="box">
-            <h3>Välj kategori</h3>
-            <p class="message" id="createLobbyMessage"></p>
-            <button onclick="createLobby('Random')">Random</button>
-            <button onclick="createLobby('Fest')">Fest</button>
-            <button onclick="createLobby('Familj')">Familj</button>
-            <button onclick="createLobby('Sport')">Sport</button>
-            <button onclick="createLobby('Hjärngympa')">Hjärngympa</button>
+                <div id="steps">
+                    <div class=" step"></div>
+                    <div class=" step full"></div>
+                    <div class=" step"></div>
+                </div>
+                <h3>Välj kategori</h3>
+                <p class="message" id="createLobbyMessage"></p>
+                <button onclick="createLobby('Random')">Random</button>
+                <button onclick="createLobby('Fest')">Fest</button>
+                <button onclick="createLobby('Familj')">Familj</button>
+                <button onclick="createLobby('Sport')">Sport</button>
+                <button onclick="createLobby('Hjärngympa')">Hjärngympa</button>
             </div>
-            <div id="waves"></div>
             `;
 
     document.getElementById("back").addEventListener("click", () => {

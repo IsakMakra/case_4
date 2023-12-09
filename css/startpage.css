@@ -122,9 +122,6 @@ button {
         background-position: center;
         position: relative;
     }    
-    #box {
-        justify-content: end;
-    }
     #img {
         position: absolute;
         top: 180px;
