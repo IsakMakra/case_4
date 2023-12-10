@@ -3,6 +3,7 @@
 let nIntervId; // stores the setInterval id to be later used to delete the interval
 let timerIntervalId;
 let questionNr = 0;
+let started = false;
 
 //* Booleans
 let cancelQuestionFetch = true; // decides if the next question should be displayed
@@ -124,6 +125,12 @@ async function nextQuestion() {
 
 function displayQuestion(object) {
     questionNumber = object.current_question_nr; //question number so we know which question to display
+
+    if(!started) {
+        document.querySelector(".joinLobby").classList.add("started");
+        started = true;
+    }
+
     const currentQuestion = object.quiz[questionNumber].question;
     const playingUsers = object.quiz[questionNumber].alternatives;
     console.log(object.quiz[questionNumber]);
@@ -151,11 +158,10 @@ function displayQuestion(object) {
     //* Makes the new html for the display of questions
     mainHtml.innerHTML =
         `
-        <header class="question">
-            <h1>Vem kan Mest?</h1>
+        <section class="question">
             <h3>Question ${questionNumber} / ${object.quiz.length - 1}</h3>
             <p>${currentQuestion}</p>
-        </header>
+        </section>
         <section class="question" id="middleSection">
             <div class="voteContainer"></div>
             <div class="buttonContainer"></div>
@@ -264,10 +270,10 @@ function endQuiz(object) {
     const leaderboard = players.sort((a, b) => { return b.points - a.points });
     mainHtml.innerHTML =
         `
-        <header class="question">
+        <section class="question">
             <h1>Winners</h1>
             <h3>Good work ${leaderboard[0].username} you are the winner</h3>
-        </header>
+        </section>
         <section class="question" id="middleSection">
             <div class="leaderboard"></div>
         </section>
