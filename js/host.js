@@ -85,7 +85,7 @@ async function dispalyNewPlayers() {
         const players = newPlayers.slice(startIndex, length2);
         //! give the players a color
         players.forEach(player => {
-            document.querySelector("#playerNames").innerHTML += `<p style="color: ${player.color}; border: 1px solid ${player.color};">${player.username}</p>`;
+            document.querySelector("#playerNames").innerHTML += `<p style="color: ${player.color}; border: 2px solid ${player.color};">${player.username}</p>`;
         });
     }
     // Update the player list
@@ -215,10 +215,27 @@ function displayLeaderBoard(users, forever) {
 
     let leaderBoard = document.createElement("div");
     leaderBoard.setAttribute("id", "leaderBoard");
-    
+    leaderBoard.innerHTML = `<h3>Leaderboard</h3>`;
+    let section = document.createElement("section");
+    section.innerHTML = `
+    <div id="metrics">
+        <p>Rank</p>
+        <p>Namn</p>
+        <p>Poäng</p>
+    </div>
+    `;
+    section.setAttribute("id", "leaderBoardBox");
+    leaderBoard.append(section);
+
     users.forEach ((user) => {
-        let p = `<p>${number}. <b style="background-color: ${user.color}">${user.username}</b>, Points: ${user.points}</p>`
-        leaderBoard.innerHTML += p;
+        let user_dom = `
+        <div class="player">
+            <p class="leaderBoardNr">${number}.</p>
+            <p class="leaderBoardName" style="color: ${user.color}; border: 2px solid ${user.color};">${user.username}</p>
+            <p class="leaderBoardPoints">${user.points}</p>
+        </div>
+        `;
+        section.innerHTML += user_dom;
         number++;
     })
     

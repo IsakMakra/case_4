@@ -3,7 +3,6 @@
 const interval = 1000; // 1000 milliseconds = 1 second
 const password = localStorage.getItem("password");
 const username = localStorage.getItem("name");
-document.querySelector("#namn").textContent = username;
 let watingForGameToStart = true;
 let intervalId;
 let leaderBoardIntervalId = 0;
@@ -66,7 +65,7 @@ async function callBack() {
 
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
-            usersContainer.innerHTML = "Du ska spela"
+            usersContainer.innerHTML = `<h3>Du ska spela</h3>`;
         } 
         else {
 
@@ -98,10 +97,27 @@ function displayLeaderBoard(users, forever) {
     
         let leaderBoard = document.createElement("div");
         leaderBoard.setAttribute("id", "leaderBoard");
-    
+        leaderBoard.innerHTML = `<h3>Leaderboard</h3>`;
+        let section = document.createElement("section");
+        section.innerHTML = `
+        <div id="metrics">
+            <p>Rank</p>
+            <p>Namn</p>
+            <p>Poäng</p>
+        </div>
+        `;
+        section.setAttribute("id", "leaderBoardBox");
+        leaderBoard.append(section);
+
         users.forEach ((user) => {
-            let p = `<p>${number}. <b style="background-color: ${user.color}">${user.username}</b>, Points: ${user.points}</p>`
-            leaderBoard.innerHTML += p;
+            let user_dom = `
+            <div class="player">
+                <p class="leaderBoardNr">${number}.</p>
+                <p class="leaderBoardName" style="color: ${user.color}; border: 2px solid ${user.color};">${user.username}</p>
+                <p class="leaderBoardPoints">${user.points}</p>
+            </div>
+            `;
+            section.innerHTML += user_dom;
             number++;
         })
         

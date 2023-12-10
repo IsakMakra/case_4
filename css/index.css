@@ -85,6 +85,7 @@ button {
     font-family: "Helvetica Neue Thin";
 }
 
+/*Creating lobby steps*/
 #steps {
     display: flex;
     justify-content: center;
@@ -97,13 +98,54 @@ button {
 
 .step {
     width: 70px;
-    height: 5px;
+    height: 10px;
     background-color: var(--white-color);
 }
 
-.full {
-    background-color: var(--greige-color);
+.full {background-color: var(--greige-color);}
+
+/*Leaderboard*/
+
+#leaderBoard {
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
+
+#leaderBoardBox {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    gap: 2vh;
+}
+
+#metrics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.player {
+    display: flex;
+    justify-content: space-between;
+    border: solid black 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.leaderBoardNr {
+    font-weight: bold;
+}
+
+.leaderBoardName {
+    width: 45%;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.leaderBoardPoints {}
 
 /*
 body {
