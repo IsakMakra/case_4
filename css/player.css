@@ -6,21 +6,6 @@ body {
     grid-template-rows: 0.5fr 1fr 0.5fr;
 }
 
-#timerBox {
-    width: 40vw;
-    height: 10px;
-    position: absolute;
-    top: 15vh;
-    display: flex;
-    background-color: white;
-    justify-self: center;
-}
-
-#timerBar {
-    justify-content: start;
-    background-color: var(--greige-color);
-}
-
 main {
     grid-row: 2;
     display: grid;

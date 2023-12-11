@@ -3,6 +3,7 @@
 const interval = 1000; // 1000 milliseconds = 1 second
 const password = localStorage.getItem("password");
 const username = localStorage.getItem("name");
+let allPlayers = []; // Initialize an array to store the players
 let watingForGameToStart = true;
 let intervalId;
 let leaderBoardIntervalId = 0;
@@ -12,6 +13,7 @@ let q_nr = 0;
 let timerStarted = false;
 let leaderBoardCreated = false;
 let buttonsCreated = false;
+
 let usersContainer = document.querySelector("#users");
 
 window.addEventListener('beforeunload', beforeUnloadHandler);
@@ -47,7 +49,28 @@ async function callBack() {
     }
 
     if (dataObject.quiz[currentQuestionNumber] === "start") {
-        document.getElementById("feedback").textContent = "Väntar på att spelet ska starta";
+
+        dispalyNewPlayers();
+
+        async function dispalyNewPlayers() {
+            const newPlayers = dataObject.users
+            const length1 = allPlayers.length;
+            const length2 = newPlayers.length;
+            
+            // if this is true there is a new players in the lobby and we dispaly their names
+            if (length2 > length1) {
+                const numOfNewPlayers = length2 - length1;
+                const startIndex = length2 - numOfNewPlayers;
+                const players = newPlayers.slice(startIndex, length2);
+                //! give the players a color
+                players.forEach(player => {
+                    document.querySelector("#playerNames").innerHTML += `<p style="color: ${player.color}; border: 2px solid ${player.color};">${player.username}</p>`;
+                });
+            }
+            // Update the player list
+            allPlayers = newPlayers;
+        }
+
         return;
     }
 
