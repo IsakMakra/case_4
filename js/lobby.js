@@ -140,13 +140,61 @@ function chooseCategory() {
                     <div class=" step full"></div>
                     <div class=" step"></div>
                 </div>
-                <h3>Välj kategori</h3>
+
+                <h3>KATEGORIER</h3>
+                <p>Välj en kategorier att spela</p>
                 <p class="message" id="createLobbyMessage"></p>
-                <button onclick="createLobby('Random')">Random</button>
-                <button onclick="createLobby('Fest')">Fest</button>
-                <button onclick="createLobby('Familj')">Familj</button>
-                <button onclick="createLobby('Sport')">Sport</button>
-                <button onclick="createLobby('Hjärngympa')">Hjärngympa</button>
+
+                <div id="categoryWrapper">
+                    <div class="categoryCard" onclick="createLobby('Random')">
+                        <div class="categoryImg random"></div>
+                        <div class="categoryTextBox">
+                            <h3>RANDOM</h3>
+                            <p>Gott och blandat! Något för alla!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('Fest')">
+                        <div class="categoryImg fest"></div>
+                        <div class="categoryTextBox">
+                            <h3>FESTLIGHETER</h3>
+                            <p>Tävla mot varandra i festligheter!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('Världen')">
+                        <div class="categoryImg världen"></div>
+                        <div class="categoryTextBox">
+                            <h3>VÄRLDEN</h3>
+                            <p>Dags att testa geografin, flaggor, länder och städer!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('Historia')">
+                        <div class="categoryImg historia"></div>
+                        <div class="categoryTextBox">
+                            <h3>Historia</h3>
+                            <p>Res tillbaka i tiden och tävla om vem som har bäst minne!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('Musik')">
+                        <div class="categoryImg musik"></div>
+                        <div class="categoryTextBox">
+                            <h3>MUSIK</h3>
+                            <p>Avgör vem som har störst musikkunskap!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('Fysisk Aktivitet')">
+                        <div class="categoryImg fysisk"></div>
+                        <div class="categoryTextBox">
+                            <h3>FYSISK AKTIVITET</h3>
+                            <p>Tävla mot varandra i styrka och prestanda!</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             `;
 

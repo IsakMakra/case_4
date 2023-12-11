@@ -140,6 +140,45 @@ button {
     background-position: center;
 }
 
+/*Kategorier*/
+
+#categoryWrapper {
+    overflow: scroll;
+    height: 50vh;
+}
+
+.categoryCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: white solid 2px;
+}
+
+.categoryCard:hover {
+    border: black solid 2px;
+    cursor: pointer;
+}
+
+.categoryImg {
+    height: 75px;
+    width: 75px;
+    background-color: gray;
+}
+
+.categoryTextBox {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.categoryTextBox > h3 {
+    margin: 0;
+}
+
 @media (max-width: 500px) {
     body {
         background-image: url("../resources/Background_phone.jpg");

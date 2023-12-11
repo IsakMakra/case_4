@@ -228,6 +228,7 @@ function displayLeaderBoard(users, forever) {
         <p>Rank</p>
         <p>Namn</p>
         <p>Poäng</p>
+        <p>Nya poäng</p>
     </div>
     `;
     section.setAttribute("id", "leaderBoardBox");
@@ -239,6 +240,7 @@ function displayLeaderBoard(users, forever) {
             <p class="leaderBoardNr">${number}.</p>
             <p class="leaderBoardName" style="color: ${user.color}; border: 2px solid ${user.color};">${user.username}</p>
             <p class="leaderBoardPoints">${user.points}</p>
+            <p class="newPoints">${user.points_gained}</p>
         </div>
         `;
         section.innerHTML += user_dom;
