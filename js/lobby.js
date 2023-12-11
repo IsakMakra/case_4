@@ -152,9 +152,4 @@ async function createLobby(category) {
     }
 }
 
-
-function renderHostPage() {
-
-}
-
 clearLocalStorage();

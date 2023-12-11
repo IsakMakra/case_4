@@ -130,6 +130,7 @@
                     [ 
                         "username" => $username, 
                         "points" => 0, 
+                        "points_gained" => 0,
                         "color" => $colors[$color_index],
                     ];
 
