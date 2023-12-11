@@ -11,7 +11,7 @@ document.getElementById("join").addEventListener("click", () => {
                 <div class=" step full"></div>
                 <div class=" step"></div>
             </div>
-            <h3>Join a lobby</h3>
+        
             <p class="message" id="joinLobbyMessage"></p>
             <div class="wrapper">
                 <label for="lobby">lobby ID</label>
