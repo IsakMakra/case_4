@@ -10,9 +10,11 @@ let leaderBoardIntervalId = 0;
 let timerIntervalId;
 let q_nr = 0;
 
+//Flags
 let timerStarted = false;
 let leaderBoardCreated = false;
 let buttonsCreated = false;
+let player_div_removed = false;
 
 let usersContainer = document.querySelector("#users");
 
@@ -81,6 +83,11 @@ async function callBack() {
     }
 
     if (currentQuestionNumber == q_nr) {
+        if (!player_div_removed) {
+            document.getElementById("players").remove();
+            player_div_removed = true;
+        }
+        
         displayLeaderBoard(dataObject.users, false);
 
         document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionNumber].question;
