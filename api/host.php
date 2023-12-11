@@ -92,12 +92,17 @@
             {
                 if($host == $game["host"] && $server_code == $game["server_code"])
                 {
-                    //Adds 1 point to the users who chose corretly and 2 points to the winner
+                    //Adds 50 point to the users who chose corretly and 100 points to the winner
                     foreach ($game['users'] as $index2 => $user) 
                     {
+                        if($user["points_gained"] > 0) {
+                            $games[$index]["users"][$index2]["points_gained"] = 0;
+                        }
+
                         if($winner == $user["username"]) 
                         {
                             $games[$index]["users"][$index2]["points"] += 100;
+                            $games[$index]["users"][$index2]["points_gained"] = 100;
                         }
 
                         foreach($game['current_votes'] as $index3 => $vote) 
@@ -105,6 +110,7 @@
                             if ($user['username'] == $vote['user'] && $vote['vote'] == $winner) 
                             {
                                 $games[$index]["users"][$index2]["points"] += 50;
+                                $games[$index]["users"][$index2]["points_gained"] = 50;
                             }
                         }
                     }

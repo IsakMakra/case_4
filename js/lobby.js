@@ -7,6 +7,11 @@ document.getElementById("join").addEventListener("click", () => {
         <button id="back">Back</button>
         <div id="box">
             
+            <div id="steps">
+                <div class=" step full"></div>
+                <div class=" step"></div>
+            </div>
+            <h3>Join a lobby</h3>
             <p class="message" id="joinLobbyMessage"></p>
             <div class="wrapper">
                 <label for="lobby">lobby ID</label>
@@ -204,11 +209,6 @@ async function createLobby(category) {
     } else {
         document.getElementById("createLobbyMessage").innerHTML = "Something went wrong... Try again.";
     }
-}
-
-
-function renderHostPage() {
-
 }
 
 clearLocalStorage();
