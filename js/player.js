@@ -40,7 +40,7 @@ async function callBack() {
     const dataObject = await fetchData()
     const currentQuestionNumber = dataObject.current_question_nr;
 
-    if(q_nr != currentQuestionNumber) {
+    if (q_nr != currentQuestionNumber) {
         leaderBoardCreated = false;
         timerStarted = false;
         usersContainer.innerHTML = "";
@@ -56,7 +56,7 @@ async function callBack() {
             const newPlayers = dataObject.users
             const length1 = allPlayers.length;
             const length2 = newPlayers.length;
-            
+
             // if this is true there is a new players in the lobby and we dispaly their names
             if (length2 > length1) {
                 const numOfNewPlayers = length2 - length1;
@@ -82,29 +82,41 @@ async function callBack() {
 
     if (currentQuestionNumber == q_nr) {
         displayLeaderBoard(dataObject.users, false);
-        
+
         document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionNumber].question;
         let userArray = dataObject.quiz[currentQuestionNumber].alternatives;
 
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             usersContainer.innerHTML = `<h3>Du ska spela</h3>`;
-        } 
+        }
         else {
 
-            if(!buttonsCreated) {
+            if (!buttonsCreated) {
+                document.querySelector("main").innerHTML =
+                    `
+                <div class="cardContainer">
+                    <h3>Vem kan göra flest armhövningar på 20 sekunder?</h3>
+                    <h4>RÖSTA</h4>
+                </div>
+                `
                 userArray.forEach((user) => {
+                    const playerColor = dataObject.users.find(objekt => {
+                        objekt.username === user
+                    })
                     const button = document.createElement("button");
                     button.classList.add("voteBtn");
+                    button.style.color = playerColor.color;
+                    button.style.borderColor = playerColor.color;
                     button.id = user;
                     button.textContent = user;
                     button.addEventListener("click", voteForPlayer)
-                    usersContainer.append(button);
+                    document.querySelector(".cardContainer").append(button);
                 });
                 buttonsCreated = true;
             }
-    
-            if(!timerStarted) {
+
+            if (!timerStarted) {
                 startTimer();
                 timerStarted = true;
             }
@@ -113,11 +125,11 @@ async function callBack() {
 }
 
 function displayLeaderBoard(users, forever) {
-    if(!leaderBoardCreated) {
+    if (!leaderBoardCreated) {
         leaderBoardCreated = true;
         let number = 1;
         users.sort((a, b) => b.points - a.points);
-    
+
         let leaderBoard = document.createElement("div");
         leaderBoard.setAttribute("id", "leaderBoard");
         leaderBoard.innerHTML = `<h3>Leaderboard</h3>`;
@@ -132,7 +144,7 @@ function displayLeaderBoard(users, forever) {
         section.setAttribute("id", "leaderBoardBox");
         leaderBoard.append(section);
 
-        users.forEach ((user) => {
+        users.forEach((user) => {
             let user_dom = `
             <div class="player">
                 <p class="leaderBoardNr">${number}.</p>
@@ -143,12 +155,12 @@ function displayLeaderBoard(users, forever) {
             section.innerHTML += user_dom;
             number++;
         })
-        
+
         document.querySelector("body").append(leaderBoard);
         let main = document.querySelector("main");
         main.classList.add("hidden");
 
-        if(!forever) {
+        if (!forever) {
             let second = 0
             leaderBoardIntervalId = setInterval(() => {
                 if (second === 4) {
@@ -156,7 +168,7 @@ function displayLeaderBoard(users, forever) {
                     leaderBoard.remove();
                     main.classList.remove("hidden");
                 }
-        
+
                 second++;
             }, interval);
         }
