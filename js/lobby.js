@@ -6,6 +6,10 @@ document.getElementById("join").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
         <button id="back">Back</button>
         <div id="box">
+            <div id="steps">
+                <div class=" step full"></div>
+                <div class=" step"></div>
+            </div>
             <h3>Join a lobby</h3>
             <p class="message" id="joinLobbyMessage"></p>
             <label for="lobby">Enter your name</label>
