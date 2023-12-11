@@ -1,5 +1,6 @@
 {
     "name": "Vem kan mest",
+    "display": "standalone",
     "icons": [
         {
             "src": "resources/icons/faviconmountsun",
