@@ -6,20 +6,79 @@ document.getElementById("join").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
         <div id="home"></div>
         <div id="box">
+            
             <div id="steps">
                 <div class=" step full"></div>
                 <div class=" step"></div>
             </div>
-            <h3>Join a lobby</h3>
+        
             <p class="message" id="joinLobbyMessage"></p>
-            <label for="lobby">Enter your name</label>
-            <input type="text" id="userName" name="userName">
-            <label for="lobby">Enter the lobby code</label>
-            <input type="text" id="lobbycode" name="lobbycode">
-            <button onclick="submitUser()">Join</button>
+            <div class="wrapper">
+                <label for="lobby">lobby ID</label>
+                <div class="inputContainer">
+                    <input type="tel" id="0" class="serverCode" maxlength="1">
+                    <input type="tel" id="1" class="serverCode" maxlength="1">
+                    <input type="tel" id="2" class="serverCode" maxlength="1">
+                    <input type="tel" id="3" class="serverCode" maxlength="1">
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <label for="lobby">användarnamn</label>
+                <input type="text" id="userName" name="userName">
+            </div>
+            <button id="joinBtn">STARTA</button>
         </div>
         <div id="waves"></div>
     `;
+
+    let value = 0;
+    const inputs = Array.from(document.querySelectorAll(".serverCode"));
+    inputs[0].focus();
+
+    //går igenom varje input och ger den keyup eventlistener
+    inputs.forEach(input => {
+        input.addEventListener("keyup", function (e) {
+            let key = e.key;
+            let id = parseInt(this.id) + 1;
+            let previousSibling = this.previousElementSibling;
+            let nextSibling = document.getElementById(id);
+            if (key === "Backspace") {
+                if (value < 2) {
+                    return;
+                } else {
+                    previousSibling.focus();
+                    value = 0;
+                }
+
+            } else {
+                if (nextSibling === null) {
+                    return
+                }
+                nextSibling.focus();
+            }
+
+
+        })
+    })
+
+    inputs.forEach(input => {
+        input.addEventListener("keydown", function (e) {
+            let key = e.key;
+            if (key === "Backspace") {
+                value++
+            }
+        })
+    })
+
+    document.querySelector("#joinBtn").addEventListener("click", () => {
+        let serverCodeString = inputs.map(input => input.value).join("");
+        console.log(serverCodeString);
+        const password = serverCodeString;
+        const user = document.getElementById("userName").value;
+        document.getElementById('userName').value = '';
+        joinLobby(password, user);
+    })
 
     document.getElementById("home").addEventListener("click", () => {
         location.reload();
@@ -98,14 +157,14 @@ function chooseCategory() {
 
 }
 
-//Collecting the users information
-function submitUser() {
-    const password = document.getElementById("lobbycode").value;
-    const user = document.getElementById("userName").value;
-    document.getElementById('lobbycode').value = '';
-    document.getElementById('userName').value = '';
-    joinLobby(password, user);
-}
+// //Collecting the users information
+// function submitUser() {
+//     const password = document.getElementById("lobbycode").value;
+//     const user = document.getElementById("userName").value;
+//     document.getElementById('lobbycode').value = '';
+//     document.getElementById('userName').value = '';
+//     joinLobby(password, user);
+// }
 
 //The user joins the lobby
 async function joinLobby(password, user) {

@@ -38,18 +38,55 @@
 }
 
 
-#textDecoration {
-
-}
+#textDecoration {}
 
 #box {
     grid-row: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     padding: 1vw;
-    gap: 1vh;
+
+
+    & .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        max-width: 250px;
+        margin-top: 30px;
+        gap: 5px;
+    }
+
+    & label {
+        text-align: left;
+        font-size: 16px;
+    }
+
+    & input {
+        height: 50px;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 25px;
+    }
+
+    & #joinBtn {
+        margin-top: 100px;
+        width: 200px;
+        background-color: var(--salmon1-color);
+    }
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.serverCode {
+    width: 50px;
+    text-align: center;
 }
 
 .startpageButton {
@@ -75,7 +112,7 @@
 
 #join {
     background-color: #4C4B76;
-    color:white;
+    color: white;
 }
 
 h1 {
@@ -103,14 +140,15 @@ button {
     background-position: center;
 }
 
-@media  (max-width: 500px) {
-	body {
+@media (max-width: 500px) {
+    body {
         background-image: url("../resources/Background_phone.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         position: relative;
-    }    
+    }
+
     #img {
         position: absolute;
         top: 180px;
@@ -125,5 +163,6 @@ button {
         position: absolute;
         bottom: 200px;
     }
-};
+}
 
+;
