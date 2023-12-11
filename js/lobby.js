@@ -4,7 +4,7 @@ let hostName;
 //Events on buttons
 document.getElementById("join").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
-        <button id="back">Back</button>
+        <div id="home"></div>
         <div id="box">
             <div id="steps">
                 <div class=" step full"></div>
@@ -21,14 +21,14 @@ document.getElementById("join").addEventListener("click", () => {
         <div id="waves"></div>
     `;
 
-    document.getElementById("back").addEventListener("click", () => {
+    document.getElementById("home").addEventListener("click", () => {
         location.reload();
     })
 })
 
 document.getElementById("start").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
-        <button id="back">Home</button>
+        <div id="home"></div>
         <div id="box">
             <div id="steps">
                 <div class=" step full"></div>
@@ -48,7 +48,7 @@ document.getElementById("start").addEventListener("click", () => {
         let errorMessage = "Max 10 characters in the name"
         controlName(e, errorMessage);
     });
-    document.getElementById("back").addEventListener("click", () => {
+    document.getElementById("home").addEventListener("click", () => {
         location.reload();
     })
 })
@@ -74,7 +74,7 @@ function chooseCategory() {
 
     hostName = document.getElementById("hostName").value;
     document.querySelector("body").innerHTML = `
-            <button id="back">Home</button>
+            <div id="home"></div>
             <div id="box">
                 <div id="steps">
                     <div class=" step"></div>
@@ -91,7 +91,7 @@ function chooseCategory() {
             </div>
             `;
 
-    document.getElementById("back").addEventListener("click", () => {
+    document.getElementById("home").addEventListener("click", () => {
         location.reload();
     })
 
