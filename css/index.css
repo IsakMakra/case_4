@@ -102,7 +102,9 @@ button {
     background-color: var(--white-color);
 }
 
-.full {background-color: var(--greige-color);}
+.full {
+    background-color: var(--greige-color);
+}
 
 /*Leaderboard*/
 
@@ -161,6 +163,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}*
+}
+*/
 
-/
+/*_________________join lobby pagecss*/
