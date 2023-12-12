@@ -16,7 +16,7 @@ let leaderBoardCreated = false;
 let buttonsCreated = false;
 let player_div_removed = false;
 
-let usersContainer = document.querySelector("#users");
+let mainContainer = document.querySelector("main");
 
 window.addEventListener('beforeunload', beforeUnloadHandler);
 
@@ -45,7 +45,7 @@ async function callBack() {
     if (q_nr != currentQuestionNumber) {
         leaderBoardCreated = false;
         timerStarted = false;
-        usersContainer.innerHTML = "";
+        // mainContainer.innerHTML = "";
         buttonsCreated = false;
         q_nr = currentQuestionNumber;
     }
@@ -83,23 +83,24 @@ async function callBack() {
     }
 
     if (currentQuestionNumber == q_nr) {
-        if (!player_div_removed) {
-            document.getElementById("players").remove();
-            player_div_removed = true;
-        }
+        // if (!player_div_removed) {
+        //     document.getElementById("players").remove();
+        //     player_div_removed = true;
+        // }
 
         displayLeaderBoard(dataObject.users, false);
 
         let userArray = dataObject.quiz[currentQuestionNumber].alternatives;
-
+        console.log(currentQuestionNumber);
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             //* här ändar vi layout för den som ska duellerar
-            usersContainer.innerHTML = `<h3>Du ska spela</h3>`;
+            mainContainer.innerHTML = `<h3>Du ska spela</h3>`;
         }
         else {
             let questionNrInPercentage = currentQuestionNumber / dataObject.quiz.length * 100;
             let player = dataObject.users.find(objekt => objekt.username === username)
+            console.log(buttonsCreated);
             if (!buttonsCreated) {
                 document.querySelector("main").innerHTML =
                     `

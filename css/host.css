@@ -1,11 +1,15 @@
 body {
-    grid-template-rows: 0.5fr 1.5fr;
+    /* grid-template-rows: 0.5fr 1.5fr; */
 }
 
 main {
     display: grid;
     padding: 1vw;
     gap: 1vh;
+}
+
+button {
+    cursor: pointer;
 }
 
 .joinLobby {
@@ -18,10 +22,8 @@ main {
 }
 
 .started {
-    background-color: white;
-    border-radius: 20px;
     min-height: 300px;
-    height: 80vh;
+
 }
 
 .lobby {
@@ -30,15 +32,15 @@ main {
     align-items: center;
 }
 
-.lobby > h1 {
+.lobby>h1 {
     margin: 0;
 }
 
-.lobby > h3 {
+.lobby>h3 {
     margin-bottom: 0;
 }
 
-.lobby > p {
+.lobby>p {
     grid-row: 3;
     margin-top: 10px;
 }
@@ -48,19 +50,21 @@ main {
     justify-content: center;
 }
 
-#startQuiz {
+.allBtn {
     background-color: var(--salmon1-color);
-    width: 15rem;
-    height: 4rem;
-    font-size: 1.2rem;
-    border-radius: 1rem;
+
+    height: 48px;
+    font-size: 16px;
+    color: white;
+    border-radius: 50px;
     border: none;
+    padding: 0px 50px;
+    letter-spacing: 2px;
     /* box-shadow: 1px 1px 1px black; */
     justify-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
 /*question view ___________________________*/
@@ -74,6 +78,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
     & .playerBtn {
         width: 100px;
         padding: 10px 0;
@@ -81,9 +86,6 @@ main {
     }
 }
 
-.winner {
-    background-color: green;
-}
 
 .voteContainer {
     display: flex;
@@ -106,11 +108,14 @@ main {
     align-items: center;
 }
 
-#nextBtn {
-    width: 200px;
-    background-color: var(--salmon1-color);
-}
 
 .hidden {
     display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
 }

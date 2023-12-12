@@ -22,6 +22,12 @@ const serverCode = localStorage.getItem("serverCode"); // servercode for the gam
 const mainHtml = document.querySelector("main");
 const homeBtn = document.querySelector("#home");
 
+let arrayUsers = [
+    "dette",
+    "sadde",
+    "hree"
+]
+
 //the home button opens the dialog element to make sure if the host wants to quit the quiz
 homeBtn.addEventListener("click", function quitQuiz() {
     document.querySelector("dialog").show();
@@ -44,7 +50,7 @@ async function startHostPage() {
 
     //!fix so when the host refreshes it should come back to the quiz
     // const object = await fetchGameObject();
-
+    // test()
 
     nIntervId = setInterval(intervalFunction, interval, true, false);
 }
@@ -61,13 +67,14 @@ function intervalFunction(displayPlayer, displayQuestion) {
     //checkVotes get called every second to collect and save the votes 
     if (displayQuestion) {
         nextQuestion();
-        checkVotes();
+        // checkVotes();
     }
 }
 
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=8612&host=aswq`, "GET");
     const data = await response.json();
 
     return data
@@ -78,7 +85,7 @@ async function dispalyNewPlayers() {
     const newPlayers = gameObject.users
     const length1 = allPlayers.length;
     const length2 = newPlayers.length;
-    
+
     // if this is true there is a new players in the lobby and we dispaly their names
     if (length2 > length1) {
         const numOfNewPlayers = length2 - length1;
@@ -124,21 +131,19 @@ async function nextQuestion() {
 }
 
 function displayQuestion(object) {
-    questionNumber = object.current_question_nr; //question number so we know which question to display
+    let questionNumber = object.current_question_nr; //question number so we know which question to display
 
-    if(!started) {
+    if (!started) {
         document.querySelector(".joinLobby").classList.add("started");
         started = true;
     }
 
     const currentQuestion = object.quiz[questionNumber].question;
     const playingUsers = object.quiz[questionNumber].alternatives;
-    console.log(object.quiz[questionNumber]);
-    
-    displayLeaderBoard(object.users);
-    
-    if (object.quiz[questionNumber] === "end") {
 
+    displayLeaderBoard(object.users);
+
+    if (object.quiz[questionNumber] === "end") {
         window.removeEventListener("beforeunload", beforeUnloadHandler);
         endQuiz(object);
         return;
@@ -156,62 +161,91 @@ function displayQuestion(object) {
     }
 
     //* Makes the new html for the display of questions
-    mainHtml.innerHTML =
+
+    let questionNrInPercentage = questionNumber / object.quiz.length * 100;
+    document.querySelector("main").innerHTML =
         `
-        <section class="question">
-            <h3>Question ${questionNumber} / ${object.quiz.length - 1}</h3>
-            <p>${currentQuestion}</p>
-        </section>
-        <section class="question" id="middleSection">
-            <div class="voteContainer"></div>
-            <div class="buttonContainer"></div>
-        </section>
-        <section class="question">
-            <button id="nextBtn">Nästa fråga</button>
-        </section>
-    `;
+    <div class="questionBarContainer">
+        <div class="questionBarChild" style="width: ${questionNrInPercentage}%;"></div>
+    </div>
+    <div class="cardContainer">
+        <h3>${currentQuestion}</h3>
+    </div>
+    `
+    document.querySelector("footer").innerHTML =
+        `
+        <button id="startGameBtn" class="allBtn">STARTA SPELET</button>
+    `
 
     //* this gives eventlisteners to the buttons to be able to select the winner
+    createPlayerBtn(playingUsers, object, false)
+
+    startTimer();
+
+    document.querySelector("#startGameBtn").addEventListener("click", () => {
+        document.querySelector("main").innerHTML =
+            `
+        <div class="cardContainer">
+            <h3>VÄLJ VINNARE</h3>
+        </div>
+        `
+        document.querySelector("footer").innerHTML =
+            `
+        <button id="nextBtn" class="allBtn">NÄSTA FRÅGA</button>
+        `
+
+        createPlayerBtn(playingUsers, object, true)
+
+        document.querySelector("#nextBtn").addEventListener("click", () => {
+            cancelQuestionFetch = true;
+            firstInterval = true;
+            Object.keys(currentPlayers).forEach(key => {
+                delete currentPlayers[key];
+            });
+            usersWhoVoted = [];
+            incrementQuestionNr();
+            nextQuestion();
+        })
+    })
+
+}
+
+function createPlayerBtn(playingUsers, object, decider) {
     playingUsers.forEach(user => {
+        const playerColor = object.users.find(objekt => objekt.username === user);
         const button = document.createElement("button");
         button.classList.add("playerBtn");
         button.id = user;
         button.textContent = user;
-        button.addEventListener("click", function (e) {
-            this.classList.add("winner");
-            const winner = this.textContent;
-            const winnerBody = {
-                winner: winner,
-                server_code: serverCode,
-                host: hostName,
-            }
-            fetcha("api/host.php", "PATCH", winnerBody);
-            document.querySelectorAll(".playerBtn").forEach(button => {
-                button.setAttribute("disabled", true);
+        button.style.color = playerColor.color;
+        button.style.borderColor = playerColor.color;
+        if (decider) {
+            button.addEventListener("click", function (e) {
+                let playerColor = e.currentTarget.style.color;
+                button.style.backgroundColor = playerColor;
+                button.style.color = "white";
+                const winner = this.textContent;
+                const winnerBody = {
+                    winner: winner,
+                    server_code: serverCode,
+                    host: hostName,
+                }
+                fetcha("api/host.php", "PATCH", winnerBody);
+                document.querySelectorAll(".playerBtn").forEach(button => {
+                    button.setAttribute("disabled", true);
+                })
             })
-        });
-        mainHtml.querySelector(".buttonContainer").append(button);
 
-        mainHtml.querySelector(".voteContainer").innerHTML +=
-            `
-        <div class="voteWrapper">
-            <p class="voteNr" id="${user}">0</p>
-            <h4>${user}</h4>
-        </div>
-        `
-    })
+        }
+        mainHtml.querySelector(".cardContainer").append(button);
 
-    startTimer();
-
-    mainHtml.querySelector("#nextBtn").addEventListener("click", function (e) {
-        cancelQuestionFetch = true;
-        firstInterval = true;
-        Object.keys(currentPlayers).forEach(key => {
-            delete currentPlayers[key];
-        });
-        usersWhoVoted = [];
-        incrementQuestionNr();
-        nextQuestion();
+        // mainHtml.querySelector(".voteContainer").innerHTML +=
+        //     `
+        // <div class="voteWrapper">
+        //     <p class="voteNr" id="${user}">0</p>
+        //     <h4>${user}</h4>
+        // </div>
+        // `
     })
 }
 
@@ -234,7 +268,7 @@ function displayLeaderBoard(users, forever) {
     section.setAttribute("id", "leaderBoardBox");
     leaderBoard.append(section);
 
-    users.forEach ((user) => {
+    users.forEach((user) => {
         let user_dom = `
         <div class="player">
             <p class="leaderBoardNr">${number}.</p>
@@ -246,20 +280,22 @@ function displayLeaderBoard(users, forever) {
         section.innerHTML += user_dom;
         number++;
     })
-    
+
     document.querySelector("body").append(leaderBoard);
     let main = document.querySelector("main");
     main.classList.add("hidden");
+    document.querySelector("footer").classList.add("hidden");
 
-    if(!forever) {
+    if (!forever) {
         let second = 0
         leaderBoardIntervalId = setInterval(() => {
             if (second === 4) {
                 clearInterval(leaderBoardIntervalId);
                 leaderBoard.remove();
                 main.classList.remove("hidden");
+                document.querySelector("footer").classList.remove("hidden");
             }
-    
+
             second++;
         }, interval);
     }
@@ -343,4 +379,35 @@ function startTimer() {
         }
         second++;
     }, interval);
+}
+
+
+
+
+
+function test() {
+    document.querySelector("main").innerHTML =
+        `
+    <div class="questionBarContainer">
+        <div class="questionBarChild" style="width: 20%;"></div>
+    </div>
+    <div class="cardContainer">
+        <h3>Vem kan göra flest armhövningar?</h3>
+        <h4>RÖSTA</h4>
+    </div>
+    `
+    document.querySelector("footer").innerHTML =
+        `
+        <button id="nextBtn">STARTA SPELET</button>
+    `
+
+
+    arrayUsers.forEach(user => {
+        const button = document.createElement("button");
+        button.classList.add("playerBtn");
+        button.id = user;
+        button.textContent = user;
+
+        mainHtml.querySelector(".cardContainer").append(button);
+    })
 }
