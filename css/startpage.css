@@ -95,11 +95,11 @@
 }
 
 #img {
-    width: 60vw;
-    max-width: 200px;
-    height: 20vh;
-    max-height: 200px;
-    background-image: url("../resources/icons/faviconmountsun.png");
+    width: 372px;
+    /*  max-width: 372px; */
+    height: 212px;
+    /*  max-height: 212px; */
+    background-image: url("../resources/Logga_main.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -175,7 +175,7 @@ button {
     padding: 20px;
 }
 
-.categoryTextBox > h3 {
+.categoryTextBox>h3 {
     margin: 0;
 }
 
