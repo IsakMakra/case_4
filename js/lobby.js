@@ -94,11 +94,11 @@ document.getElementById("start").addEventListener("click", () => {
                 <div class=" step"></div>
                 <div class=" step"></div>
             </div>
-            <h3>Create a lobby</h3>
-            <label for="lobby">Enter your name</label>
-            <input type="text" id="hostName" name="hostName" required maxlength="10">
+            <div id="img"></div>
+            <label for="lobby">användarnamn</label>
+            <input type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
             <p class="message" id="errorMessage"></p>
-            <button type="submit" onclick="chooseCategory()">Nästa</button>
+            <button id="buttonNext" type="submit" onclick="chooseCategory()">NÄSTA</button>
             </div>
             <div id="waves"></div>
             `;

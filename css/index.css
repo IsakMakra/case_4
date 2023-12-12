@@ -106,7 +106,7 @@ button {
     align-items: center;
     gap: 10px;
     position: absolute;
-    top: 20vh;
+    top: 12vh;
     justify-self: center;
 }
 
@@ -291,4 +291,12 @@ body {
         background-color: gray;
     }
 
+}
+
+#buttonNext {
+    background-color: #EE7668;
+    color: white;
+    padding: 15px;
+    width: 250px;
+    border-radius: 50px;
 }

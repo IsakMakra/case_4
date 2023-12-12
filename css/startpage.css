@@ -13,6 +13,13 @@
     background-position: center;
 }
 
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+}
+
 #infoBox {
     height: 200px;
     width: 180px;
@@ -106,13 +113,15 @@
 }
 
 #start {
-    background-color: #98B4DF;
+    background-color: #EE7668;
     color: white;
+    padding: 15px;
 }
 
 #join {
-    background-color: #4C4B76;
+    background-color: #FCC2B6;
     color: white;
+    padding: 15px;
 }
 
 h1 {
@@ -121,8 +130,15 @@ h1 {
     font-family: "Helvetica Neue Regular";
 }
 
-p {
-    max-width: 800px;
+#gameInfo {
+    text-align: center;
+    position: relative;
+    bottom: 204px;
+    max-width: 300px;
+    line-height: 30px;
+}
+
+#infoTitle {
     text-align: center;
 }
 
@@ -190,17 +206,19 @@ button {
 
     #img {
         position: absolute;
-        top: 180px;
+        top: 150px;
+        height: 390px;
+        width: 390px;
     }
 
     #start {
         position: absolute;
-        bottom: 270px;
+        bottom: 187px;
     }
 
     #join {
         position: absolute;
-        bottom: 200px;
+        bottom: 125px;
     }
 }
 
