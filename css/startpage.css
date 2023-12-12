@@ -158,9 +158,14 @@ button {
 
 /*Kategorier*/
 
+h3 {
+    margin: 0;
+}
+
 #categoryWrapper {
     overflow: scroll;
     height: 50vh;
+    width: 80vw;
 }
 
 .categoryCard {
@@ -172,6 +177,13 @@ button {
     padding: 20px;
     margin-bottom: 20px;
     border: white solid 2px;
+    height: 10vh;
+    padding: 15px;
+}
+
+.categoryTextBox > p {
+    text-align: start;
+    margin: 0;
 }
 
 .categoryCard:hover {
@@ -180,15 +192,16 @@ button {
 }
 
 .categoryImg {
-    height: 75px;
-    width: 75px;
+    height: 40px;
+    width: 40px;
     background-color: gray;
 }
 
 .categoryTextBox {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding-left: 10px;
+    width: 60vw;
 }
 
 .categoryTextBox>h3 {

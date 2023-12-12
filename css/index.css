@@ -106,13 +106,14 @@ button {
     align-items: center;
     gap: 10px;
     position: absolute;
-    top: 12vh;
+    top: 15vh;
     justify-self: center;
 }
 
 .step {
     width: 70px;
-    height: 10px;
+    height: 5px;
+    border-radius: 20px;
     background-color: var(--white-color);
 }
 
@@ -166,9 +167,6 @@ button {
 /*Players*/
 
 #players {
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     background-color: white;
     margin: 0 50px 0 50px;
     padding: 20px;
@@ -176,27 +174,42 @@ button {
 }
 
 #players>h3 {
+    text-align: start;
     margin: 0;
+    height: 30px;
+}
+
+#players>h3::after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: var(--greige-color);;
+    display: block;
+    position: relative;
+    bottom: 20px;
+    left: 75px;
 }
 
 #playerNames {
     padding-top: 10px;
     gap: 10px;
-    grid-column: 1 / span 2;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
-    flex-direction: row;
     flex-wrap: wrap;
     overflow: scroll;
 
     & p {
         margin: 0;
         text-align: center;
-        width: 45%;
+        width: 48%;
         padding: 5px 10px;
         border-radius: 10px;
         font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
     }
 }
 

@@ -1,2 +1,94 @@
 [
+    {
+        "host": "Isak",
+        "id": 1,
+        "server_code": "6213",
+        "quiz": [
+            "start",
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner i 'inte blinka medan man h\u00e5ller \u00f6gonkontakt' leken",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder som b\u00f6rjar p\u00e5 T",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Ring of fire, bilm\u00e4rken",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+                "nr_of_users": 3,
+                "alternatives": []
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder i Afrika",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner p\u00e5 armbrytning?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            {
+                "question": "Vem vinner p\u00e5 tumkrig?",
+                "nr_of_users": 2,
+                "alternatives": []
+            },
+            "end"
+        ],
+        "current_question_nr": 0,
+        "current_votes": [],
+        "users": [
+            {
+                "username": "Isak",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            },
+            {
+                "username": "Erik",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#40E0D0"
+            },
+            {
+                "username": "P\u00e4r",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FF4500"
+            }
+        ],
+        "active": true
+    }
 ]
