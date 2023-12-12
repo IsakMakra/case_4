@@ -179,6 +179,17 @@ button {
     height: 30px;
 }
 
+#players>h3::after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: var(--greige-color);;
+    display: block;
+    position: relative;
+    bottom: 20px;
+    left: 75px;
+}
+
 #playerNames {
     padding-top: 10px;
     gap: 10px;

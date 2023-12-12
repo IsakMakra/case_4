@@ -29,6 +29,7 @@ button {
 .lobby {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -48,6 +49,24 @@ button {
 #start {
     display: flex;
     justify-content: center;
+}
+
+#kategoryBox {
+    width: 80vw;
+    align-items: center;
+    padding: 20px;
+    display: flex;
+}
+
+#kategoryBox > h3 {margin: 0;}
+
+#kategoryBox > p {margin: 0;}
+
+#kategoryImg {
+    height: 30px;
+    width: 30px;
+    background-color: var(--greige-color);
+    margin: 5px;
 }
 
 .allBtn {
