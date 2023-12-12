@@ -87,30 +87,41 @@ async function callBack() {
             document.getElementById("players").remove();
             player_div_removed = true;
         }
-        
+
         displayLeaderBoard(dataObject.users, false);
 
-        document.getElementById("feedback").textContent = dataObject.quiz[currentQuestionNumber].question;
         let userArray = dataObject.quiz[currentQuestionNumber].alternatives;
 
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
+            //* här ändar vi layout för den som ska duellerar
             usersContainer.innerHTML = `<h3>Du ska spela</h3>`;
         }
         else {
-
+            let questionNrInPercentage = currentQuestionNumber / dataObject.quiz.length * 100;
+            let player = dataObject.users.find(objekt => objekt.username === username)
             if (!buttonsCreated) {
                 document.querySelector("main").innerHTML =
                     `
+                <div class="questionBarContainer">
+                    <div class="questionBarChild" style="width: ${questionNrInPercentage}%;"></div>
+                </div>
                 <div class="cardContainer">
-                    <h3>Vem kan göra flest armhövningar på 20 sekunder?</h3>
+                    <h3>${dataObject.quiz[currentQuestionNumber].question}</h3>
                     <h4>RÖSTA</h4>
                 </div>
                 `
+                document.querySelector("footer").innerHTML =
+                    `
+                <div class="scoreNameContainer">
+                    <p>${player.points}</p>
+                    <div id="playerIcon">${username[0].toLocaleUpperCase()}</div>
+                    <p>${username}</p>
+                </div>
+                `
+
                 userArray.forEach((user) => {
-                    const playerColor = dataObject.users.find(objekt => {
-                        objekt.username === user
-                    })
+                    const playerColor = dataObject.users.find(objekt => objekt.username === user); // finds the right playerobject to get its color
                     const button = document.createElement("button");
                     button.classList.add("voteBtn");
                     button.style.color = playerColor.color;
@@ -168,6 +179,7 @@ function displayLeaderBoard(users, forever) {
         document.querySelector("body").append(leaderBoard);
         let main = document.querySelector("main");
         main.classList.add("hidden");
+        document.querySelector("footer").classList.add("hidden");
 
         if (!forever) {
             let second = 0
@@ -176,6 +188,7 @@ function displayLeaderBoard(users, forever) {
                     clearInterval(leaderBoardIntervalId);
                     leaderBoard.remove();
                     main.classList.remove("hidden");
+                    document.querySelector("footer").classList.remove("hidden");
                 }
 
                 second++;
@@ -200,6 +213,11 @@ function startTimer() {
 
 async function voteForPlayer(event) {
     let votedPlayer = event.target.textContent;
+    let button = event.currentTarget;
+    let playerColor = event.currentTarget.style.color;
+    console.log(playerColor);
+    button.style.backgroundColor = playerColor;
+    button.style.color = "white";
 
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
     let data = await response.json();
