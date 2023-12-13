@@ -33,13 +33,15 @@
             if($quiz_name == "Random") 
             {$quiz_index = 0;}
             else if($quiz_name == "Fest")
-            {$quiz_index = 1;}
-            else if($quiz_name == "Familj")
-            {$quiz_index = 2;}
-            else if($quiz_name == "Sport")
-            {$quiz_index = 3;}
-            else if($quiz_name == "Hjärngympa")
-            {$quiz_index = 3;}
+            {$quiz_index = 0;}
+            else if($quiz_name == "Världen")
+            {$quiz_index = 0;}
+            else if($quiz_name == "Historia")
+            {$quiz_index = 0;}
+            else if($quiz_name == "Musik")
+            {$quiz_index = 0;}
+            else if($quiz_name == "Fysisk Aktivitet")
+            {$quiz_index = 0;}
 
             $quiz_array = $quizes[$quiz_index];
             shuffle($quiz_array);
