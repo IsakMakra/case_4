@@ -355,8 +355,9 @@ body {
     background-color: #EE7668;
     color: white;
     padding: 15px;
-    width: 250px;
     border-radius: 50px;
+    width: 58vw;
+
 }
 
 #joinNextButton {

@@ -18,6 +18,11 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
+    background-image: url("../resources/Background_phone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
 }
 
 #infoBox {
@@ -79,7 +84,6 @@ body {
 
     & #joinBtn {
         margin-top: 8vh;
-        width: 58vw;
         background-color: var(--salmon1-color);
     }
 }
@@ -133,18 +137,26 @@ input::placeholder {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    position: absolute;
+    top: -10vh;
+    height: 90vh;
+    width: 90vw;
 }
 
 #start {
     background-color: #EE7668;
     color: white;
     padding: 15px;
+    position: absolute;
+    bottom: 21vh;
 }
 
 #join {
     background-color: #FCC2B6;
     color: white;
     padding: 15px;
+    position: absolute;
+    bottom: 13vh;
 }
 
 h1 {
@@ -233,30 +245,41 @@ h3 {
     margin: 0;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 700px) {
     body {
-        background-image: url("../resources/Background_phone.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: relative;
     }
 
     #img {
-        position: absolute;
-        top: -10vh;
-        height: 90vh;
-        width: 90vw;
+        width: 69vw;
+        height: 92vh;
+    }
+
+    #gameInfo {
+        max-width: 60vw;
+        line-height: 4vh;
     }
 
     #start {
-        position: absolute;
-        bottom: 21vh;
+        width: 44vw;
+        bottom: 19vh;
     }
 
     #join {
-        position: absolute;
-        bottom: 13vh;
+        width: 44vw;
+    }
+
+    #joinBtn {
+        width: 35vw;
+    }
+
+    .buttonNext {
+        width: 35vw;
+    }
+    .inputUserName {
+        width: 32vw;
+    }
+    .labelName {
+        right: 8vw;
     }
 }
 
