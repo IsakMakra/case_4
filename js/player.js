@@ -205,15 +205,15 @@ function displayLeaderBoard(users, forever) {
         <div id="metrics">
             <div>
                 <p id="rank">Rank</p>
-                <div class=metricsIMG rank></div>
+                <div class="metricsIMG rank"></div>
             </div>
             <div>
                 <p id="name">Namn</p>
-                <div class=metricsIMG rank></div>
+                <div class="metricsIMG name"></div>
             </div>
             <div>
                 <p id="points">Poäng</p>
-                <div class=metricsIMG rank></div>
+                <div class="metricsIMG points"></div>
             </div>
         </div>
         `;

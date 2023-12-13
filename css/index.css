@@ -160,8 +160,16 @@ button {
 .metricsIMG {
     height: 4vh;
     width: 4vw;
-    background-color: var(--greige-color);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
+
+.rank {background-image: url(../resources/icons/rank.png);}
+
+.name {background-image: url(../resources/icons/name.png);}
+
+.points {background-image: url(../resources/icons/points.png);}
 
 #playerWrapper {
     height: 40vh;
@@ -199,6 +207,23 @@ button {
     color: green;
 }
 
+/*Categories*/
+
+.categoryImg {
+    height: 40px;
+    width: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.Random {background-image: url(../resources/icons/random.png);}
+.Fysiskt {background-image: url(../resources/icons/fysisk.png);}
+.Festligheter {background-image: url(../resources/icons/fest.png);}
+.Historia {background-image: url(../resources/icons/history.png);}
+.Världen {background-image: url(../resources/icons/världen.png)}
+.Musik {background-image: url(../resources/icons/music.png);}
+
 /*Players*/
 
 #players {
@@ -206,6 +231,7 @@ button {
     margin: 0 50px 0 50px;
     padding: 20px;
     width: 80vw;
+    overflow: scroll;
 }
 
 #players>h3 {
@@ -219,7 +245,10 @@ button {
     content: "";
     height: 20px;
     width: 20px;
-    background-color: var(--greige-color);
+    background-image: url(../resources/icons/time.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     display: block;
     position: relative;
     bottom: 22px;
@@ -395,7 +424,7 @@ header {
     position: relative;
 
     & .headerLogo {
-        width: 60vw;
+        width: 40vw;
         margin-top: 40px;
     }
 

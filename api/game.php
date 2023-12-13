@@ -32,7 +32,7 @@
             //Handles the quiz name and selects the appropriate index for the quiz.json file
             if($quiz_name == "Random") 
             {$quiz_index = 0;}
-            else if($quiz_name == "Fest")
+            else if($quiz_name == "Festligheter")
             {$quiz_index = 0;}
             else if($quiz_name == "Världen")
             {$quiz_index = 0;}
@@ -40,7 +40,7 @@
             {$quiz_index = 0;}
             else if($quiz_name == "Musik")
             {$quiz_index = 0;}
-            else if($quiz_name == "Fysisk Aktivitet")
+            else if($quiz_name == "Fysiskt")
             {$quiz_index = 0;}
 
             $quiz_array = $quizes[$quiz_index];

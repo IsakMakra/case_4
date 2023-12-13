@@ -228,12 +228,6 @@ h3 {
     cursor: pointer;
 }
 
-.categoryImg {
-    height: 40px;
-    width: 40px;
-    background-color: gray;
-}
-
 .categoryTextBox {
     display: flex;
     flex-direction: column;

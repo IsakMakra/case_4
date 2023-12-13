@@ -43,6 +43,7 @@ document.querySelector("dialog #close").addEventListener("click", () => {
 
 //Starts to create the host page and track the joined players
 async function startHostPage() {
+    document.querySelector(".categoryImg").classList.add(category);
     document.querySelector("#kategori").textContent += category;
     document.querySelector("#serverCode").textContent += serverCode;
 
@@ -272,15 +273,15 @@ function displayLeaderBoard(users, forever) {
     <div id="metrics">
         <div>
             <p id="rank">Rank</p>
-            <div class=metricsIMG rank></div>
+            <div class="metricsIMG rank"></div>
         </div>
         <div>
             <p id="name">Namn</p>
-            <div class=metricsIMG rank></div>
+            <div class="metricsIMG name"></div>
         </div>
         <div>
             <p id="points">Poäng</p>
-            <div class=metricsIMG rank></div>
+            <div class="metricsIMG points"></div>
         </div>
     </div>
     `;
