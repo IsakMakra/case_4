@@ -50,6 +50,7 @@ button {
 #kategoryBox {
     width: 80vw;
     align-items: center;
+    justify-content: center;
     padding: 20px;
     display: flex;
 }

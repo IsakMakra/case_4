@@ -18,6 +18,11 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
+    background-image: url("../resources/Background_phone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
 }
 
 #infoBox {
@@ -43,7 +48,6 @@ body {
     text-align: start;
     margin: 16px;
 }
-
 
 #textDecoration {}
 
@@ -72,17 +76,40 @@ body {
 
     & input {
         height: 50px;
-        height: 50px;
         border-radius: 10px;
-        font-size: 25px;
+        font-size: 20px;
+        color: #B8B1AA;
+        letter-spacing: 2px;
     }
 
     & #joinBtn {
-        margin-top: 100px;
-        width: 200px;
+        margin-top: 8vh;
         background-color: var(--salmon1-color);
     }
 }
+
+.inputUserName {
+    width: 72vw;
+    font-size: 19px;
+    position: relative;
+    bottom: 16vh;
+}
+
+.inputNames {
+    padding-left: 15px;
+}
+
+input::placeholder {
+}
+
+
+
+.labelName {
+   position: relative;
+   bottom: 18vh;
+   right: 20vw;
+}
+
 
 .inputContainer {
     display: flex;
@@ -110,18 +137,26 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    position: absolute;
+    top: -10vh;
+    height: 90vh;
+    width: 90vw;
 }
 
 #start {
     background-color: #EE7668;
     color: white;
     padding: 15px;
+    position: absolute;
+    bottom: 21vh;
 }
 
 #join {
     background-color: #FCC2B6;
     color: white;
     padding: 15px;
+    position: absolute;
+    bottom: 13vh;
 }
 
 h1 {
@@ -133,9 +168,11 @@ h1 {
 #gameInfo {
     text-align: center;
     position: relative;
-    bottom: 204px;
-    max-width: 300px;
+    bottom: 19vh;
+    max-width: 80vw;
     line-height: 30px;
+    letter-spacing: 2px;
+    font-size: 2vh;
 }
 
 #infoTitle {
@@ -208,31 +245,41 @@ h3 {
     margin: 0;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 700px) {
     body {
-        background-image: url("../resources/Background_phone.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: relative;
     }
 
     #img {
-        position: absolute;
-        top: 150px;
-        height: 390px;
-        width: 390px;
+        width: 69vw;
+        height: 92vh;
+    }
+
+    #gameInfo {
+        max-width: 60vw;
+        line-height: 4vh;
     }
 
     #start {
-        position: absolute;
-        bottom: 187px;
+        width: 44vw;
+        bottom: 19vh;
     }
 
     #join {
-        position: absolute;
-        bottom: 125px;
+        width: 44vw;
+    }
+
+    #joinBtn {
+        width: 35vw;
+    }
+
+    .buttonNext {
+        width: 35vw;
+    }
+    .inputUserName {
+        width: 32vw;
+    }
+    .labelName {
+        right: 8vw;
     }
 }
 
-;
