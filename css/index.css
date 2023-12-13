@@ -106,7 +106,7 @@ button {
     align-items: center;
     gap: 10px;
     position: absolute;
-    top: 15vh;
+    top: 12vh;
     justify-self: center;
 }
 
@@ -306,10 +306,20 @@ body {
 
 }
 
-#buttonNext {
+.buttonNext {
     background-color: #EE7668;
     color: white;
     padding: 15px;
     width: 250px;
     border-radius: 50px;
+}
+
+#joinNextButton {
+    position: relative;
+    bottom: 130px;
+}
+
+input {
+    font-size: 16px;
+    color: #333;
 }

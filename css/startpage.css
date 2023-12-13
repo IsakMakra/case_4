@@ -44,6 +44,17 @@ body {
     margin: 16px;
 }
 
+.inputName {
+    position: relative;
+    bottom: 150px;
+}
+
+.labelName {
+   position: relative;
+   bottom: 165px;
+   text-align: end;
+   right: 100px;
+}
 
 #textDecoration {}
 
@@ -79,7 +90,7 @@ body {
 
     & #joinBtn {
         margin-top: 100px;
-        width: 200px;
+        width: 250px;
         background-color: var(--salmon1-color);
     }
 }

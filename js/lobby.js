@@ -11,6 +11,9 @@ document.getElementById("join").addEventListener("click", () => {
                 <div class=" step full"></div>
                 <div class=" step"></div>
             </div>
+
+            <div id="img"></div>
+
         
             <p class="message" id="joinLobbyMessage"></p>
             <div class="wrapper">
@@ -27,7 +30,7 @@ document.getElementById("join").addEventListener("click", () => {
                 <label for="lobby">användarnamn</label>
                 <input type="text" id="userName" name="userName">
             </div>
-            <button id="joinBtn">STARTA</button>
+            <button class="buttonNext" id="joinBtn">STARTA</button>
         </div>
         <div id="waves"></div>
     `;
@@ -95,10 +98,10 @@ document.getElementById("start").addEventListener("click", () => {
                 <div class=" step"></div>
             </div>
             <div id="img"></div>
-            <label for="lobby">användarnamn</label>
-            <input type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
+            <label class="labelName" for="lobby">användarnamn</label>
+            <input class="inputName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
             <p class="message" id="errorMessage"></p>
-            <button id="buttonNext" type="submit" onclick="chooseCategory()">NÄSTA</button>
+            <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
             </div>
             <div id="waves"></div>
             `;
