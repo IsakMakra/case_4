@@ -123,7 +123,13 @@ async function callBack() {
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             //* här ändar vi layout för den som ska duellerar
-            mainContainer.innerHTML = `<h3>Du ska spela</h3>`;
+            mainContainer.innerHTML = `
+            <div id="playTime">
+                <h3>DAGS</h3>
+                <p>för</p>
+                <h3>DUELL</h3>
+            </div>
+            `;
             document.querySelector("footer").innerHTML = " ";
         }
         else {
@@ -187,6 +193,7 @@ async function callBack() {
 function displayLeaderBoard(users, forever) {
     if (!leaderBoardCreated) {
         leaderBoardCreated = true;
+
         let number = 1;
         users.sort((a, b) => b.points - a.points);
 

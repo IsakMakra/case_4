@@ -95,9 +95,8 @@
                     //Adds 50 point to the users who chose corretly and 100 points to the winner
                     foreach ($game['users'] as $index2 => $user) 
                     {
-                        if($user["points_gained"] > 0) {
-                            $games[$index]["users"][$index2]["points_gained"] = 0;
-                        }
+                        $games[$index]["users"][$index2]["points_gained"] = 0;
+    
 
                         if($winner == $user["username"]) 
                         {

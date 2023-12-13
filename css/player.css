@@ -71,6 +71,22 @@ main {
     margin-top: 200px;
 }
 
+#playTime {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    justify-content: center;
+    align-items: center;
+    font-family: "Helvetica Neue Thin";
+
+    & h3 {
+        font-size: 12vw;
+        margin: 0;
+    }
+}
+
+
+
 #users>button {
     width: 100%;
     padding: 10px 0;

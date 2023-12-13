@@ -108,7 +108,7 @@ button {
     align-items: center;
     gap: 10px;
     position: absolute;
-    top: 12vh;
+    top: 5vh;
     justify-self: center;
 }
 
@@ -135,8 +135,7 @@ button {
 
 #leaderBoard>h3 {
     width: 100vw;
-    height: 10vh;
-    font-size: 6vw;
+    font-size: 30px;
 }
 
 #leaderBoardBox {
@@ -155,6 +154,7 @@ button {
 #metrics > div {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 .metricsIMG {
@@ -165,6 +165,10 @@ button {
 
 #playerWrapper {
     height: 40vh;
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    gap: 2vh;
     overflow: scroll;
 }
 
@@ -175,6 +179,7 @@ button {
     padding: 10px 50px 10px 50px;
     border-radius: 10px;
     align-items: center;
+    height: 40px;
 }
 
 .leaderBoardNr {
@@ -189,6 +194,10 @@ button {
 }
 
 .leaderBoardPoints {}
+
+.pointsGained {
+    color: green;
+}
 
 /*Players*/
 

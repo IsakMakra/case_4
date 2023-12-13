@@ -1,2 +1,283 @@
 [
+    {
+        "host": "Isak",
+        "id": 1,
+        "server_code": "3865",
+        "quiz": [
+            "start",
+            {
+                "question": "Ring of fire, bilm\u00e4rken",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Emily",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 armbrytning?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Emily",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Vem kan sitta i 90 grader l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Emily",
+                    "Ida"
+                ]
+            },
+            {
+                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Isak",
+                    "Ida"
+                ]
+            },
+            {
+                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Isak",
+                    "Emily",
+                    "Ida"
+                ]
+            },
+            {
+                "question": "Vem vinner i 'inte blinka medan man h\u00e5ller \u00f6gonkontakt' leken",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Emily",
+                    "Ida",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder i Afrika",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Emily",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Isak",
+                    "Ida",
+                    "Emily"
+                ]
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder som b\u00f6rjar p\u00e5 T",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Isak",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Emily",
+                    "Ida"
+                ]
+            },
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Isak",
+                    "Emily"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Isak",
+                    "Emily"
+                ]
+            },
+            "end"
+        ],
+        "current_question_nr": 5,
+        "current_votes": [],
+        "users": [
+            {
+                "username": "Isak",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            },
+            {
+                "username": "Erik",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#40E0D0"
+            },
+            {
+                "username": "Ida",
+                "points": 100,
+                "points_gained": 100,
+                "color": "#FF4500"
+            },
+            {
+                "username": "Emily",
+                "points": 200,
+                "points_gained": 0,
+                "color": "#DA70D6"
+            }
+        ],
+        "active": true
+    },
+    {
+        "host": "Isak",
+        "id": 2,
+        "server_code": "5418",
+        "quiz": [
+            "start",
+            {
+                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Erik",
+                    "Isak"
+                ]
+            },
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Isak",
+                    "Dan"
+                ]
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder som b\u00f6rjar p\u00e5 T",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Erik",
+                    "Isak"
+                ]
+            },
+            {
+                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Isak",
+                    "Dan",
+                    "Osak"
+                ]
+            },
+            {
+                "question": "Vem kan komma n\u00e4rmst till att ha sina handflator p\u00e5 golvet med str\u00e4ckta ben?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Isak",
+                    "Erik",
+                    "Osak"
+                ]
+            },
+            {
+                "question": "Ring of fire, bilm\u00e4rken",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Isak",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Osak",
+                    "Isak",
+                    "Dan"
+                ]
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder i Afrika",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Erik",
+                    "Osak"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 tumkrig?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Dan",
+                    "Erik"
+                ]
+            },
+            {
+                "question": "Vem vinner i 'inte blinka medan man h\u00e5ller \u00f6gonkontakt' leken",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Osak",
+                    "Dan"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 armbrytning?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "Erik",
+                    "Dan"
+                ]
+            },
+            {
+                "question": "Vem kan sitta i 90 grader l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "Erik",
+                    "Isak",
+                    "Dan"
+                ]
+            },
+            "end"
+        ],
+        "current_question_nr": 4,
+        "current_votes": [],
+        "users": [
+            {
+                "username": "Isak",
+                "points": 200,
+                "points_gained": 100,
+                "color": "#FFD700"
+            },
+            {
+                "username": "Erik",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#40E0D0"
+            },
+            {
+                "username": "Osak",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FF4500"
+            },
+            {
+                "username": "Dan",
+                "points": 100,
+                "points_gained": 0,
+                "color": "#DA70D6"
+            }
+        ],
+        "active": true
+    }
 ]
