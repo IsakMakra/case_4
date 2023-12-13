@@ -1,7 +1,3 @@
-body {
-    /* grid-template-rows: 0.5fr 1.5fr; */
-}
-
 main {
     display: grid;
     padding: 1vw;
@@ -58,9 +54,13 @@ button {
     display: flex;
 }
 
-#kategoryBox > h3 {margin: 0;}
+#kategoryBox>h3 {
+    margin: 0;
+}
 
-#kategoryBox > p {margin: 0;}
+#kategoryBox>p {
+    margin: 0;
+}
 
 #kategoryImg {
     height: 30px;

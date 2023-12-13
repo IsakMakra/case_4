@@ -19,6 +19,9 @@ let player_div_removed = false;
 let mainContainer = document.querySelector("main");
 
 window.addEventListener('beforeunload', beforeUnloadHandler);
+document.querySelector(".home").addEventListener("click", () => {
+    window.location = "../index.html";
+})
 
 function beforeUnloadHandler(event) {
     event.preventDefault();
@@ -100,7 +103,7 @@ async function callBack() {
         else {
             let questionNrInPercentage = currentQuestionNumber / dataObject.quiz.length * 100;
             let player = dataObject.users.find(objekt => objekt.username === username)
-            console.log(buttonsCreated);
+            mainContainer.classList.add("playerQuiz");
             if (!buttonsCreated) {
                 document.querySelector("main").innerHTML =
                     `
