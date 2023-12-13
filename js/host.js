@@ -255,14 +255,13 @@ function displayLeaderBoard(users, forever) {
 
     let leaderBoard = document.createElement("div");
     leaderBoard.setAttribute("id", "leaderBoard");
-    leaderBoard.innerHTML = `<h3>Leaderboard</h3>`;
+    leaderBoard.innerHTML = `<h3>LEADERBOARD</h3>`;
     let section = document.createElement("section");
     section.innerHTML = `
     <div id="metrics">
-        <p>Rank</p>
-        <p>Namn</p>
-        <p>Poäng</p>
-        <p>Nya poäng</p>
+        <p id="rank">Rank</p>
+        <p id="name">Namn</p>
+        <p id="points">Poäng</p>
     </div>
     `;
     section.setAttribute("id", "leaderBoardBox");
@@ -272,9 +271,8 @@ function displayLeaderBoard(users, forever) {
         let user_dom = `
         <div class="player">
             <p class="leaderBoardNr">${number}.</p>
-            <p class="leaderBoardName" style="color: ${user.color}; border: 2px solid ${user.color};">${user.username}</p>
+            <p class="leaderBoardName">${user.username}</p>
             <p class="leaderBoardPoints">${user.points}</p>
-            <p class="newPoints">${user.points_gained}</p>
         </div>
         `;
         section.innerHTML += user_dom;
