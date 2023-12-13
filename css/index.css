@@ -133,39 +133,6 @@ button {
     text-align: center;
 }
 
-#rank::after {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 30px;
-    background-color: gray;
-    position: relative;
-    bottom: 24px;
-    left: 40px;
-}
-
-#name::after {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 30px;
-    background-color: gray;
-    position: relative;
-    bottom: 24px;
-    left: 45px;
-}
-
-#points::after {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 30px;
-    background-color: gray;
-    position: relative;
-    bottom: 24px;
-    left: 50px;
-}
-
 #leaderBoard>h3 {
     width: 100vw;
     height: 10vh;
@@ -177,15 +144,28 @@ button {
     flex-direction: column;
     width: 70vw;
     gap: 2vh;
-    height: 60vh;
-    overflow: scroll;
 }
 
 #metrics {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px 0 50px;
+}
+
+#metrics > div {
+    display: flex;
+    gap: 10px;
+}
+
+.metricsIMG {
+    height: 4vh;
+    width: 4vw;
+    background-color: var(--greige-color);
+}
+
+#playerWrapper {
+    height: 40vh;
+    overflow: scroll;
 }
 
 .player {
@@ -223,6 +203,7 @@ button {
     text-align: start;
     margin: 0;
     height: 30px;
+    font-family: "Helvetica Neue Regular";
 }
 
 #players>h3::after {
@@ -230,11 +211,10 @@ button {
     height: 20px;
     width: 20px;
     background-color: var(--greige-color);
-    ;
     display: block;
     position: relative;
-    bottom: 20px;
-    left: 75px;
+    bottom: 22px;
+    left: 92px;
 }
 
 #playerNames {

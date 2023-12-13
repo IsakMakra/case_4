@@ -10,6 +10,7 @@ main {
 
 button {
     cursor: pointer;
+    font-family: "Helvetica Neue Regular";
 }
 
 .joinLobby {
@@ -38,15 +39,18 @@ button {
 
 .lobby>h1 {
     margin: 0;
+    font-family: "Helvetica Neue Regular";
 }
 
 .lobby>h3 {
     margin-bottom: 0;
+    font-family: "Helvetica Neue Regular";
 }
 
 .lobby>p {
     grid-row: 3;
     margin-top: 10px;
+    font-family: "Helvetica Neue Regular";
 }
 
 #start {
@@ -64,10 +68,12 @@ button {
 
 #kategoryBox>h3 {
     margin: 0;
+    font-family: "Helvetica Neue Regular";
 }
 
 #kategoryBox>p {
     margin: 0;
+    font-family: "Helvetica Neue thin";
 }
 
 #kategoryImg {

@@ -270,13 +270,26 @@ function displayLeaderBoard(users, forever) {
     let section = document.createElement("section");
     section.innerHTML = `
     <div id="metrics">
-        <p id="rank">Rank</p>
-        <p id="name">Namn</p>
-        <p id="points">Poäng</p>
+        <div>
+            <p id="rank">Rank</p>
+            <div class=metricsIMG rank></div>
+        </div>
+        <div>
+            <p id="name">Namn</p>
+            <div class=metricsIMG rank></div>
+        </div>
+        <div>
+            <p id="points">Poäng</p>
+            <div class=metricsIMG rank></div>
+        </div>
     </div>
     `;
     section.setAttribute("id", "leaderBoardBox");
     leaderBoard.append(section);
+
+    let player_wrapper = document.createElement("div");
+    player_wrapper.setAttribute("id", "playerWrapper");
+    section.append(player_wrapper);
 
     users.forEach((user) => {
         let user_dom = `
@@ -286,7 +299,7 @@ function displayLeaderBoard(users, forever) {
             <p class="leaderBoardPoints">${user.points}</p>
         </div>
         `;
-        section.innerHTML += user_dom;
+        player_wrapper.innerHTML += user_dom;
         number++;
     })
 
