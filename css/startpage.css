@@ -44,18 +44,6 @@ body {
     margin: 16px;
 }
 
-.inputName {
-    position: relative;
-    bottom: 150px;
-}
-
-.labelName {
-   position: relative;
-   bottom: 165px;
-   text-align: end;
-   right: 100px;
-}
-
 #textDecoration {}
 
 #box {
@@ -83,9 +71,10 @@ body {
 
     & input {
         height: 50px;
-        height: 50px;
         border-radius: 10px;
-        font-size: 25px;
+        font-size: 20px;
+        color: #B8B1AA;
+        letter-spacing: 2px;
     }
 
     & #joinBtn {
@@ -94,6 +83,30 @@ body {
         background-color: var(--salmon1-color);
     }
 }
+
+.inputUserName {
+    width: 72vw;
+    font-size: 19px;
+    position: relative;
+    bottom: 150px;
+}
+
+.inputNames {
+    padding-left: 15px;
+}
+
+input::placeholder {
+}
+
+
+
+.labelName {
+   position: relative;
+   bottom: 165px;
+   text-align: end;
+   right: 86px;
+}
+
 
 .inputContainer {
     display: flex;
@@ -144,9 +157,10 @@ h1 {
 #gameInfo {
     text-align: center;
     position: relative;
-    bottom: 204px;
+    bottom: 173px;    
     max-width: 300px;
     line-height: 30px;
+    letter-spacing: 2px;
 }
 
 #infoTitle {
@@ -246,4 +260,3 @@ h3 {
     }
 }
 
-;

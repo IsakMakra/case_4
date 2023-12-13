@@ -22,6 +22,7 @@
 .message {
     font-size: 12px;
     color: red;
+    letter-spacing: 2px;
 }
 
 body {
@@ -322,4 +323,9 @@ body {
 input {
     font-size: 16px;
     color: #333;
+    border:none;
+}
+
+.labels {
+    letter-spacing: 2px;
 }

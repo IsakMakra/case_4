@@ -15,9 +15,8 @@ document.getElementById("join").addEventListener("click", () => {
             <div id="img"></div>
 
         
-            <p class="message" id="joinLobbyMessage"></p>
             <div class="wrapper">
-                <label for="lobby">lobby ID</label>
+                <label for="lobby" class="labels">lobby ID</label>
                 <div class="inputContainer">
                     <input type="tel" id="0" class="serverCode" maxlength="1">
                     <input type="tel" id="1" class="serverCode" maxlength="1">
@@ -27,9 +26,12 @@ document.getElementById("join").addEventListener("click", () => {
             </div>
 
             <div class="wrapper">
-                <label for="lobby">användarnamn</label>
-                <input type="text" id="userName" name="userName">
+                <label for="lobby" class="labels">användarnamn</label>
+                <input type="text" id="userName" name="userName" class="inputNames" placeholder="ex. Pelle">
             </div>
+
+            <p class="message" id="joinLobbyMessage"></p>
+
             <button class="buttonNext" id="joinBtn">STARTA</button>
         </div>
         <div id="waves"></div>
@@ -98,8 +100,8 @@ document.getElementById("start").addEventListener("click", () => {
                 <div class=" step"></div>
             </div>
             <div id="img"></div>
-            <label class="labelName" for="lobby">användarnamn</label>
-            <input class="inputName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
+            <label class="labelName labels" for="lobby">användarnamn</label>
+            <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
             <p class="message" id="errorMessage"></p>
             <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
             </div>
