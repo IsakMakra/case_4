@@ -34,7 +34,6 @@ document.getElementById("join").addEventListener("click", () => {
 
             <button class="buttonNext" id="joinBtn">STARTA</button>
         </div>
-        <div id="waves"></div>
     `;
 
     let value = 0;
@@ -105,7 +104,6 @@ document.getElementById("start").addEventListener("click", () => {
             <p class="message" id="errorMessage"></p>
             <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
             </div>
-            <div id="waves"></div>
             `;
 
     document.getElementById("hostName").addEventListener("keyup", (e) => {
