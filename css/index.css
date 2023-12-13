@@ -278,6 +278,10 @@ body {
 */
 
 /*_________________vote for players*/
+.vinnare {
+    justify-content: center;
+}
+
 .cardContainer {
     position: relative;
     width: 81vw;
@@ -289,19 +293,21 @@ body {
 
     background-color: white;
     border-radius: 20px;
+    padding: 5vh 7vw;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5vh 7vw;
+    gap: 1vh;
 
     & * {
         letter-spacing: 2px;
     }
 
     & p {
-        margin-top: 2vh;
-        font-size: 12px;
+        font-size: clamp(.625rem, 3vw, 2rem);
+        font-family: "Helvetica Neue Regular";
+        margin: 5px 0;
     }
 
     & h3 {
@@ -321,7 +327,6 @@ body {
     & button {
         font-size: clamp(.625rem, 3vw, 2rem);
         padding: 2vw 10vw;
-        margin-top: 2vh;
         width: 100%;
         height: 7vh;
         min-height: 30px;
@@ -391,6 +396,7 @@ body {
     color: white;
     padding: 15px;
     border-radius: 50px;
+    width: 58vw;
 }
 
 header {
@@ -419,7 +425,6 @@ header {
         cursor: pointer;
     }
 
-    /* width: 58vw; */
 
 }
 
@@ -436,4 +441,48 @@ input {
 
 .labels {
     letter-spacing: 2px;
+}
+
+dialog {
+    position: absolute;
+    top: 20vh;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    font-size: clamp(.625rem, 3vw, 2rem);
+
+    & h2 {
+        color: #333;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    & button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    & #quit {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+    }
+
+    & #close {
+        background-color: #ccc;
+        color: #333;
+        border: none;
+    }
+
+    & button:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    }
 }

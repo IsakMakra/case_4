@@ -20,7 +20,7 @@ const hostName = localStorage.getItem("name"); // hostname for the user whi crea
 const category = localStorage.getItem("category"); // category of the game
 const serverCode = localStorage.getItem("serverCode"); // servercode for the game
 const mainHtml = document.querySelector("main");
-const homeBtn = document.querySelector("#home");
+const homeBtn = document.querySelector(".home");
 
 let arrayUsers = [
     "dette",
@@ -74,7 +74,7 @@ function intervalFunction(displayPlayer, displayQuestion) {
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-    // const response = await fetcha(`api/host.php?server_code=8612&host=aswq`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=3159&host=adam`, "GET");
     const data = await response.json();
 
     return data
@@ -126,6 +126,7 @@ async function nextQuestion() {
     if (cancelQuestionFetch) {
         cancelQuestionFetch = false;
         const gameObject = await fetchGameObject();
+        console.log(gameObject);
         displayQuestion(gameObject);
     }
 }
@@ -183,9 +184,10 @@ function displayQuestion(object) {
     startTimer();
 
     document.querySelector("#startGameBtn").addEventListener("click", () => {
+        clearInterval(timerIntervalId);
         document.querySelector("main").innerHTML =
             `
-        <div class="cardContainer">
+        <div class="cardContainer vinnare">
             <h3>VÄLJ VINNARE</h3>
         </div>
         `
@@ -203,6 +205,7 @@ function displayQuestion(object) {
                 delete currentPlayers[key];
             });
             usersWhoVoted = [];
+            document.querySelector(".cardContainer").classList.remove("vinnare")
             incrementQuestionNr();
             nextQuestion();
         })
@@ -237,7 +240,9 @@ function createPlayerBtn(playingUsers, object, decider) {
             })
 
         }
+
         mainHtml.querySelector(".cardContainer").append(button);
+
 
         // mainHtml.querySelector(".voteContainer").innerHTML +=
         //     `
@@ -247,6 +252,12 @@ function createPlayerBtn(playingUsers, object, decider) {
         // </div>
         // `
     })
+
+    if (playingUsers.length === 2) {
+        let vs = document.createElement("p");
+        vs.textContent = "VS";
+        document.querySelector(".playerBtn").after(vs);
+    }
 }
 
 function displayLeaderBoard(users, forever) {
@@ -373,7 +384,6 @@ function startTimer() {
     timerIntervalId = setInterval(() => {
         if (second === 34) {
             clearInterval(timerIntervalId)
-            window.alert("times up");
         }
         second++;
     }, interval);

@@ -4,23 +4,49 @@ const interval = 1000; // 1000 milliseconds = 1 second
 const password = localStorage.getItem("password");
 const username = localStorage.getItem("name");
 let allPlayers = []; // Initialize an array to store the players
+let usersWhoVoted = [];
+let currentPlayers = {};
 let watingForGameToStart = true;
 let intervalId;
 let leaderBoardIntervalId = 0;
 let timerIntervalId;
 let q_nr = 0;
+let homeBtn = document.querySelector(".home");
+
+let allvotes = [
+    {
+        "vote": "pelle",
+        "user": "sebbee"
+    },
+    {
+        "vote": "pelle",
+        "user": "lost"
+    },
+    {
+        "vote": "hugo",
+        "user": "wee"
+    },
+]
 
 //Flags
 let timerStarted = false;
 let leaderBoardCreated = false;
 let buttonsCreated = false;
 let player_div_removed = false;
+let firstInterval = true;
 
 let mainContainer = document.querySelector("main");
 
 window.addEventListener('beforeunload', beforeUnloadHandler);
-document.querySelector(".home").addEventListener("click", () => {
-    window.location = "../index.html";
+homeBtn.addEventListener("click", function quitQuiz() {
+    document.querySelector("dialog").show();
+    document.querySelector("dialog #quit").addEventListener("click", () => {
+        window.location = "./index.html";
+    })
+})
+
+document.querySelector("dialog #close").addEventListener("click", () => {
+    document.querySelector("dialog").close();
 })
 
 function beforeUnloadHandler(event) {
@@ -94,32 +120,36 @@ async function callBack() {
         displayLeaderBoard(dataObject.users, false);
 
         let userArray = dataObject.quiz[currentQuestionNumber].alternatives;
-        console.log(currentQuestionNumber);
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             //* här ändar vi layout för den som ska duellerar
             mainContainer.innerHTML = `<h3>Du ska spela</h3>`;
+            document.querySelector("footer").innerHTML = " ";
         }
         else {
-            let questionNrInPercentage = currentQuestionNumber / dataObject.quiz.length * 100;
-            let player = dataObject.users.find(objekt => objekt.username === username)
-            mainContainer.classList.add("playerQuiz");
+            // console.log("hej");
             if (!buttonsCreated) {
+                firstInterval = true;
+                let questionNrInPercentage = currentQuestionNumber / dataObject.quiz.length * 100;
+                let player = dataObject.users.find(objekt => objekt.username === username)
+                mainContainer.classList.add("playerQuiz");
                 document.querySelector("main").innerHTML =
                     `
                 <div class="questionBarContainer">
                     <div class="questionBarChild" style="width: ${questionNrInPercentage}%;"></div>
                 </div>
                 <div class="cardContainer">
-                    <h3>${dataObject.quiz[currentQuestionNumber].question}</h3>
-                    <h4>RÖSTA</h4>
+                    <h3 class="questionPlayer">${dataObject.quiz[currentQuestionNumber].question}</h3>
+                    <h4 class="questionPlayer">RÖSTA</h4>
+
+                    <div class="votesAmount hidden"></div>
                 </div>
                 `
                 document.querySelector("footer").innerHTML =
                     `
                 <div class="scoreNameContainer">
                     <p>${player.points}</p>
-                    <div id="playerIcon">${username[0].toLocaleUpperCase()}</div>
+                    <div id="playerIcon" style="background-color: ${player.color};">${username[0].toLocaleUpperCase()}</div>
                     <p>${username}</p>
                 </div>
                 `
@@ -128,6 +158,7 @@ async function callBack() {
                     const playerColor = dataObject.users.find(objekt => objekt.username === user); // finds the right playerobject to get its color
                     const button = document.createElement("button");
                     button.classList.add("voteBtn");
+                    button.classList.add("questionPlayer");
                     button.style.color = playerColor.color;
                     button.style.borderColor = playerColor.color;
                     button.id = user;
@@ -136,7 +167,14 @@ async function callBack() {
                     document.querySelector(".cardContainer").append(button);
                 });
                 buttonsCreated = true;
+                if (userArray.length === 2) {
+                    let vs = document.createElement("p");
+                    vs.classList.add("questionPlayer")
+                    vs.textContent = "VS";
+                    document.querySelector(".voteBtn").after(vs);
+                }
             }
+            checkVotes(dataObject);
 
             if (!timerStarted) {
                 startTimer();
@@ -217,9 +255,13 @@ async function voteForPlayer(event) {
     let votedPlayer = event.target.textContent;
     let button = event.currentTarget;
     let playerColor = event.currentTarget.style.color;
-    console.log(playerColor);
     button.style.backgroundColor = playerColor;
     button.style.color = "white";
+    document.querySelector(".votesAmount").classList.remove("hidden");
+    document.querySelectorAll(".questionPlayer").forEach(element => {
+        element.classList.add("hidden");
+    })
+
 
     let response = await fetcha(`api/user.php?server_code=${password}`, "GET");
     let data = await response.json();
@@ -248,5 +290,55 @@ async function voteForPlayer(event) {
         let data2 = await response2.json();
     } else {
         console.log("error");
+    }
+}
+
+async function checkVotes(object) {
+    const playingUsers = object.quiz[object.current_question_nr].alternatives;
+    // const allvotes = object.current_votes;
+    // console.log(object);
+    if (object.quiz[object.current_question_nr] === "end") {
+        return;
+    }
+
+    if (firstInterval) {
+        firstInterval = false;
+        //*creates a object to keep track of the playing users votes
+        playingUsers.forEach(player => { currentPlayers[player] = 0 })
+        playingUsers.forEach((user) => {
+            const playerColor = object.users.find(object => object.username === user); // finds the right playerobject to get its color
+
+            document.querySelector(".votesAmount").innerHTML +=
+                `
+            <div class="voteContainer" style="color: ${playerColor.color}; border: 2px solid ${playerColor.color};">
+                <p >${user}</p>
+                <p class="voteNr" id=${user} style="color: ${playerColor.color};">0%</p>
+            </div>
+            `
+        });
+
+    }
+
+    //! måste få alla röster via php isak
+    //*double checks so a user cant vote multible times
+    allvotes.forEach(voteObject => {
+        if (!usersWhoVoted.includes(voteObject.user)) {
+            usersWhoVoted.push(voteObject.user);
+            currentPlayers[voteObject.vote]++
+        }
+    })
+
+    //* this updates and displayes the votes for each player
+    document.querySelectorAll(".voteNr").forEach(voteNr => {
+        let playerName = voteNr.id;
+        let playersPoints = currentPlayers[playerName];
+        let pointsInPrecentage = playersPoints / allvotes.length * 100
+
+        voteNr.textContent = Math.round(pointsInPrecentage) + "%";
+    })
+
+    //* Checks if all the player have voted
+    if (allvotes.length === object.users.length - playingUsers.length) {
+        console.log("all players have voted");
     }
 }
