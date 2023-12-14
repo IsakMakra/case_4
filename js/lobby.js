@@ -29,11 +29,10 @@ document.getElementById("join").addEventListener("click", () => {
                 <label for="lobby" class="labels">användarnamn</label>
                 <input type="text" id="userName" name="userName" class="inputNames" placeholder="ex. Pelle">
             </div>
-
-            <p class="message" id="joinLobbyMessage"></p>
-
             <button class="buttonNext" id="joinBtn">STARTA</button>
         </div>
+        <p class="message" id="joinLobbyMessage"></p>
+
     `;
 
     let value = 0;
