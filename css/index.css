@@ -43,6 +43,10 @@ button {
     border-radius: 10px;
 }
 
+.hidden {
+    display: none;
+}
+
 #hostName {
     outline: none;
 }
@@ -107,8 +111,6 @@ button {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    position: absolute;
-    top: 5vh;
     justify-self: center;
 }
 
@@ -215,8 +217,8 @@ button {
 /*Categories*/
 
 .categoryImg {
-    height: 40px;
-    width: 40px;
+    height: 4.3vh;
+    width: 9.3vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -441,8 +443,10 @@ body {
 
 header {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: end;
     align-items: center;
+
     position: relative;
 
     & .headerLogo {
@@ -468,10 +472,7 @@ header {
 
 }
 
-#joinNextButton {
-    position: relative;
-    bottom: 13vh;
-}
+#joinNextButton {}
 
 input {
     font-size: 16px;

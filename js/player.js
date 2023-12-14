@@ -13,20 +13,6 @@ let timerIntervalId;
 let q_nr = 0;
 let homeBtn = document.querySelector(".home");
 
-let allvotes = [
-    {
-        "vote": "pelle",
-        "user": "sebbee"
-    },
-    {
-        "vote": "pelle",
-        "user": "lost"
-    },
-    {
-        "vote": "hugo",
-        "user": "wee"
-    },
-]
 
 //Flags
 let timerStarted = false;
@@ -315,7 +301,7 @@ async function voteForPlayer(event) {
 
 async function checkVotes(object) {
     const playingUsers = object.quiz[object.current_question_nr].alternatives;
-    // const allvotes = object.current_votes;
+    const allvotes = object.current_votes;
     // console.log(object);
     if (object.quiz[object.current_question_nr] === "end") {
         return;

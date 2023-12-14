@@ -1,12 +1,13 @@
 #info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-row: 1;
     width: 30px;
     height: 30px;
     justify-self: right;
-    margin: 5vw;
     background-image: url("../resources/icons/info_button.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -30,10 +31,10 @@ body {
     width: 180px;
     background-color: white;
     position: absolute;
-    right: 20px;
+    right: 30px;
     z-index: 1;
     border-radius: 10px;
-    top: 60px;
+    top: 30px;
     display: none;
     padding: 4px;
 }
@@ -53,21 +54,45 @@ body {
 
 #textDecoration {
     height: 1px;
-  width: 142px;
-  background-color: #d5d5d5;
-  text-align: center;
-  position: relative;
-  left: 15px;
+    width: 142px;
+    background-color: #d5d5d5;
+    text-align: center;
+    position: relative;
+    left: 15px;
+}
+
+.buttonContainerJoinStart {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin-top: 10vh;
+}
+
+.inputContentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    margin-top: 2vh;
+
+    & button {
+        margin: 3vh auto 0 auto;
+    }
+}
+
+.spaceAround {
+    justify-content: space-around;
 }
 
 #box {
-    grid-row: 2;
+    grid-row: 2/span 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
     padding: 1vw;
 
+    & h3 {
+        margin-top: 3vh;
+    }
 
     & .wrapper {
         display: flex;
@@ -89,6 +114,7 @@ body {
         font-size: 20px;
         color: #B8B1AA;
         letter-spacing: 2px;
+        outline-style: solid;
     }
 
     & #joinBtn {
@@ -100,8 +126,6 @@ body {
 .inputUserName {
     width: 72vw;
     font-size: 19px;
-    position: relative;
-    bottom: 16vh;
 }
 
 .inputNames {
@@ -112,11 +136,7 @@ input::placeholder {}
 
 
 
-.labelName {
-    position: relative;
-    bottom: 18vh;
-    right: 19vw;
-}
+.labelName {}
 
 
 .inputContainer {
@@ -136,6 +156,28 @@ input::placeholder {}
     max-width: 400px;
 }
 
+.h2 {
+    font-size: clamp(.813rem, 5vw, 2rem);
+    font-family: "Helvetica Neue Regular";
+    letter-spacing: 4px;
+    margin: 3vh 0;
+}
+
+.h3 {
+    font-size: clamp(.813rem, 3.4vw, 1.25rem);
+    font-family: "Helvetica Neue Regular";
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.pp {
+    text-align: start;
+    font-size: clamp(.625rem, 3vw, 1rem);
+    color: #646464;
+    letter-spacing: 2px;
+    margin: .5vh 0 0 0;
+}
+
 #img {
     width: 372px;
     /*  max-width: 372px; */
@@ -145,26 +187,21 @@ input::placeholder {}
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
-    top: 23vh;
     height: 22vh;
     width: 90vw;
+    margin-top: 10vh;
 }
 
 #start {
     background-color: #EE7668;
     color: white;
     padding: 15px;
-    position: absolute;
-    bottom: 21vh;
 }
 
 #join {
     background-color: #FCC2B6;
     color: white;
     padding: 15px;
-    position: absolute;
-    bottom: 13vh;
 }
 
 h1 {
@@ -175,12 +212,11 @@ h1 {
 
 #gameInfo {
     text-align: center;
-    position: relative;
-    bottom: 19vh;
     max-width: 73vw;
     line-height: 30px;
     letter-spacing: 2px;
     font-size: 2vh;
+    margin-top: 7vh;
 }
 
 #infoTitle {
@@ -225,14 +261,11 @@ h3 {
     padding: 20px;
     margin-bottom: 20px;
     border: white solid 2px;
-    height: 10vh;
+    height: 8.5vh;
     padding: 15px;
 }
 
-.categoryTextBox>p {
-    text-align: start;
-    margin: 0;
-}
+
 
 .categoryCard:hover {
     border: black solid 2px;
@@ -242,7 +275,7 @@ h3 {
 .categoryTextBox {
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 4vw;
     width: 60vw;
 }
 
@@ -253,8 +286,7 @@ h3 {
 @media (min-width: 700px) {
     body {}
 
-    #img {
-    }
+    #img {}
 
     #gameInfo {
         max-width: 60vw;

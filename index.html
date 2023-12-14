@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vem kan mest</title>
-    <link rel="shortcut icon" href="resources/icons/faviconmountsun.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/startpage.css">
     <link rel="manifest" href="manifest.json" />
@@ -13,21 +12,28 @@
 </head>
 
 <body>
-    <div id="info">
-        <div id="infoBox" class="hidden">
-            <p id="infoTitle">VEM KAN MEST</p>
-            <div id="textDecoration"></div>
-            <p class="list">1. Gå med i ett spel genom att ange pinkod.</li>
-            <p class="list">2. Skapa ett nytt spel, bjud in deltagare med unik pinkod.</li>
-            <p class="list">3. Följ instruktionerna för att spela.</li>
+    <header>
+        <div class="home"></div>
+        <img class="headerLogo hidden" src="resources/Logga_header_small_height.png" alt="">
+        <div id="info">
+            <div id="infoBox" class="hidden">
+                <p id="infoTitle">Vem Kan Mest</p>
+                <div id="textDecoration"></div>
+                <p class="list">1. Gå med i ett spel genom att ange pinkod.</li>
+                <p class="list">2. Skapa ett nytt spel, bjud in deltagare med unik pinkod.</li>
+                <p class="list">3. Följ instruktionerna för att spela.</li>
+            </div>
         </div>
-    </div>
+    </header>
     <div id="box">
         <div id="img"></div>
         <!--   <h1>VEM KAN MEST</h1> -->
-        <p id="gameInfo">Utmana dina vänner eller familj i vem som kan mest. Ett spel som går ut på att bästa spelare vinner utvald utmaning</p>
-        <button id="start" class="startpageButton">Nytt spel</button>
-        <button id="join" class="startpageButton">Gå med i spel</button>
+        <p id="gameInfo">Utmana dina vänner eller familj i vem som kan mest. Ett spel som går ut på att bästa spelare
+            vinner utvald utmaning</p>
+        <div class="buttonContainerJoinStart">
+            <button id="start" class="startpageButton">Nytt spel</button>
+            <button id="join" class="startpageButton">Gå med i spel</button>
+        </div>
     </div>
 
     <script src="js/index.js"></script>

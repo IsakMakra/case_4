@@ -91,26 +91,31 @@ document.getElementById("join").addEventListener("click", () => {
 
 document.getElementById("start").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
-        <div id="home"></div>
+    <header>
+        <div class="home"></div>
+        <img class="headerLogo hidden" src="resources/Logga_header_small_height.png" alt="">
+        <div id="steps">
+            <div class=" step full"></div>
+            <div class=" step"></div>
+            <div class=" step"></div>
+        </div>
+    </header>
         <div id="box">
-            <div id="steps">
-                <div class=" step full"></div>
-                <div class=" step"></div>
-                <div class=" step"></div>
-            </div>
             <div id="img"></div>
-            <label class="labelName labels" for="lobby">användarnamn</label>
-            <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
-            <p class="message" id="errorMessage"></p>
-            <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
+            <div class="inputContentContainer">
+                <p class="message" id="errorMessage"></p>
+                <label class="labelName labels" for="lobby">användarnamn</label>
+                <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
+                <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
             </div>
+        </div>
             `;
 
     document.getElementById("hostName").addEventListener("keyup", (e) => {
         let errorMessage = "Max 10 characters in the name"
         controlName(e, errorMessage);
     });
-    document.getElementById("home").addEventListener("click", () => {
+    document.querySelector(".home").addEventListener("click", () => {
         location.reload();
     })
 })
@@ -136,64 +141,68 @@ function chooseCategory() {
 
     hostName = document.getElementById("hostName").value;
     document.querySelector("body").innerHTML = `
-            <div id="home"></div>
-            <div id="box">
+                <header>
+                <div class="home"></div>
+                <img class="headerLogo" src="resources/Logga_header_small_height.png" alt="">
                 <div id="steps">
                     <div class=" step"></div>
                     <div class=" step full"></div>
                     <div class=" step"></div>
                 </div>
+            </header>
 
-                <h3>KATEGORIER</h3>
-                <p>Välj en kategorier att spela</p>
+
+            <div id="box">
+                <p class="h2">KATEGORIER</p>
+                <p class="pp">Välj en kategorier att spela</p>
                 <p class="message" id="createLobbyMessage"></p>
 
                 <div id="categoryWrapper">
                     <div class="categoryCard" onclick="createLobby('Random')">
                         <div class="categoryImg Random"></div>
                         <div class="categoryTextBox">
-                            <h3>RANDOM</h3>
-                            <p>Gott och blandat! Något för alla!</p>
+                            <p class="h3">RANDOM</p>
+                            <p class="pp">Gott och blandat! Något för alla!</p>
                         </div>
                     </div>
 
                     <div class="categoryCard" onclick="createLobby('Festligheter')">
                         <div class="categoryImg Festligheter"></div>
                         <div class="categoryTextBox">
-                            <h3>FESTLIGHETER</h3>
-                            <p>Tävla mot varandra i festligheter!</p>
+                            <p class="h3">FESTLIGHETER</p>
+                            <p class="pp">Tävla mot varandra i festligheter!</p>
                         </div>
                     </div>
 
                     <div class="categoryCard" onclick="createLobby('Världen')">
                         <div class="categoryImg Världen"></div>
                         <div class="categoryTextBox">
-                            <h3>VÄRLDEN</h3>
-                            <p>Dags att testa geografin, flaggor, länder och städer!</p>
+                            <p class="h3">VÄRLDEN</p>
+                            <p class="pp">Dags att testa geografin, flaggor, länder och städer!</p>
                         </div>
                     </div>
 
                     <div class="categoryCard" onclick="createLobby('Historia')">
                         <div class="categoryImg Historia"></div>
                         <div class="categoryTextBox">
-                            <h3>Historia</h3>
-                            <p>Res tillbaka i tiden och tävla om vem som har bäst minne!</p>
+                            <p class="h3">Historia</p>
+                            <p class="pp">Res tillbaka i tiden och tävla om vem som har bäst minne!</p>
                         </div>
                     </div>
 
                     <div class="categoryCard" onclick="createLobby('Musik')">
                         <div class="categoryImg Musik"></div>
                         <div class="categoryTextBox">
-                            <h3>MUSIK</h3>
-                            <p>Avgör vem som har störst musikkunskap!</p>
+                            <p class="h3">MUSIK</p>
+                            <p class="pp">Avgör vem som har störst musikkunskap!</p>
                         </div>
                     </div>
 
                     <div class="categoryCard" onclick="createLobby('Fysiskt')">
                         <div class="categoryImg Fysiskt"></div>
                         <div class="categoryTextBox">
-                            <h3>FYSISKT</h3>
-                            <p>Tävla mot varandra i styrka och prestanda!</p>
+                            <p class="h3">FYSISKT</p>
+                            <p class="pp">Tävla mot varandra i styrka och prestanda!</p>
                         </div>
                     </div>
 
@@ -201,7 +210,7 @@ function chooseCategory() {
             </div>
             `;
 
-    document.getElementById("home").addEventListener("click", () => {
+    document.querySelector(".home").addEventListener("click", () => {
         location.reload();
     })
 
