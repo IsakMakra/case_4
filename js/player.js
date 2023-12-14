@@ -15,11 +15,11 @@ let homeBtn = document.querySelector(".home");
 
 
 //Flags
-let timerStarted = false;
 let leaderBoardCreated = false;
 let buttonsCreated = false;
 let player_div_removed = false;
 let firstInterval = true;
+let pageCreated = false;
 
 let mainContainer = document.querySelector("main");
 
@@ -59,7 +59,7 @@ async function callBack() {
 
     if (q_nr != currentQuestionNumber) {
         leaderBoardCreated = false;
-        timerStarted = false;
+        pageCreated = false;
         // mainContainer.innerHTML = "";
         buttonsCreated = false;
         q_nr = currentQuestionNumber;
@@ -98,30 +98,32 @@ async function callBack() {
     }
 
     if (currentQuestionNumber == q_nr) {
-        // if (!player_div_removed) {
-        //     document.getElementById("players").remove();
-        //     player_div_removed = true;
-        // }
 
-        displayLeaderBoard(dataObject.users, false);
+        displayLeaderBoard(dataObject.users);
 
         let userArray = dataObject.quiz[currentQuestionNumber].alternatives;
         // Iterate through userArray and update the content of <p> elements
         if (userArray.includes(username)) {
             //* här ändar vi layout för den som ska duellerar
-            mainContainer.innerHTML = `
-            <div id="playTime">
-                <h3>DAGS</h3>
-                <p>för</p>
-                <h3>DUELL</h3>
-            </div>
-            `;
-            document.querySelector("footer").innerHTML = " ";
+            if (!pageCreated) {
+                pageCreated = true;
+                mainContainer.innerHTML = `
+                <div id="playTime">
+                    <p class="h1">DAGS</p>
+                    <p class="h2NoMargin">för</p>
+                    <p class="h1">DUELL</p>
+                </div>
+                `;
+                document.querySelector("footer").innerHTML = " ";
+                usersWhoVoted = [];
+            }
+
         }
         else {
             // console.log("hej");
             if (!buttonsCreated) {
                 firstInterval = true;
+                usersWhoVoted = [];
                 let questionNrInPercentage = currentQuestionNumber / dataObject.quiz.length * 100;
                 let player = dataObject.users.find(objekt => objekt.username === username)
                 mainContainer.classList.add("playerQuiz");
@@ -168,10 +170,6 @@ async function callBack() {
             }
             checkVotes(dataObject);
 
-            if (!timerStarted) {
-                startTimer();
-                timerStarted = true;
-            }
         }
     }
 }
@@ -185,20 +183,20 @@ function displayLeaderBoard(users, forever) {
 
         let leaderBoard = document.createElement("div");
         leaderBoard.setAttribute("id", "leaderBoard");
-        leaderBoard.innerHTML = `<h3>LEADERBOARD</h3>`;
+        leaderBoard.innerHTML = `<p class="h2">LEADERBOARD</p>`;
         let section = document.createElement("section");
         section.innerHTML = `
         <div id="metrics">
             <div>
-                <p id="rank">Rank</p>
+                <p id="rank" class="pppp">Rank</p>
                 <div class="metricsIMG rank"></div>
             </div>
             <div>
-                <p id="name">Namn</p>
+                <p id="name" class="pppp">Namn</p>
                 <div class="metricsIMG name"></div>
             </div>
             <div>
-                <p id="points">Poäng</p>
+                <p id="points" class="pppp">Poäng</p>
                 <div class="metricsIMG points"></div>
             </div>
         </div>
@@ -213,9 +211,9 @@ function displayLeaderBoard(users, forever) {
         users.forEach((user) => {
             let user_dom = `
             <div class="player">
-                <p class="leaderBoardNr">${number}.</p>
-                <p class="leaderBoardName">${user.username}</p>
-                <p class="leaderBoardPoints">${user.points}</p>
+                <p class="leaderBoardNr h4">${number}.</p>
+                <p class="leaderBoardName h4">${user.username}</p>
+                <p class="leaderBoardPoints h4">${user.points}</p>
             </div>
             `;
             player_wrapper.innerHTML += user_dom;
@@ -224,7 +222,7 @@ function displayLeaderBoard(users, forever) {
 
         document.querySelector("body").append(leaderBoard);
         let main = document.querySelector("main");
-        main.classList.add("hidden");
+        main.id = "hidden";
         document.querySelector("footer").classList.add("hidden");
 
         if (!forever) {
@@ -233,29 +231,21 @@ function displayLeaderBoard(users, forever) {
                 if (second === 4) {
                     clearInterval(leaderBoardIntervalId);
                     leaderBoard.remove();
-                    main.classList.remove("hidden");
+                    main.id = " ";
                     document.querySelector("footer").classList.remove("hidden");
                 }
 
                 second++;
             }, interval);
+        } else {
+            let top3Winners = document.querySelectorAll(".player");
+            for (let i = 0; i < 3; i++) {
+                top3Winners[i].classList.add("winner" + i);
+            }
         }
     }
 }
 
-function startTimer() {
-    let second = 0
-    timerIntervalId = setInterval(() => {
-        if (second === 34) {
-            clearInterval(timerIntervalId)
-            document.querySelectorAll(".voteBtn").forEach(btn => {
-                btn.setAttribute("disabled", true);
-            })
-        }
-
-        second++;
-    }, interval);
-}
 
 async function voteForPlayer(event) {
     let votedPlayer = event.target.textContent;
@@ -325,7 +315,6 @@ async function checkVotes(object) {
 
     }
 
-    //! måste få alla röster via php isak
     //*double checks so a user cant vote multible times
     allvotes.forEach(voteObject => {
         if (!usersWhoVoted.includes(voteObject.user)) {
@@ -338,9 +327,9 @@ async function checkVotes(object) {
     document.querySelectorAll(".voteNr").forEach(voteNr => {
         let playerName = voteNr.id;
         let playersPoints = currentPlayers[playerName];
-        let pointsInPrecentage = playersPoints / allvotes.length * 100
+        // let pointsInPrecentage = playersPoints / allvotes.length * 100
 
-        voteNr.textContent = Math.round(pointsInPrecentage) + "%";
+        voteNr.textContent = playersPoints;
     })
 
     //* Checks if all the player have voted

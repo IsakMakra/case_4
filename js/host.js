@@ -1,7 +1,6 @@
 
 //* intergers
 let nIntervId; // stores the setInterval id to be later used to delete the interval
-let timerIntervalId;
 let questionNr = 0;
 let started = false;
 
@@ -66,11 +65,6 @@ async function startHostPage() {
     <button id="startQuiz" class="allBtn buttonNext">STARTA</button>
     `
     document.querySelector(".iconInLobby").classList.add(category);
-    console.log(hostName, serverCode);
-
-    //!fix so when the host refreshes it should come back to the quiz
-    // const object = await fetchGameObject();
-    // test()
 
     nIntervId = setInterval(intervalFunction, interval, true, false);
 }
@@ -94,7 +88,7 @@ function intervalFunction(displayPlayer, displayQuestion) {
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-    // const response = await fetcha(`api/host.php?server_code=3159&host=adam`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=6739&host=addeee`, "GET");
     const data = await response.json();
 
     return data
@@ -163,13 +157,14 @@ function displayQuestion(object) {
     const currentQuestion = object.quiz[questionNumber].question;
     const playingUsers = object.quiz[questionNumber].alternatives;
 
-    displayLeaderBoard(object.users);
 
     if (object.quiz[questionNumber] === "end") {
         window.removeEventListener("beforeunload", beforeUnloadHandler);
-        endQuiz(object);
+        clearInterval(nIntervId);
+        displayLeaderBoard(object.users, true);
         return;
     }
+    displayLeaderBoard(object.users);
 
     if (questionNumber >= 0 && questionNumber <= object.quiz.length) {
         window.addEventListener('beforeunload', beforeUnloadHandler);
@@ -202,10 +197,7 @@ function displayQuestion(object) {
     //* this gives eventlisteners to the buttons to be able to select the winner
     createPlayerBtn(playingUsers, object, false)
 
-    startTimer();
-
     document.querySelector("#startGameBtn").addEventListener("click", () => {
-        clearInterval(timerIntervalId);
         document.querySelector("main").innerHTML =
             `
         <div class="cardContainer vinnare">
@@ -287,22 +279,22 @@ function displayLeaderBoard(users, forever) {
 
     let leaderBoard = document.createElement("div");
     leaderBoard.setAttribute("id", "leaderBoard");
-    leaderBoard.innerHTML = `<h3>LEADERBOARD</h3>`;
+    leaderBoard.innerHTML = `<p class="h2">LEADERBOARD</p>`;
     let section = document.createElement("section");
     section.innerHTML = `
     <div id="metrics">
         <div>
-            <p id="rank">Rank</p>
-            <div class="metricsIMG rank"></div>
-        </div>
-        <div>
-            <p id="name">Namn</p>
-            <div class="metricsIMG name"></div>
-        </div>
-        <div>
-            <p id="points">Poäng</p>
-            <div class="metricsIMG points"></div>
-        </div>
+        <p id="rank" class="pppp">Rank</p>
+        <div class="metricsIMG rank"></div>
+    </div>
+    <div>
+        <p id="name" class="pppp">Namn</p>
+        <div class="metricsIMG name"></div>
+    </div>
+    <div>
+        <p id="points" class="pppp">Poäng</p>
+        <div class="metricsIMG points"></div>
+    </div>
     </div>
     `;
     section.setAttribute("id", "leaderBoardBox");
@@ -315,9 +307,9 @@ function displayLeaderBoard(users, forever) {
     users.forEach((user) => {
         let user_dom = `
         <div class="player">
-            <p class="leaderBoardNr">${number}.</p>
-            <p class="leaderBoardName">${user.username}</p>
-            <p class="leaderBoardPoints">${user.points}</p>
+            <p class="leaderBoardNr h4">${number}.</p>
+            <p class="leaderBoardName h4">${user.username}</p>
+            <p class="leaderBoardPoints h4">${user.points}</p>
         </div>
         `;
         player_wrapper.innerHTML += user_dom;
@@ -341,41 +333,29 @@ function displayLeaderBoard(users, forever) {
 
             second++;
         }, interval);
-    }
-}
-
-function endQuiz(object) {
-    clearInterval(nIntervId);
-    const players = object.users;
-
-    const leaderboard = players.sort((a, b) => { return b.points - a.points });
-    mainHtml.innerHTML =
-        `
-        <section class="question">
-            <h1>Winners</h1>
-            <h3>Good work ${leaderboard[0].username} you are the winner</h3>
-        </section>
-        <section class="question" id="middleSection">
-            <div class="leaderboard"></div>
-        </section>
-        <section class="question">
-            <button id="exitBtn">Avsluta Quiz</button>
-        </section>
-    `;
-    leaderboard.forEach(user => {
-        mainHtml.querySelector(".leaderboard").innerHTML += `<h4>User: ${user.username} Points: ${user.points}</h4>`
-    })
-
-    mainHtml.querySelector("#exitBtn").addEventListener("click", function (e) {
-        clearLocalStorage();
-        const deleteBody = {
-            host: hostName,
-            server_code: serverCode
+    } else {
+        let top3Winners = document.querySelectorAll(".player");
+        for (let i = 0; i < 3; i++) {
+            top3Winners[i].classList.add("winner" + i);
         }
-        fetcha("api/game.php", "DELETE", deleteBody);
-        window.location = "./index.html";
-    })
+
+        let quitQuiz = document.createElement("button");
+        quitQuiz.classList.add("allBtn");
+        quitQuiz.textContent = "AVSULTA QUIZ";
+        quitQuiz.addEventListener("click", function (e) {
+            clearLocalStorage();
+            const deleteBody = {
+                host: hostName,
+                server_code: serverCode
+            }
+            fetcha("api/game.php", "DELETE", deleteBody);
+            window.location = "./index.html";
+        })
+        section.after(quitQuiz);
+    }
+
 }
+
 
 async function checkVotes() {
     const object = await fetchGameObject();
@@ -413,15 +393,7 @@ async function checkVotes() {
 }
 
 
-function startTimer() {
-    let second = 0
-    timerIntervalId = setInterval(() => {
-        if (second === 34) {
-            clearInterval(timerIntervalId)
-        }
-        second++;
-    }, interval);
-}
+
 
 
 

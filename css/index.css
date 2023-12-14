@@ -29,6 +29,13 @@
     justify-content: center;
 }
 
+.h1 {
+    font-size: clamp(.813rem, 10vw, 4rem);
+    font-family: "Helvetica Neue Regular";
+    letter-spacing: 4px;
+    margin: 3vh 0;
+}
+
 .h2 {
     font-size: clamp(.813rem, 5vw, 2rem);
     font-family: "Helvetica Neue Regular";
@@ -81,6 +88,14 @@
     margin-bottom: 3vh;
 }
 
+.pppp {
+    text-align: start;
+    font-size: clamp(.625rem, 2vw, 0.75rem);
+    color: #646464;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
 .iconInLobby {
     height: 3.3vh;
     width: 7vw;
@@ -110,6 +125,10 @@ button {
 }
 
 .hidden {
+    display: none;
+}
+
+#hidden {
     display: none;
 }
 
@@ -231,11 +250,11 @@ button {
 #metrics>div {
     display: flex;
     gap: 10px;
-    align-items: center;
+    align-items: end;
 }
 
 .metricsIMG {
-    height: 4vh;
+    height: 2vh;
     width: 4vw;
     background-position: center;
     background-size: contain;
@@ -263,24 +282,46 @@ button {
 }
 
 .player {
+    position: relative;
     display: flex;
     justify-content: space-between;
     border: solid black 2px;
-    padding: 10px 50px 10px 50px;
+    padding: 1.5vh 4vw;
     border-radius: 10px;
     align-items: center;
-    height: 40px;
+
 }
 
-.leaderBoardNr {
-    font-weight: bold;
+.winner0::before,
+.winner1::before,
+.winner2::before {
+    content: "";
+    position: absolute;
+    width: 7vw;
+    height: 3.3vh;
+    left: -4vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+
+.winner0::before {
+    background-image: url("../resources/icons/red.png");
+}
+
+.winner1::before {
+    background-image: url("../resources/icons/blue.png");
+}
+
+.winner2::before {
+    background-image: url("../resources/icons/blueblue.png");
+}
+
+
 
 .leaderBoardName {
     width: 45%;
-    padding: 5px 10px;
     border-radius: 10px;
-    font-weight: bold;
 }
 
 .leaderBoardPoints {}

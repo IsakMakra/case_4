@@ -68,7 +68,7 @@ main {
     gap: 5vh;
     justify-content: center;
     align-items: center;
-    font-family: "Helvetica Neue Thin";
+    margin: auto;
 
     & h3 {
         font-size: 12vw;
