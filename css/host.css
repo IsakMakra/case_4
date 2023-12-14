@@ -13,14 +13,10 @@ button {
     font-family: "Helvetica Neue Regular";
 }
 
-.joinLobby {
-    display: grid;
-    justify-content: center;
-    justify-self: center;
-    width: 80vw;
-    min-height: 300px;
-    text-align: center;
+.serverCode {
+    color: var(--salmon1-color);
 }
+
 
 .started {
     display: flex;
@@ -30,11 +26,18 @@ button {
 
 }
 
+.categoryImgTextBox {
+    display: flex;
+    align-items: center;
+    margin: 2vh 0;
+    gap: 8px;
+}
+
 .lobby {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding-left: 20px;
 }
 
 .lobby>h1 {
@@ -47,34 +50,23 @@ button {
     font-family: "Helvetica Neue Regular";
 }
 
-.lobby>p {
-    grid-row: 3;
-    margin-top: 10px;
-    font-family: "Helvetica Neue Regular";
-}
+
 
 #start {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #kategoryBox {
-    width: 80vw;
-    align-items: center;
+    width: 100%;
     justify-content: center;
-    padding: 20px;
     display: flex;
+    flex-direction: column;
 }
 
-#kategoryBox>h3 {
-    margin: 0;
-    font-family: "Helvetica Neue Regular";
-}
 
-#kategoryBox>p {
-    margin: 0;
-    font-family: "Helvetica Neue thin";
-}
 
 #kategoryImg {
     height: 30px;

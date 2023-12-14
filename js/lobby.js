@@ -7,7 +7,7 @@ document.getElementById("join").addEventListener("click", () => {
         <div id="home"></div>
         <div id="box">
             
-            <div id="steps">
+            <div class="steps">
                 <div class=" step full"></div>
                 <div class=" step"></div>
             </div>
@@ -93,7 +93,7 @@ document.getElementById("start").addEventListener("click", () => {
     <header>
         <div class="home"></div>
         <img class="headerLogo hidden" src="resources/Logga_header_small_height.png" alt="">
-        <div id="steps">
+        <div class="steps">
             <div class=" step full"></div>
             <div class=" step"></div>
             <div class=" step"></div>
@@ -143,7 +143,7 @@ function chooseCategory() {
                 <header>
                 <div class="home"></div>
                 <img class="headerLogo" src="resources/Logga_header_small_height.png" alt="">
-                <div id="steps">
+                <div class="steps">
                     <div class=" step"></div>
                     <div class=" step full"></div>
                     <div class=" step"></div>
@@ -153,7 +153,7 @@ function chooseCategory() {
 
             <div id="box">
                 <p class="h2">KATEGORIER</p>
-                <p class="pp">Välj en kategorier att spela</p>
+                <p class="ppp">Välj en kategorier att spela</p>
                 <p class="message" id="createLobbyMessage"></p>
 
                 <div id="categoryWrapper">

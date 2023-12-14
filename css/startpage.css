@@ -156,27 +156,7 @@ input::placeholder {}
     max-width: 400px;
 }
 
-.h2 {
-    font-size: clamp(.813rem, 5vw, 2rem);
-    font-family: "Helvetica Neue Regular";
-    letter-spacing: 4px;
-    margin: 3vh 0;
-}
 
-.h3 {
-    font-size: clamp(.813rem, 3.4vw, 1.25rem);
-    font-family: "Helvetica Neue Regular";
-    letter-spacing: 3px;
-    margin: 0;
-}
-
-.pp {
-    text-align: start;
-    font-size: clamp(.625rem, 3vw, 1rem);
-    color: #646464;
-    letter-spacing: 2px;
-    margin: .5vh 0 0 0;
-}
 
 #img {
     width: 372px;

@@ -13,15 +13,6 @@ main {
     /* gap: 1vh; */
 }
 
-.joinLobby {
-    display: grid;
-    justify-content: center;
-    justify-self: center;
-    border-radius: 20px;
-    width: 80vw;
-    min-height: 300px;
-    text-align: center;
-}
 
 .playerQuiz {
     display: flex;

@@ -22,11 +22,7 @@ const serverCode = localStorage.getItem("serverCode"); // servercode for the gam
 const mainHtml = document.querySelector("main");
 const homeBtn = document.querySelector(".home");
 
-let arrayUsers = [
-    "dette",
-    "sadde",
-    "hree"
-]
+
 
 //the home button opens the dialog element to make sure if the host wants to quit the quiz
 homeBtn.addEventListener("click", function quitQuiz() {
@@ -43,10 +39,33 @@ document.querySelector("dialog #close").addEventListener("click", () => {
 
 //Starts to create the host page and track the joined players
 async function startHostPage() {
-    document.querySelector(".categoryImg").classList.add(category);
-    document.querySelector("#kategori").textContent += category;
-    document.querySelector("#serverCode").textContent += serverCode;
 
+    mainHtml.innerHTML =
+        `
+    <section class="lobby">
+            <p id="serverCode" class="h2">LOBBY ID: <span class="serverCode">${serverCode}</span></p>
+            <div id="kategoryBox">
+                <p class="h2NoMargin">KATEGORI</p>
+                <div class="categoryImgTextBox">
+                    <div class="iconInLobby"></div>
+                    <p id="kategori" class="h4">${category}</p>
+                </div>
+            </div>
+        </section>
+        <section id="players">
+            <div class="playersTextIconContainer">
+                <p class="h3">SPELARE</p>
+                <div class="timeGlass"></div>
+            </div>
+            <div id="playerNames">
+            </div>
+        </section>
+    `
+    document.querySelector("footer").innerHTML =
+        `
+    <button id="startQuiz" class="allBtn buttonNext">STARTA</button>
+    `
+    document.querySelector(".iconInLobby").classList.add(category);
     console.log(hostName, serverCode);
 
     //!fix so when the host refreshes it should come back to the quiz
@@ -103,6 +122,7 @@ async function dispalyNewPlayers() {
 
 //Start quiz btn when clicked stops the interval and goes on to the questions
 document.querySelector("#startQuiz").addEventListener("click", (e) => {
+    document.querySelector(".steps").classList.add("hidden")
     clearInterval(nIntervId);
     nIntervId = null;
     incrementQuestionNr();
