@@ -151,7 +151,7 @@ button {
     align-items: center;
 }
 
-#metrics > div {
+#metrics>div {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -165,11 +165,17 @@ button {
     background-repeat: no-repeat;
 }
 
-.rank {background-image: url(../resources/icons/rank.png);}
+.rank {
+    background-image: url(../resources/icons/rank.png);
+}
 
-.name {background-image: url(../resources/icons/name.png);}
+.name {
+    background-image: url(../resources/icons/name.png);
+}
 
-.points {background-image: url(../resources/icons/points.png);}
+.points {
+    background-image: url(../resources/icons/points.png);
+}
 
 #playerWrapper {
     height: 40vh;
@@ -217,12 +223,29 @@ button {
     background-size: contain;
 }
 
-.Random {background-image: url(../resources/icons/random.png);}
-.Fysiskt {background-image: url(../resources/icons/fysisk.png);}
-.Festligheter {background-image: url(../resources/icons/fest.png);}
-.Historia {background-image: url(../resources/icons/history.png);}
-.Världen {background-image: url(../resources/icons/världen.png)}
-.Musik {background-image: url(../resources/icons/music.png);}
+.Random {
+    background-image: url(../resources/icons/random.png);
+}
+
+.Fysiskt {
+    background-image: url(../resources/icons/fysisk.png);
+}
+
+.Festligheter {
+    background-image: url(../resources/icons/fest.png);
+}
+
+.Historia {
+    background-image: url(../resources/icons/history.png);
+}
+
+.Världen {
+    background-image: url(../resources/icons/världen.png)
+}
+
+.Musik {
+    background-image: url(../resources/icons/music.png);
+}
 
 /*Players*/
 
@@ -424,7 +447,7 @@ header {
     position: relative;
 
     & .headerLogo {
-        width: 40vw;
+        width: 55vw;
         margin-top: 40px;
     }
 

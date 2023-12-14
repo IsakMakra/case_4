@@ -99,15 +99,14 @@ body {
     padding-left: 15px;
 }
 
-input::placeholder {
-}
+input::placeholder {}
 
 
 
 .labelName {
-   position: relative;
-   bottom: 18vh;
-   right: 20vw;
+    position: relative;
+    bottom: 18vh;
+    right: 20vw;
 }
 
 
@@ -133,7 +132,7 @@ input::placeholder {
     /*  max-width: 372px; */
     height: 212px;
     /*  max-height: 212px; */
-    background-image: url("../resources/logga_main.png");
+    background-image: url("../resources/Logga_main_small_height.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -218,7 +217,7 @@ h3 {
     padding: 15px;
 }
 
-.categoryTextBox > p {
+.categoryTextBox>p {
     text-align: start;
     margin: 0;
 }
@@ -240,8 +239,7 @@ h3 {
 }
 
 @media (min-width: 700px) {
-    body {
-    }
+    body {}
 
     #img {
         width: 69vw;
@@ -269,11 +267,12 @@ h3 {
     .buttonNext {
         width: 35vw;
     }
+
     .inputUserName {
         width: 32vw;
     }
+
     .labelName {
         right: 8vw;
     }
 }
-
