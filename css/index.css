@@ -23,6 +23,13 @@
     font-size: 12px;
     color: red;
     letter-spacing: 2px;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#joinLobbyMessage {
 }
 
 body {

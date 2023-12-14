@@ -29,11 +29,10 @@ document.getElementById("join").addEventListener("click", () => {
                 <label for="lobby" class="labels">användarnamn</label>
                 <input type="text" id="userName" name="userName" class="inputNames" placeholder="ex. Pelle">
             </div>
-
-            <p class="message" id="joinLobbyMessage"></p>
-
             <button class="buttonNext" id="joinBtn">STARTA</button>
         </div>
+        <p class="message" id="joinLobbyMessage"></p>
+
     `;
 
     let value = 0;
@@ -101,9 +100,10 @@ document.getElementById("start").addEventListener("click", () => {
             <div id="img"></div>
             <label class="labelName labels" for="lobby">användarnamn</label>
             <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
-            <p class="message" id="errorMessage"></p>
             <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
-            </div>
+        </div>
+        <p class="message" id="errorMessage"></p>
+
             `;
 
     document.getElementById("hostName").addEventListener("keyup", (e) => {
