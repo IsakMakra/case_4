@@ -115,7 +115,7 @@ input::placeholder {}
 .labelName {
     position: relative;
     bottom: 18vh;
-    right: 20vw;
+    right: 19vw;
 }
 
 
@@ -177,7 +177,7 @@ h1 {
     text-align: center;
     position: relative;
     bottom: 19vh;
-    max-width: 80vw;
+    max-width: 73vw;
     line-height: 30px;
     letter-spacing: 2px;
     font-size: 2vh;
