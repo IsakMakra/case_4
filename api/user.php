@@ -58,13 +58,7 @@
             {
                 if($server_code == $game["server_code"])
                 {
-                    $data = 
-                    [
-                        "quiz" => $game["quiz"],
-                        "current_question_nr" => $game["current_question_nr"],
-                        "users" => $game["users"]
-                    ];
-                    send_JSON($data);
+                    send_JSON($game);
                 }
             }
 
