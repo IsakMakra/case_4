@@ -20,7 +20,7 @@ body {
     grid-template-rows: 1fr 5fr 1fr;
     background-image: url("../resources/Background_phone.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     position: relative;
 }
@@ -212,7 +212,6 @@ h3 {
 }
 
 #categoryWrapper {
-    overflow: scroll;
     height: 50vh;
     width: 80vw;
 }

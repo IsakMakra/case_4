@@ -32,7 +32,7 @@ body {
     grid-template-rows: 1fr 5fr 1fr;
     background-image: url("../resources/Background-desktop.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
 }
 
@@ -183,7 +183,6 @@ button {
     flex-direction: column;
     width: 70vw;
     gap: 2vh;
-    overflow: scroll;
 }
 
 .player {
