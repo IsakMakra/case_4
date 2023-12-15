@@ -19,67 +19,79 @@
             "question": "Vem kan göra flest armhävningar?",
             "nr_of_users": 3,
             "alternatives": [],
-            "timer": 1
+            "timer": 0
         },
         {
             "question": "Vem vinner på armbrytning?",
             "nr_of_users": 2,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem kan sitta i 90 grader längst?",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem vinner på tumkrig?",
             "nr_of_users": 2,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem kan stå i planka längst?",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem kan balansera på ett ben längst?",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem kan komma närmst till att ha sina handflator på golvet med sträckta ben?",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem kan sätta en bottle flip först?",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem vinner på sten sax påse?",
             "nr_of_users": 2,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Ring of fire, länder som börjar på T",
             "nr_of_users": 2,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Ring of fire, länder i Afrika",
             "nr_of_users": 2,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Ring of fire, bilmärken",
             "nr_of_users": 2,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         },
         {
             "question": "Vem vinner i 'inte blinka medan man håller ögonkontakt' leken",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 0
         }
     ]
 ]

@@ -128,14 +128,6 @@ button {
     margin: 0;
 }
 
-.iconInLobby {
-    height: 3.3vh;
-    width: 7vw;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 #joinLobbyMessage {}
 
 body {
@@ -410,7 +402,7 @@ body {
 #players .h3::after {}
 
 .timeGlass {
-    height: 2.2vh;
+    height: 4.2vh;
     width: 4.7vw;
     background-image: url(../resources/icons/time.png);
     background-position: center;
