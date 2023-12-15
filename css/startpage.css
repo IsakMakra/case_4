@@ -117,6 +117,7 @@ body {
         outline-style: solid;
     }
 
+
     & #joinBtn {
         margin-top: 8vh;
         background-color: var(--salmon1-color);

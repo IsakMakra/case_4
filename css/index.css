@@ -21,12 +21,13 @@
 
 .message {
     font-size: 12px;
-    color: red;
+    color: var(--salmon1-color);
     letter-spacing: 2px;
-    margin: 0;
-    position: relative;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
+    height: 16px;
+    text-align: center;
 }
 
 .h1 {

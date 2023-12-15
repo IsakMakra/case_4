@@ -59,6 +59,7 @@ async function startHostPage() {
             <div id="playerNames">
             </div>
         </section>
+        <p class="message"></p>
     `
     document.querySelector("footer").innerHTML =
         `
@@ -112,10 +113,16 @@ async function dispalyNewPlayers() {
     }
     // Update the player list
     allPlayers = newPlayers;
+
 }
 
 //Start quiz btn when clicked stops the interval and goes on to the questions
 document.querySelector("#startQuiz").addEventListener("click", (e) => {
+    console.log(allPlayers);
+    if (allPlayers.length < 4) {
+        document.querySelector(".message").innerHTML = "Det måste vara minst 4 spelare för att starta quizet";
+        return
+    }
     document.querySelector(".steps").classList.add("hidden")
     clearInterval(nIntervId);
     nIntervId = null;

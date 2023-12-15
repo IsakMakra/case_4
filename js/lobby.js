@@ -30,8 +30,8 @@ document.getElementById("join").addEventListener("click", () => {
                 <input type="text" id="userName" name="userName" class="inputNames" placeholder="ex. Pelle">
             </div>
             <button class="buttonNext" id="joinBtn">STARTA</button>
+            <p class="message" id="joinLobbyMessage"></p>
         </div>
-        <p class="message" id="joinLobbyMessage"></p>
 
     `;
 
@@ -76,10 +76,15 @@ document.getElementById("join").addEventListener("click", () => {
 
     document.querySelector("#joinBtn").addEventListener("click", () => {
         let serverCodeString = inputs.map(input => input.value).join("");
-        console.log(serverCodeString);
+        let input = document.querySelector("#userName");
+        let value = input.value
+        if (value.trim().length === 0) {
+            input.focus();
+            runAnimation(input)
+            return
+        }
         const password = serverCodeString;
-        const user = document.getElementById("userName").value;
-        document.getElementById('userName').value = '';
+        const user = value;
         joinLobby(password, user);
     })
 
@@ -105,11 +110,22 @@ document.getElementById("start").addEventListener("click", () => {
                 <p class="message" id="errorMessage"></p>
                 <label class="labelName labels" for="lobby">användarnamn</label>
                 <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
-                <button class="buttonNext" id="joinNextButton" type="submit" onclick="chooseCategory()">NÄSTA</button>
+                <button class="buttonNext" id="joinNextButton" type="submit">NÄSTA</button>
             </div>
         </div>
             `;
 
+    document.querySelector(".buttonNext").addEventListener("click", () => {
+        let input = document.querySelector(".inputNames");
+        let value = input.value
+        if (value.trim().length === 0) {
+            input.focus();
+            runAnimation(input)
+            return
+        }
+
+        chooseCategory();
+    })
     document.getElementById("hostName").addEventListener("keyup", (e) => {
         let errorMessage = "Max 10 characters in the name"
         controlName(e, errorMessage);
@@ -124,15 +140,15 @@ function controlName(event, errorMessage, maxlength = 10, minlength = 3) {
 
     if (input.value.length === maxlength) {
         document.getElementById("errorMessage").textContent = errorMessage;
-        runAnimation()
+        runAnimation(input)
     }
 
-    function runAnimation() {
-        input.classList.add("maxCharacters");
-        input.addEventListener("animationend", (event2) => {
-            event2.currentTarget.classList.remove("maxCharacters");
-        });
-    }
+}
+function runAnimation(input) {
+    input.classList.add("maxCharacters");
+    input.addEventListener("animationend", (event2) => {
+        event2.currentTarget.classList.remove("maxCharacters");
+    });
 }
 
 
@@ -216,33 +232,24 @@ function chooseCategory() {
 
 }
 
-// //Collecting the users information
-// function submitUser() {
-//     const password = document.getElementById("lobbycode").value;
-//     const user = document.getElementById("userName").value;
-//     document.getElementById('lobbycode').value = '';
-//     document.getElementById('userName').value = '';
-//     joinLobby(password, user);
-// }
 
 //The user joins the lobby
 async function joinLobby(password, user) {
     let response = await fetcha(`api/game.php?server_code=${password}&user=${user}`, "GET");
-    console.log(response);
+    let dataMessage = await response.json()
 
     //Wrong code
     if (response.ok) {
-        document.getElementById("joinLobbyMessage").innerHTML = "Joining lobby...";
         let data = await response.json();
         console.log(data);
         localStorage.setItem("password", password);
         localStorage.setItem("name", user);
 
-        window.location = "../player.html";
+        window.location = "player.html";
 
     } else {
         //Correct code
-        document.getElementById("joinLobbyMessage").innerHTML = "Wrong password...";
+        document.getElementById("joinLobbyMessage").innerHTML = dataMessage.message;
     }
 }
 
@@ -264,7 +271,7 @@ async function createLobby(category) {
     localStorage.setItem("serverCode", data.server_code);
 
     if (response.ok) {
-        window.location = "../host.html";
+        window.location = "host.html";
     } else {
         document.getElementById("createLobbyMessage").innerHTML = "Something went wrong... Try again.";
     }
