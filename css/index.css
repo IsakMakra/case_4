@@ -341,27 +341,27 @@ button {
     background-size: contain;
 }
 
-.Random {
+.ÖVRIGT {
     background-image: url(../resources/icons/random.png);
 }
 
-.Fysiskt {
+.FYSISKT {
     background-image: url(../resources/icons/fysisk.png);
 }
 
-.Festligheter {
+.FESTLIGHETER {
     background-image: url(../resources/icons/fest.png);
 }
 
-.Historia {
+.HISTORIA {
     background-image: url(../resources/icons/history.png);
 }
 
-.Världen {
+.VÄRLDEN {
     background-image: url(../resources/icons/världen.png)
 }
 
-.Musik {
+.MUSIK {
     background-image: url(../resources/icons/music.png);
 }
 

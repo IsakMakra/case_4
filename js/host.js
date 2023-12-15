@@ -380,7 +380,7 @@ function displayLeaderBoard(users, forever) {
             fetcha("api/game.php", "DELETE", deleteBody);
             window.location = "./index.html";
         })
-        section.after(quitQuiz);
+        leaderBoard.prepend(quitQuiz);
     }
 
 }

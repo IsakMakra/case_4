@@ -1,9 +1,25 @@
 [
     [
+        "Fysisk Aktivitet"
+    ],
+    [
+        "Musik"
+    ],
+    [
+        "Historia"
+    ],
+    [
+        "Festligheter"
+    ],
+    [
+        "Världen"
+    ],
+    [
         {
             "question": "Vem kan göra flest armhävningar?",
             "nr_of_users": 3,
-            "alternatives": []
+            "alternatives": [],
+            "timer": 1
         },
         {
             "question": "Vem vinner på armbrytning?",
