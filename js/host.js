@@ -88,8 +88,8 @@ function intervalFunction(displayPlayer, displayQuestion) {
 
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
-    // const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-    const response = await fetcha(`api/host.php?server_code=9413&host=adde`, "GET");
+    const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=9413&host=adde`, "GET");
     const data = await response.json();
 
     return data
@@ -204,17 +204,17 @@ function displayQuestion(object) {
     createPlayerBtn(playingUsers, object, false)
 
     document.querySelector("#startGameBtn").addEventListener("click", () => {
-        if (20) {
+        if (currentQuestion.timer) {
             document.querySelector("main").innerHTML =
                 `
-        <div class="cardContainer timer">
+        <div class="timer">
             <p class="h2">DUELLDAGS</p> 
             <div class="timerIcon"></div>
             <div class="timerContainer">
-                <div class="timerValue" id="timerdef">0</div>
-                <div class="timerValue" id="timerdef">0</div>
-                <span class="timerValue">:</span>
-                <div class="timerValue" id="timer1">00</div>
+                <p class="timerValue" id="timerdef">0</p>
+                <p class="timerValue" id="timerdef">0</p>
+                <p class="timerValue">:</p>
+                <p class="timerValue" id="timer1">00</p>
             </div>
         </div>
         `
@@ -224,13 +224,11 @@ function displayQuestion(object) {
         `
             document.querySelector(".startTimer").addEventListener("click", () => {
                 console.log("hej");
-                startTimer(20, playingUsers, object);
+                startTimer(currentQuestion.timer, playingUsers, object);
             })
         } else {
             displayChooseWinner(playingUsers, object)
         }
-
-
     })
 
 }
@@ -419,10 +417,7 @@ async function checkVotes() {
 }
 
 function startTimer(seconds, playingUsers, object) {
-    // console.log(seconds);
-
     let timerSeconds = document.getElementById('timer1');
-
     // Update timers and divs every second
     const timerIntervalId = setInterval(() => {
 

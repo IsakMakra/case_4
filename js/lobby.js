@@ -29,9 +29,11 @@ document.getElementById("join").addEventListener("click", () => {
                 <label for="lobby" class="labels">användarnamn</label>
                 <input type="text" id="userName" name="userName" class="inputNames" placeholder="ex. Pelle">
             </div>
-            <button class="buttonNext" id="joinBtn">STARTA</button>
             <p class="message" id="joinLobbyMessage"></p>
-        </div>
+            </div>
+        <footer>    
+            <button class="buttonNext" id="joinBtn">STARTA</button>
+        </footer>
 
     `;
 
@@ -88,7 +90,7 @@ document.getElementById("join").addEventListener("click", () => {
         joinLobby(password, user);
     })
 
-    document.getElementById("home").addEventListener("click", () => {
+    document.querySelector(".home").addEventListener("click", () => {
         location.reload();
     })
 })
@@ -109,10 +111,12 @@ document.getElementById("start").addEventListener("click", () => {
             <div class="inputContentContainer">
                 <p class="message" id="errorMessage"></p>
                 <label class="labelName labels" for="lobby">användarnamn</label>
-                <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">
-                <button class="buttonNext" id="joinNextButton" type="submit">NÄSTA</button>
+                <input class="inputNames inputUserName" type="text" id="hostName" name="hostName" required maxlength="10" placeholder="ex. Pelle">             
             </div>
         </div>
+        <footer>    
+            <button class="buttonNext" id="joinNextButton" type="submit">NÄSTA</button>
+        </footer>
             `;
 
     document.querySelector(".buttonNext").addEventListener("click", () => {

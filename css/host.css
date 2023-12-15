@@ -33,8 +33,36 @@ button {
     gap: 8px;
 }
 
-.timerContainer {
+.timer {
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: ;
+    align-items: center;
+
+    & .timerContainer {
+        display: flex;
+    }
+
+    & .timerIcon {
+        height: 20vh;
+        width: 37vw;
+        max-height: 187px;
+        max-width: 160px;
+        background-image: url("../resources/icons/timer.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 17vh;
+    }
+
+    & .timerValue {
+        font-size: clamp(3rem, 18vw, 5rem);
+        font-family: "Helvetica Neue Regular";
+        margin: 0;
+        color: #646464;
+    }
+
 }
 
 .lobby {
@@ -79,21 +107,7 @@ button {
     margin: 5px;
 }
 
-.allBtn {
-    background-color: var(--salmon1-color);
-    color: white;
 
-    font-size: clamp(.625rem, 3vw, .875rem);
-    border-radius: 50px;
-    border: none;
-    padding: 1.7vh 9vw;
-    letter-spacing: 2px;
-
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    justify-content: center;
-}
 
 /*question view ___________________________*/
 #middleSection {
@@ -139,10 +153,4 @@ button {
 
 .hidden {
     display: none;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
