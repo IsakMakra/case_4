@@ -205,30 +205,61 @@ function displayQuestion(object) {
     createPlayerBtn(playingUsers, object, false)
 
     document.querySelector("#startGameBtn").addEventListener("click", () => {
-        document.querySelector("main").innerHTML =
-            `
-        <div class="cardContainer vinnare">
-            <h3>VÄLJ VINNARE</h3>
+        if (20) {
+            document.querySelector("main").innerHTML =
+                `
+        <div class="cardContainer timer">
+            <p class="h2">DUELLDAGS</p> 
+            <div class="timerIcon"></div>
+            <div id="timerContainer">
+                <div class="timerValue" id="timerdef">0</div>
+                <div class="timerValue" id="timerdef">0</div>
+                <span class="timerValue">:</span>
+                <div class="timerValue" id="timer1"></div>
+                <div class="timerValue" id="timer2"></div>
+            </div>
         </div>
         `
-        document.querySelector("footer").innerHTML =
-            `
-        <button id="nextBtn" class="allBtn">NÄSTA FRÅGA</button>
+            document.querySelector("footer").innerHTML =
+                `
+        <button id="nextBtn" class="allBtn startTimer">STARTA TIMER</button>
         `
+            document.querySelector(".startTimer").addEventListener("click", () => {
+                startTimer(20).then(() => {
+                    // Code to execute after the timer ends
+                    displayChooseWinner();
+                })
+            })
+        } else {
+            displayChooseWinner()
+        }
 
-        createPlayerBtn(playingUsers, object, true)
+        function displayChooseWinner() {
+            document.querySelector("main").innerHTML =
+                `
+            <div class="cardContainer vinnare">
+                <p class="h2">VÄLJ VINNARE</p>
+            </div>
+            `
+            document.querySelector("footer").innerHTML =
+                `
+            <button id="nextBtn" class="allBtn">NÄSTA FRÅGA</button>
+            `
+            createPlayerBtn(playingUsers, object, true)
 
-        document.querySelector("#nextBtn").addEventListener("click", () => {
-            cancelQuestionFetch = true;
-            firstInterval = true;
-            Object.keys(currentPlayers).forEach(key => {
-                delete currentPlayers[key];
-            });
-            usersWhoVoted = [];
-            document.querySelector(".cardContainer").classList.remove("vinnare")
-            incrementQuestionNr();
-            nextQuestion();
-        })
+            document.querySelector("#nextBtn").addEventListener("click", () => {
+                cancelQuestionFetch = true;
+                firstInterval = true;
+                Object.keys(currentPlayers).forEach(key => {
+                    delete currentPlayers[key];
+                });
+                usersWhoVoted = [];
+                document.querySelector(".cardContainer").classList.remove("vinnare")
+                incrementQuestionNr();
+                nextQuestion();
+            })
+        }
+
     })
 
 }
@@ -262,15 +293,6 @@ function createPlayerBtn(playingUsers, object, decider) {
         }
 
         mainHtml.querySelector(".cardContainer").append(button);
-
-
-        // mainHtml.querySelector(".voteContainer").innerHTML +=
-        //     `
-        // <div class="voteWrapper">
-        //     <p class="voteNr" id="${user}">0</p>
-        //     <h4>${user}</h4>
-        // </div>
-        // `
     })
 
     if (playingUsers.length === 2) {
@@ -399,36 +421,32 @@ async function checkVotes() {
     }
 }
 
+function startTimer(seconds) {
 
 
+    // Update timers and divs every second
+    const intervalId = setInterval(() => {
+        let timer1 = seconds[0];
+        let timer2 = seconds[1];
+        seconds--;
 
+        if (seconds < 10) {
+            document.getElementById('timer2').textContent = seconds;
+            document.getElementById('timer1').textContent = 0;
+        } else {
+            // Display updated values in divs
+            document.getElementById('timer1').textContent = timer1;
+            document.getElementById('timer2').textContent = timer2;
+        }
 
-
-
-
-function test() {
-    document.querySelector("main").innerHTML =
-        `
-    <div class="questionBarContainer">
-        <div class="questionBarChild" style="width: 20%;"></div>
-    </div>
-    <div class="cardContainer">
-        <h3>Vem kan göra flest armhövningar?</h3>
-        <h4>RÖSTA</h4>
-    </div>
-    `
-    document.querySelector("footer").innerHTML =
-        `
-        <button id="nextBtn">STARTA SPELET</button>
-    `
-
-
-    arrayUsers.forEach(user => {
-        const button = document.createElement("button");
-        button.classList.add("playerBtn");
-        button.id = user;
-        button.textContent = user;
-
-        mainHtml.querySelector(".cardContainer").append(button);
-    })
+        // Check if timer has reached zero
+        if (timer1 === 0) {
+            clearInterval(intervalId); // Stop the interval
+            console.log("Finished");
+        }
+    }, 1000); // Interval set to 1000 milliseconds (1 second)
 }
+
+
+
+
