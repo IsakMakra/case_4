@@ -18,30 +18,30 @@
             //Checks if string is empty
             if(empty(trim($host))) 
             {
-                $message = ["message" => "Error, not a valid host-name, 10 characters max."];
+                $message = ["message" => "Användarnamnet är inte godkänt.."];
                 send_JSON($message, 406);
             }
 
             //Checks if host-name is too long
             if(strlen($host) > 10) 
             {
-                $message = ["message" => "Error, host-name too long."];
+                $message = ["message" => "Användarnamnet är inte godkänt."];
                 send_JSON($message, 406);
             }
 
             //Handles the quiz name and selects the appropriate index for the quiz.json file
-            if($quiz_name == "Random") 
+            if($quiz_name == "FYSISKT")
             {$quiz_index = 0;}
-            else if($quiz_name == "Festligheter")
-            {$quiz_index = 0;}
-            else if($quiz_name == "Världen")
-            {$quiz_index = 0;}
-            else if($quiz_name == "Historia")
-            {$quiz_index = 0;}
-            else if($quiz_name == "Musik")
-            {$quiz_index = 0;}
-            else if($quiz_name == "Fysiskt")
-            {$quiz_index = 0;}
+            else if($quiz_name == "MUSIK")
+            {$quiz_index = 1;}
+            else if($quiz_name == "HISTORIA")
+            {$quiz_index = 2;}
+            else if($quiz_name == "FESTLIGHETER")
+            {$quiz_index = 3;}
+            else if($quiz_name == "VÄRLDEN")
+            {$quiz_index = 4;}
+            else if($quiz_name == "ÖVRIGT") 
+            {$quiz_index = 5;}
 
             $quiz_array = $quizes[$quiz_index];
             shuffle($quiz_array);
@@ -100,14 +100,14 @@
             //Checks if string is empty
             if(empty(trim($username))) 
             {
-                $message = ["message" => "Error, not a valid username."];
+                $message = ["message" => "Användarnamnet är inte godkänt."];
                 send_JSON($message, 406);
             }
 
             //Checks if username is too long
             if(strlen($username) > 10) 
             {
-                $message = ["message" => "Error, username too long, 10 characters max."];
+                $message = ["message" => "Användarnamnet är för långt."];
                 send_JSON($message, 406);
             }
 
@@ -120,7 +120,7 @@
                     {
                         if($player["username"] == $username) 
                         {
-                            $message = ["message" => "Error, username already taken."];
+                            $message = ["message" => "Användarnamnet är upptaget."];
                             send_JSON($message, 406);
                         }
                     }
@@ -152,7 +152,7 @@
                 }
             }
             
-            $message = ["message" => "Error, wrong server_code."];
+            $message = ["message" => "Fel serverkod."];
             send_JSON($message, 422);
                 
         }

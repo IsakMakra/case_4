@@ -4,14 +4,14 @@ let hostName;
 //Events on buttons
 document.getElementById("join").addEventListener("click", () => {
     document.querySelector("body").innerHTML = `
-        <div id="home"></div>
-        <div id="box">
-            
+        <header>
+            <div class="home"></div>
             <div class="steps">
-                <div class=" step full"></div>
-                <div class=" step"></div>
-            </div>
-
+                    <div class=" step full"></div>
+                    <div class=" step"></div>
+                </div>
+        </header>
+        <div id="box">
             <div id="img"></div>
 
         
@@ -173,51 +173,51 @@ function chooseCategory() {
                 <p class="message" id="createLobbyMessage"></p>
 
                 <div id="categoryWrapper">
-                    <div class="categoryCard" onclick="createLobby('Random')">
-                        <div class="categoryImg Random"></div>
+                    <div class="categoryCard" onclick="createLobby('FYSISKT')">
+                        <div class="categoryImg FYSISKT"></div>
                         <div class="categoryTextBox">
-                            <p class="h3">RANDOM</p>
-                            <p class="pp">Gott och blandat! Något för alla!</p>
+                            <p class="h3">FYSISKT</p>
+                            <p class="pp">Tävla mot varandra i styrka och prestanda!</p>
                         </div>
                     </div>
 
-                    <div class="categoryCard" onclick="createLobby('Festligheter')">
-                        <div class="categoryImg Festligheter"></div>
-                        <div class="categoryTextBox">
-                            <p class="h3">FESTLIGHETER</p>
-                            <p class="pp">Tävla mot varandra i festligheter!</p>
-                        </div>
-                    </div>
-
-                    <div class="categoryCard" onclick="createLobby('Världen')">
-                        <div class="categoryImg Världen"></div>
-                        <div class="categoryTextBox">
-                            <p class="h3">VÄRLDEN</p>
-                            <p class="pp">Dags att testa geografin, flaggor, länder och städer!</p>
-                        </div>
-                    </div>
-
-                    <div class="categoryCard" onclick="createLobby('Historia')">
-                        <div class="categoryImg Historia"></div>
-                        <div class="categoryTextBox">
-                            <p class="h3">Historia</p>
-                            <p class="pp">Res tillbaka i tiden och tävla om vem som har bäst minne!</p>
-                        </div>
-                    </div>
-
-                    <div class="categoryCard" onclick="createLobby('Musik')">
-                        <div class="categoryImg Musik"></div>
+                    <div class="categoryCard" onclick="createLobby('MUSIK')">
+                        <div class="categoryImg MUSIK"></div>
                         <div class="categoryTextBox">
                             <p class="h3">MUSIK</p>
                             <p class="pp">Avgör vem som har störst musikkunskap!</p>
                         </div>
                     </div>
 
-                    <div class="categoryCard" onclick="createLobby('Fysiskt')">
-                        <div class="categoryImg Fysiskt"></div>
+                    <div class="categoryCard" onclick="createLobby('HISTORIA')">
+                        <div class="categoryImg HISTORIA"></div>
                         <div class="categoryTextBox">
-                            <p class="h3">FYSISKT</p>
-                            <p class="pp">Tävla mot varandra i styrka och prestanda!</p>
+                            <p class="h3">HISTORIA</p>
+                            <p class="pp">Res tillbaka i tiden och tävla om vem som har bäst minne!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('FESTLIGHETER')">
+                        <div class="categoryImg FESTLIGHETER"></div>
+                        <div class="categoryTextBox">
+                            <p class="h3">FESTLIGHETER</p>
+                            <p class="pp">Tävla mot varandra i festligheter!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('VÄRLDEN')">
+                        <div class="categoryImg VÄRLDEN"></div>
+                        <div class="categoryTextBox">
+                            <p class="h3">VÄRLDEN</p>
+                            <p class="pp">Dags att testa geografin, flaggor, länder och städer!</p>
+                        </div>
+                    </div>
+
+                    <div class="categoryCard" onclick="createLobby('ÖVRIGT')">
+                        <div class="categoryImg ÖVRIGT"></div>
+                        <div class="categoryTextBox">
+                            <p class="h3">ÖVRIGT</p>
+                            <p class="pp">Gott och blandat! Något för alla!</p>
                         </div>
                     </div>
 
@@ -240,8 +240,6 @@ async function joinLobby(password, user) {
 
     //Wrong code
     if (response.ok) {
-        let data = await response.json();
-        console.log(data);
         localStorage.setItem("password", password);
         localStorage.setItem("name", user);
 
