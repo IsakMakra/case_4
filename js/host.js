@@ -46,7 +46,7 @@ async function startHostPage() {
             <div id="kategoryBox">
                 <p class="h2NoMargin">KATEGORI</p>
                 <div class="categoryImgTextBox">
-                    <div class="iconInLobby"></div>
+                    <div class="categoryImg"></div>
                     <p id="kategori" class="h4">${category}</p>
                 </div>
             </div>
@@ -65,7 +65,7 @@ async function startHostPage() {
         `
     <button id="startQuiz" class="allBtn buttonNext">STARTA</button>
     `
-    document.querySelector(".iconInLobby").classList.add(category);
+    document.querySelector(".categoryImg").classList.add(category);
 
     nIntervId = setInterval(intervalFunction, interval, true, false);
 }
