@@ -120,7 +120,6 @@ async function callBack() {
 
         }
         else {
-            // console.log("hej");
             if (!buttonsCreated) {
                 firstInterval = true;
                 usersWhoVoted = [];
@@ -292,7 +291,6 @@ async function voteForPlayer(event) {
 async function checkVotes(object) {
     const playingUsers = object.quiz[object.current_question_nr].alternatives;
     const allvotes = object.current_votes;
-    // console.log(object);
     if (object.quiz[object.current_question_nr] === "end") {
         return;
     }

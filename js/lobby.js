@@ -266,7 +266,6 @@ async function createLobby(category) {
     let response = await fetcha(`api/game.php`, "POST", infobody);
 
     let data = await response.json();
-    console.log(data);
 
     localStorage.setItem("category", category);
     localStorage.setItem("name", hostName);

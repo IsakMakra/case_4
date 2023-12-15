@@ -89,7 +89,7 @@ function intervalFunction(displayPlayer, displayQuestion) {
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-    // const response = await fetcha(`api/host.php?server_code=9413&host=adde`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=5842&host=gette`, "GET");
     const data = await response.json();
 
     return data
@@ -118,7 +118,6 @@ async function dispalyNewPlayers() {
 
 //Start quiz btn when clicked stops the interval and goes on to the questions
 document.querySelector("#startQuiz").addEventListener("click", (e) => {
-    console.log(allPlayers);
     if (allPlayers.length < 4) {
         document.querySelector(".message").innerHTML = "Det måste vara minst 4 spelare för att starta quizet";
         return
@@ -161,6 +160,7 @@ function displayQuestion(object) {
     }
 
     const currentQuestion = object.quiz[questionNumber].question;
+    const timer = object.quiz[questionNumber].timer;
     const playingUsers = object.quiz[questionNumber].alternatives;
 
 
@@ -204,7 +204,7 @@ function displayQuestion(object) {
     createPlayerBtn(playingUsers, object, false)
 
     document.querySelector("#startGameBtn").addEventListener("click", () => {
-        if (currentQuestion.timer) {
+        if (timer) {
             document.querySelector("main").innerHTML =
                 `
         <div class="timer">
@@ -214,7 +214,7 @@ function displayQuestion(object) {
                 <p class="timerValue" id="timerdef">0</p>
                 <p class="timerValue" id="timerdef">0</p>
                 <p class="timerValue">:</p>
-                <p class="timerValue" id="timer1">00</p>
+                <p class="timerValue" id="timer1">${timer}</p>
             </div>
         </div>
         `
@@ -223,8 +223,7 @@ function displayQuestion(object) {
         <button id="nextBtn" class="allBtn startTimer">STARTA TIMER</button>
         `
             document.querySelector(".startTimer").addEventListener("click", () => {
-                console.log("hej");
-                startTimer(currentQuestion.timer, playingUsers, object);
+                startTimer(timer, playingUsers, object);
             })
         } else {
             displayChooseWinner(playingUsers, object)
@@ -377,9 +376,7 @@ function displayLeaderBoard(users, forever) {
         })
         leaderBoard.prepend(quitQuiz);
     }
-
 }
-
 
 async function checkVotes() {
     const object = await fetchGameObject();
@@ -422,11 +419,7 @@ function startTimer(seconds, playingUsers, object) {
     const timerIntervalId = setInterval(() => {
 
         let sec = `${seconds.toString().padStart(2, '0')}`;
-        console.log(sec);
-
         timerSeconds.textContent = sec;
-        // Display updated values in divs
-
 
         // Check if timer has reached zero
         if (seconds === 0) {
