@@ -580,14 +580,18 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 7.15vw;
-        height: 3.3vh;
         background-image: url(../resources/icons/home_button.png);
         background-size: cover;
         background-position: center;
         top: 20px;
         left: 20px;
         cursor: pointer;
+
+        width: 7.15vw;
+        height: 3.3vh;
+        max-width: 31px;
+        max-height: 31px;
+
     }
 
 

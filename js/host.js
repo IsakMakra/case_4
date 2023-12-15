@@ -88,8 +88,8 @@ function intervalFunction(displayPlayer, displayQuestion) {
 
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
-    const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-    // const response = await fetcha(`api/host.php?server_code=6739&host=addeee`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
+    const response = await fetcha(`api/host.php?server_code=9413&host=adde`, "GET");
     const data = await response.json();
 
     return data
@@ -148,7 +148,6 @@ async function nextQuestion() {
     if (cancelQuestionFetch) {
         cancelQuestionFetch = false;
         const gameObject = await fetchGameObject();
-        console.log(gameObject);
         displayQuestion(gameObject);
     }
 }
@@ -211,12 +210,11 @@ function displayQuestion(object) {
         <div class="cardContainer timer">
             <p class="h2">DUELLDAGS</p> 
             <div class="timerIcon"></div>
-            <div id="timerContainer">
+            <div class="timerContainer">
                 <div class="timerValue" id="timerdef">0</div>
                 <div class="timerValue" id="timerdef">0</div>
                 <span class="timerValue">:</span>
-                <div class="timerValue" id="timer1"></div>
-                <div class="timerValue" id="timer2"></div>
+                <div class="timerValue" id="timer1">00</div>
             </div>
         </div>
         `
@@ -225,43 +223,42 @@ function displayQuestion(object) {
         <button id="nextBtn" class="allBtn startTimer">STARTA TIMER</button>
         `
             document.querySelector(".startTimer").addEventListener("click", () => {
-                startTimer(20).then(() => {
-                    // Code to execute after the timer ends
-                    displayChooseWinner();
-                })
+                console.log("hej");
+                startTimer(20, playingUsers, object);
             })
         } else {
-            displayChooseWinner()
+            displayChooseWinner(playingUsers, object)
         }
 
-        function displayChooseWinner() {
-            document.querySelector("main").innerHTML =
-                `
-            <div class="cardContainer vinnare">
-                <p class="h2">VÄLJ VINNARE</p>
-            </div>
-            `
-            document.querySelector("footer").innerHTML =
-                `
-            <button id="nextBtn" class="allBtn">NÄSTA FRÅGA</button>
-            `
-            createPlayerBtn(playingUsers, object, true)
-
-            document.querySelector("#nextBtn").addEventListener("click", () => {
-                cancelQuestionFetch = true;
-                firstInterval = true;
-                Object.keys(currentPlayers).forEach(key => {
-                    delete currentPlayers[key];
-                });
-                usersWhoVoted = [];
-                document.querySelector(".cardContainer").classList.remove("vinnare")
-                incrementQuestionNr();
-                nextQuestion();
-            })
-        }
 
     })
 
+}
+
+function displayChooseWinner(playingUsers, object) {
+    document.querySelector("main").innerHTML =
+        `
+    <div class="cardContainer vinnare">
+        <p class="h2">VÄLJ VINNARE</p>
+    </div>
+    `
+    document.querySelector("footer").innerHTML =
+        `
+    <button id="nextBtn" class="allBtn">NÄSTA FRÅGA</button>
+    `
+    createPlayerBtn(playingUsers, object, true)
+
+    document.querySelector("#nextBtn").addEventListener("click", () => {
+        cancelQuestionFetch = true;
+        firstInterval = true;
+        Object.keys(currentPlayers).forEach(key => {
+            delete currentPlayers[key];
+        });
+        usersWhoVoted = [];
+        document.querySelector(".cardContainer").classList.remove("vinnare")
+        incrementQuestionNr();
+        nextQuestion();
+    })
 }
 
 function createPlayerBtn(playingUsers, object, decider) {
@@ -421,29 +418,27 @@ async function checkVotes() {
     }
 }
 
-function startTimer(seconds) {
+function startTimer(seconds, playingUsers, object) {
+    // console.log(seconds);
 
+    let timerSeconds = document.getElementById('timer1');
 
     // Update timers and divs every second
-    const intervalId = setInterval(() => {
-        let timer1 = seconds[0];
-        let timer2 = seconds[1];
-        seconds--;
+    const timerIntervalId = setInterval(() => {
 
-        if (seconds < 10) {
-            document.getElementById('timer2').textContent = seconds;
-            document.getElementById('timer1').textContent = 0;
-        } else {
-            // Display updated values in divs
-            document.getElementById('timer1').textContent = timer1;
-            document.getElementById('timer2').textContent = timer2;
-        }
+        let sec = `${seconds.toString().padStart(2, '0')}`;
+        console.log(sec);
+
+        timerSeconds.textContent = sec;
+        // Display updated values in divs
+
 
         // Check if timer has reached zero
-        if (timer1 === 0) {
-            clearInterval(intervalId); // Stop the interval
-            console.log("Finished");
+        if (seconds === 0) {
+            clearInterval(timerIntervalId); // Stop the interval
+            displayChooseWinner(playingUsers, object);
         }
+        seconds--;
     }, 1000); // Interval set to 1000 milliseconds (1 second)
 }
 

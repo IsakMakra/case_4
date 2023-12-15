@@ -33,6 +33,10 @@ button {
     gap: 8px;
 }
 
+.timerContainer {
+    display: flex;
+}
+
 .lobby {
     display: flex;
     flex-direction: column;

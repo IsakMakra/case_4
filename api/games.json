@@ -1,2 +1,149 @@
 [
+    {
+        "host": "adde",
+        "id": 1,
+        "server_code": "9413",
+        "quiz": [
+            "start",
+            {
+                "question": "Vem kan g\u00f6ra flest armh\u00e4vningar?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "rex",
+                    "rex",
+                    "rex"
+                ],
+                "timer": 1
+            },
+            {
+                "question": "Vem kan balansera p\u00e5 ett ben l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "rex",
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem vinner i 'inte blinka medan man h\u00e5ller \u00f6gonkontakt' leken",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "rex",
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 tumkrig?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem kan sitta i 90 grader l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "rex",
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem kan st\u00e5 i planka l\u00e4ngst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "rex",
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder som b\u00f6rjar p\u00e5 T",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 sten sax p\u00e5se?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Ring of fire, l\u00e4nder i Afrika",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Ring of fire, bilm\u00e4rken",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem vinner p\u00e5 armbrytning?",
+                "nr_of_users": 2,
+                "alternatives": [
+                    "rex",
+                    "rex"
+                ]
+            },
+            {
+                "question": "Vem kan s\u00e4tta en bottle flip f\u00f6rst?",
+                "nr_of_users": 3,
+                "alternatives": [
+                    "rex",
+                    "rex",
+                    "rex"
+                ]
+            },
+            "end"
+        ],
+        "current_question_nr": 1,
+        "current_votes": [],
+        "users": [
+            {
+                "username": "rex",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            },
+            {
+                "username": "rex",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            },
+            {
+                "username": "rex",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            },
+            {
+                "username": "rex",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            },
+            {
+                "username": "rex",
+                "points": 0,
+                "points_gained": 0,
+                "color": "#FFD700"
+            }
+        ],
+        "active": true
+    }
 ]
