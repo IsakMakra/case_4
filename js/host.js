@@ -89,7 +89,7 @@ function intervalFunction(displayPlayer, displayQuestion) {
 //Fetches the gameobject with the differnt keys
 async function fetchGameObject() {
     const response = await fetcha(`api/host.php?server_code=${serverCode}&host=${hostName}`, "GET");
-    // const response = await fetcha(`api/host.php?server_code=5842&host=gette`, "GET");
+    // const response = await fetcha(`api/host.php?server_code=2173&host=redd`, "GET");
     const data = await response.json();
 
     return data
@@ -222,7 +222,8 @@ function displayQuestion(object) {
                 `
         <button id="nextBtn" class="allBtn startTimer">STARTA TIMER</button>
         `
-            document.querySelector(".startTimer").addEventListener("click", () => {
+            document.querySelector(".startTimer").addEventListener("click", (e) => {
+                e.currentTarget.setAttribute("disabled", true)
                 startTimer(timer, playingUsers, object);
             })
         } else {

@@ -16,7 +16,7 @@
     ],
     [
         {
-            "question": "Vem kan göra flest armhävningar?",
+            "question": "Vem kan göra flest armhävningar på 20 sekunder?",
             "nr_of_users": 3,
             "alternatives": [],
             "timer": 20
@@ -25,37 +25,37 @@
             "question": "Vem vinner på armbrytning?",
             "nr_of_users": 2,
             "alternatives": [],
-            "timer": 30
+            "timer": 0
         },
         {
             "question": "Vem kan sitta i 90 grader längst?",
             "nr_of_users": 3,
             "alternatives": [],
-            "timer": 10
+            "timer": 0
         },
         {
             "question": "Vem vinner på tumkrig?",
             "nr_of_users": 2,
             "alternatives": [],
-            "timer": 20
+            "timer": 0
         },
         {
             "question": "Vem kan stå i planka längst?",
             "nr_of_users": 3,
             "alternatives": [],
-            "timer": 20
+            "timer": 0
         },
         {
             "question": "Vem kan balansera på ett ben längst?",
             "nr_of_users": 3,
             "alternatives": [],
-            "timer": 30
+            "timer": 0
         },
         {
             "question": "Vem kan komma närmst till att ha sina handflator på golvet med sträckta ben?",
             "nr_of_users": 3,
             "alternatives": [],
-            "timer": 20
+            "timer": 0
         },
         {
             "question": "Vem kan sätta en bottle flip först?",
