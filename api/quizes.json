@@ -9,7 +9,66 @@
         "Historia"
     ],
     [
-        "Festligheter"
+        {
+            "question": "Vem kan klunka sin dricka först?",
+            "nr_of_users": 4,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem kan skapa det högsta möjliga föremål på 20 sekunder?",
+            "nr_of_users": 2,
+            "alternatives": [],
+            "timer": 20
+        },
+        {
+            "question": "Vem kan rapa högst? Hosten avgör.",
+            "nr_of_users": 3,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem kan hålla sin anda längst?",
+            "nr_of_users": 2,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem kan balansera en tom ölburk på näsan längst?",
+            "nr_of_users": 3,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem vinner på att inte skratta leken? Spelarna ska turas om att göra grimaser tills någon skrattar.",
+            "nr_of_users": 2,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem kan sätta en bottle flip först?",
+            "nr_of_users": 4,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem kan ge det minsta möjliga föremål till hosten? Spelarna har 40 sekunder att förbereda sig.",
+            "nr_of_users": 3,
+            "alternatives": [],
+            "timer": 40
+        },
+        {
+            "question": "Vem vinner i 'inte blinka medan man håller ögonkontakt' leken",
+            "nr_of_users": 2,
+            "alternatives": [],
+            "timer": 0
+        },
+        {
+            "question": "Vem kan balansera en kniv på fingerspetsen längst? Armen måste vara utsträckt.",
+            "nr_of_users": 3,
+            "alternatives": [],
+            "timer": 0
+        }
     ],
     [
         "Världen"
