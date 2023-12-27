@@ -291,6 +291,7 @@ async function voteForPlayer(event) {
 async function checkVotes(object) {
     const playingUsers = object.quiz[object.current_question_nr].alternatives;
     const allvotes = object.current_votes;
+    console.log(allvotes);
     if (object.quiz[object.current_question_nr] === "end") {
         return;
     }
@@ -299,6 +300,16 @@ async function checkVotes(object) {
         firstInterval = false;
         //*creates a object to keep track of the playing users votes
         playingUsers.forEach(player => { currentPlayers[player] = 0 })
+        allvotes.forEach(voteObject => {
+            if (voteObject.user === username) {
+                usersWhoVoted.push(voteObject.user);
+                currentPlayers[voteObject.vote]++
+                document.querySelector(".votesAmount").classList.remove("hidden");
+                document.querySelectorAll(".questionPlayer").forEach(element => {
+                    element.classList.add("hidden");
+                })
+            }
+        })
         playingUsers.forEach((user) => {
             const playerColor = object.users.find(object => object.username === user); // finds the right playerobject to get its color
 
@@ -306,7 +317,7 @@ async function checkVotes(object) {
                 `
             <div class="voteContainer" style="color: ${playerColor.color}; border: 2px solid ${playerColor.color};">
                 <p >${user}</p>
-                <p class="voteNr" id=${user} style="color: ${playerColor.color};">0%</p>
+                <p class="voteNr" id=${user} style="color: ${playerColor.color};">0</p>
             </div>
             `
         });
@@ -329,9 +340,4 @@ async function checkVotes(object) {
 
         voteNr.textContent = playersPoints;
     })
-
-    //* Checks if all the player have voted
-    if (allvotes.length === object.users.length - playingUsers.length) {
-        console.log("all players have voted");
-    }
 }

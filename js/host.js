@@ -27,7 +27,8 @@ const homeBtn = document.querySelector(".home");
 homeBtn.addEventListener("click", function quitQuiz() {
     document.querySelector("dialog").show();
     document.querySelector("dialog #quit").addEventListener("click", () => {
-        window.location = "./index.html";
+        deleteQuiz();
+        // window.location = "./index.html";
     })
 })
 
@@ -366,17 +367,21 @@ function displayLeaderBoard(users, forever) {
         let quitQuiz = document.createElement("button");
         quitQuiz.classList.add("allBtn");
         quitQuiz.textContent = "AVSULTA QUIZ";
-        quitQuiz.addEventListener("click", function (e) {
-            clearLocalStorage();
-            const deleteBody = {
-                host: hostName,
-                server_code: serverCode
-            }
-            fetcha("api/game.php", "DELETE", deleteBody);
-            window.location = "./index.html";
-        })
+        quitQuiz.addEventListener("click", deleteQuiz)
         leaderBoard.prepend(quitQuiz);
     }
+}
+
+async function deleteQuiz() {
+    const deleteBody = {
+        host: hostName,
+        server_code: serverCode
+    }
+    const response = await fetcha("api/game.php", "DELETE", deleteBody);
+    const response2 = await response.json();
+    console.log(response2);
+    window.location = "./index.html";
+    clearLocalStorage();
 }
 
 async function checkVotes() {
