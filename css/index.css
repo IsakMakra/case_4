@@ -135,11 +135,11 @@ button {
 #joinLobbyMessage {}
 
 body {
+    background-color: #F6EFE8;
     margin: 0;
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
-    background-image: url("../resources/Background-desktop.jpg");
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
