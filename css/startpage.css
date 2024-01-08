@@ -19,7 +19,6 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
-    background-image: url("../resources/Background_phone.jpg");
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
